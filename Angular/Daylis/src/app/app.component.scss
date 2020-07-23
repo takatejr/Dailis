@@ -1,0 +1,46 @@
+@import "core/variables";
+@import "core/reset.scss";
+
+#title, #navbar {
+  @include height(8vh);
+  @include width(100%);
+}
+
+.title {
+  font-size: 5vh;
+}
+
+#header {
+  box-sizing: content-box;
+  padding-bottom: 5vh;
+  @include height(16vh);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
+.afterSticky {
+  box-sizing: content-box;
+  padding-bottom: 43vh;
+}
+
+daylis-navbar {
+  position: static;
+  background-color: red;
+  @include height(20vh);
+}
+
+router-outlet {
+  @include height(78%);
+}
+
+footer {
+  @include height(2vh);
+  bottom: 1vh;
+  @include width(100vw);
+  display: block;
+  position: fixed;
+  z-index: -2;
+}

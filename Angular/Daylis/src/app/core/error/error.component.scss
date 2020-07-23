@@ -1,0 +1,7 @@
+@import "../variables";
+@import "../reset";
+
+p {
+  background-color: #aa3322;
+  @include height(140vh);
+}

@@ -1,0 +1,27 @@
+<div class="editor">
+  <div class="icon"></div>
+  <div class="product">
+    <label>Name:
+      <input value="{{ingredientsDetails.titleOfProduct}}"
+             [(ngModel)]="titles"
+            >
+    </label>
+  </div>
+  <div class="quantity">
+    <label>Quantity:
+      <input value="{{quantities}}"
+             [(ngModel)]="quantities"
+
+      ></label>
+  </div>
+  <div class="unit">
+    <label>Unit:
+      <input value="{{units}}"
+             [(ngModel)]="units"
+             required="required"
+             minlength="1"
+             maxlength="8">
+    </label>
+  </div>
+  <button class="btn-success" (click)="emitChangedIngredients()">Send</button>
+</div>

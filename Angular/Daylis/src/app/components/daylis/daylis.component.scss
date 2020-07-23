@@ -1,0 +1,76 @@
+@import "src/app/core/variables";
+
+main {
+  @include height(80%);
+}
+
+.daily-background {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 76%;
+  position: static;
+  -webkit-background-clip: padding;
+  -webkit-text-fill-color: red;
+}
+
+.daily-lists {
+  display: grid;
+  grid-auto-flow: row;
+  line-height: 20vh;
+  grid-row-gap: 1vh;
+  margin: 2vh 10%;
+}
+
+.daily-btn {
+  text-align: center;
+  justify-content: center;
+  border: #7ef8e9 2px solid;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 100%;
+  grid-template-areas: "left center right";
+  cursor: pointer;
+  text-decoration: none;
+  font-family: Roboto, sans-serif;
+
+  div.c {
+    grid-area: center;
+  }
+
+  div.r {
+    grid-area: right;
+  }
+
+  &:hover {
+    background-color: rgba(248, 234, 0, 0.4);
+    animation: ease-in-out;
+    transition-duration: 0.35s;
+  }
+}
+
+.add-btn {
+  font-weight: 900;
+  font-size: xx-large;
+  color: dimgray;
+  justify-content: center;
+  display: flex;
+}
+
+.new-list {
+  margin: 2vh 1vh;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  background-color: #ff7d64;
+  border-radius: 8px;
+  width: 30%;
+  height: 7vh;
+  line-height: 7vh;
+
+  &:hover {
+    background-color: #faa4cf;
+    animation: ease-in-out;
+    transition-duration: 0.2s;
+    cursor: pointer;
+  }
+}

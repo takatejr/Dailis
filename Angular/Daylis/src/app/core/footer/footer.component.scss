@@ -1,0 +1,14 @@
+@import "src/app/core/variables";
+@import "src/app/core/reset";
+
+main {
+  @include height(4vh);
+  background: linear-gradient(-330deg, rgba(241, 253, 255, 0.84), rgb(255, 250, 245));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &_p {
+    font-weight: bolder;
+    background: linear-gradient(to right, #1c3a50, #fff733);
+  }
+}

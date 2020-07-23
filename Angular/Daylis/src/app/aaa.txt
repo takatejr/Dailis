@@ -1,0 +1,7 @@
+Offline Detection
+The onLine property of the Navigator object returns a Boolean value that specifies whether the browser is in online or offline mode:
+
+Example
+Find out whether the browser is online:
+
+var x = "Is the browser online? " + navigator.onLine;

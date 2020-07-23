@@ -1,0 +1,14 @@
+<main>
+<div class="daily-background">
+  <div class="daily-lists">
+      <a *ngFor="let daily of dailyLists; let i = index" class="daily-btn" routerLink="{{daily.id}}" (click)="showDetailsOfDaylis(daily.ingredients)">
+         <div class="c">{{daily.titleOfList}}</div>
+         <div class="r">{{countTrue(i)}}/{{daily.ingredients.length}}</div>
+      </a>
+      <section class="add-btn">
+        <div class="new-list" (click)="addNewDailyList(nameOfNewList)">+</div>
+        <label for="new-daily-list-name">Name of list: <input value="{{nameOfNewList}}" [(ngModel)]="nameOfNewList"></label>
+      </section>
+  </div>
+</div>
+</main>
