@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DailyLists} from '../../shared/daily-lists';
-import {ActivatedRoute} from '@angular/router';
-import {DaylisIngredientsService} from '../../shared/services/daylis-ingredients.service';
+import { DailyLists } from '../../shared/daily-lists';
+import { ActivatedRoute } from '@angular/router';
+import { DaylisIngredientsService } from '../../shared/services/daylis-ingredients.service';
 
 @Component({
   selector: 'app-daylis',
@@ -116,7 +116,7 @@ export class DaylisComponent implements OnInit {
   };
 
   constructor(private route: ActivatedRoute,
-              private daylisIngredients: DaylisIngredientsService) {  }
+    private daylisIngredients: DaylisIngredientsService) { }
 
   showDetailsOfDaylis(e) {
     this.daylisIngredients.showDetailsOfDaylis(e);
