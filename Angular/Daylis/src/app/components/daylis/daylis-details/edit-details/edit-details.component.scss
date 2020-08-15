@@ -1,57 +1,93 @@
 @import "src/app/core/reset";
 @import "src/app/core/variables";
 
+
+label, input {
+  width: 100%;
+  border: 0;
+}
+
 .editor {
-  min-height: 15vh;
+  @include height(13vh);
   min-width: 90%;
-  background-color: #f8ebfa;
-  border: #1c3a50 2px solid;
+  background-color: whitesmoke;
   margin: 0;
   position: relative;
   animation-name: edit-details;
-  animation-duration: 1s;
-
+  animation-duration: 0.5s;
   display: grid;
-  grid-template-columns: 10% 40% 30% 20%;
-  grid-template-rows: 40% 40% 20%;
-  grid-template-areas:
-  "icon name quantity unit"
-  "setIcon Icon setQuantity setUnit"
-  "empty empty empty button";
+  grid-template-columns: 10% 50% 10% 20% 10%;
+  grid-template-rows: 100%;
+  grid-template-areas: "icon product quantity unit dots";
+
+  .icon {
+    grid-area: icon;
+    justify-items: center;
+    margin: auto auto;
+  }
+
+  .product {
+    max-width: 100%;
+    grid-area: product;
+    justify-self: center;
+    margin: auto auto;
+    white-space: normal !important;
+    word-wrap: break-word;
+  }
+
+  .quantity {
+    grid-area: quantity;
+    justify-self: center;
+    margin: auto auto;
+  }
+
+  .unit {
+    grid-area: unit;
+    justify-self: center;
+    margin: auto auto;
+  }
 
   @media (max-width: 1230px) {
-    display: flex;
-    flex-wrap: wrap;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 20% 30% 30% 20%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "icon content content ok"
+                        "icon content1 content2 ok";
+
+    div.icon {
+      grid-area: icon;
+    }                
+    div.product {
+      grid-area: content;
+    }
+    div.quantity {
+      grid-area: content1;
+    }
+    div.unit {
+      grid-area: content2;
+    }
+    button {
+      grid-area: ok;
+    }
   }
 }
 
 @keyframes edit-details {
-  0% {top: -3vh; left: -0.5vw}
-  100% {top: 0; left: 0}
-}
-.product, .quantity, .unit {
-  justify-self: center;
-  width: 100%;
-  margin: 0.5vh 0.5vw;
-
-  input {
-    background-color: #f8ebfa;
-    color: #1c3a50;
-    border-top: none 0;
-    border-left: none 0;
-    border-right: none 0;
-    border-bottom: #fff733 4px solid;
-  }
-}
-
-.product {
-  width: 50%;
+  0% {top: 0vh; left: 1vw}
+  100% {top: 0vh; left: 0}
 }
 
 
 .btn-success {
-  grid-area: button;
-  background-color: greenyellow;
-  width: 50%;
+  @include height(65%);
+  @include width(70%);
+  margin: auto;
+  grid-area: dots;
+  background-color: green;
+  border-radius: 10vh;
+  border: 0;
   justify-self: center;
+  z-index: 0;
+  color: whitesmoke;
 }

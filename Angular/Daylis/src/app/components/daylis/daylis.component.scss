@@ -24,11 +24,10 @@ main {
 .daily-btn {
   text-align: center;
   justify-content: center;
-  border: #7ef8e9 2px solid;
   display: grid;
   grid-template-columns: 15% 70% 15%;
-  grid-template-rows: 100%;
   grid-template-areas: "left center right";
+  border: whitesmoke 2px solid;
   cursor: pointer;
   text-decoration: none;
   font-family: Roboto, sans-serif;
@@ -43,7 +42,8 @@ main {
 
   &:hover {
     background-color: rgba(248, 234, 0, 0.4);
-    animation: ease-in-out;
+    border: rgba(248, 234, 0, 0.4) 2px solid;
+    // animation: ease-in-out;
     transition-duration: 0.35s;
   }
 }
@@ -60,12 +60,11 @@ main {
   margin: 2vh 1vh;
   display: block;
   text-align: center;
-  justify-content: center;
+  justify-content: right;
   background-color: #ff7d64;
-  border-radius: 8px;
-  width: 30%;
-  height: 7vh;
-  line-height: 7vh;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
 
   &:hover {
     background-color: #faa4cf;

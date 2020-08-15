@@ -1,16 +1,16 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
-import {Ingredients} from "../../../../shared/ingredients";
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Ingredients } from "../../../../shared/ingredients";
 
 @Component({
   selector: 'app-edit-details',
   templateUrl: './edit-details.component.html',
   styleUrls: ['./edit-details.component.scss']
 })
-export class EditDetailsComponent implements OnChanges {
+export class EditDetailsComponent implements OnChanges, OnInit {
 
-  @Input() index;
+  @Input() index: Int8Array;
   @Input() ingredientsDetails;
-  @Output() changedIngredientsDetails =  new EventEmitter();
+  @Output() changedIngredientsDetails = new EventEmitter();
 
   titles: string[] = [];
   quantities: number[] = [];
@@ -20,11 +20,18 @@ export class EditDetailsComponent implements OnChanges {
     this.updateDetails()
   }
 
+ngOnInit(): void {
+  let divs = document.querySelectorAll('div');
+  divs.forEach(div => {
+    div.addEventListener('keyup', (event) => event.key == 'Enter' ? this.emitChangedIngredients() : null)
+  })
+}
+
   emitChangedIngredients() {
     this.changedIngredientsDetails.emit([this.index, this.titles, this.quantities, this.units]);
   }
 
-  updateDetails(){
+  updateDetails() {
     this.titles.push(this.ingredientsDetails.titleOfProduct);
     this.quantities.push(this.ingredientsDetails.quantity);
     this.units.push(this.ingredientsDetails.unit);

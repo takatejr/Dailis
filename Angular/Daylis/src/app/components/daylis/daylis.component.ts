@@ -9,10 +9,9 @@ import { DaylisIngredientsService } from '../../shared/services/daylis-ingredien
   styleUrls: ['./daylis.component.scss']
 })
 export class DaylisComponent implements OnInit {
-
   nameOfNewList = "";
 
-  countTrue(i): number {
+  countBoughtIngredients(i): number {
     let countTrue = 0;
     for (let ingredient of this.dailyLists[i].ingredients) {
       ingredient.bought == true ? countTrue++ : null;
