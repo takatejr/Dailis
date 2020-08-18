@@ -1,27 +1,31 @@
 <div class="editor">
   <div class="icon"></div>
   <div class="product">
-    <label>Name:
-      <input value="{{ingredientsDetails.titleOfProduct}}"
-             [(ngModel)]="titles"
-            >
+    <label
+      >Name:
+      <input
+        value="{{ ingredientsDetails.titleOfProduct }}"
+        [(ngModel)]="titles"
+      />
     </label>
   </div>
   <div class="quantity">
-    <label>Quantity:
-      <input value="{{quantities}}"
-             [(ngModel)]="quantities"
-
-      ></label>
+    <label
+      >Quantity: <input value="{{ quantities }}" [(ngModel)]="quantities"
+    /></label>
   </div>
   <div class="unit">
-    <label>Unit:
-      <input value="{{units}}"
-             [(ngModel)]="units"
-             required="required"
-             minlength="1"
-             maxlength="8">
+    <label
+      >Unit:
+      <input
+        value="{{ units }}"
+        [(ngModel)]="units"
+        required="required"
+        minlength="1"
+        maxlength="8"
+        oninvalid="console.log('uzupełnij to ziom')"
+      />
     </label>
   </div>
-  <button class="btn-success" (click)="emitChangedIngredients()">Send</button>
+  <button class="btn-success" (click)="emitChangedIngredients()">OK</button>
 </div>
