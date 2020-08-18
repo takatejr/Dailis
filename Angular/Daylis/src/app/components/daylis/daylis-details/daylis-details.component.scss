@@ -2,13 +2,18 @@
 @import "src/app/core/variables";
 
 main {
-  @include height(80vh)
+  @include height(80vh);
+  @include width(100%);
+  overflow-x: none;
+  overflow: none;
 }
 
 .products {
   @include height(56vh);
   overflow: auto;
   box-shadow: #1c3a50 1px 1px;
+  overflow-x: none;
+  overflow: none;
 }
 
 .container {
@@ -19,8 +24,6 @@ main {
   grid-template-rows: 100%;
   grid-template-areas: "icon product quantity unit dots";
   margin: 2vh auto;
-  border-bottom: #d3a2d1 2px solid;
-  position: static;
   font-size: 13px;
 
   div.icon {
@@ -57,7 +60,7 @@ main {
     font-size: xx-large;
     cursor: pointer;
     color: whitesmoke;
-    transition: cubic-bezier(1,-1.63, 0, 1.89) .5s .15s;
+    transition: cubic-bezier(1, -1.63, 0, 1.89) 0.5s 0.15s;
     transition-timing-function: linear;
 
     p {
@@ -71,19 +74,22 @@ main {
   }
 
   app-edit-details {
+    position: relative;
     display: grid;
     grid-column-start: icon;
-    grid-column-end: unit;
+    grid-column-end: dots;
+    grid-row-start: auto;
     transition: ease-in-out 0.4s;
-    margin: 1vh 1vw;
-    animation-name: edit-details;
-    animation-duration: 0.75s;
+    top: -13vh;
   }
 
-  @keyframes edit-details {
-        0% {top: 3vh}
-        100% {top: 0}
-  }
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.3);
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  transform: scale(1);
 }
 
 .bottom-container {
@@ -92,9 +98,9 @@ main {
   grid-template-columns: 50% 50%;
   grid-template-rows: repeat(3, 5vh);
   grid-template-areas:
-  "history history"
-  "add-product add-product"
-  "recipes cookbook";
+    "history history"
+    "add-product add-product"
+    "recipes cookbook";
   height: 10vh;
   margin: 2vh auto;
   grid-row-gap: 0.5vh;
@@ -144,4 +150,8 @@ main {
     background-color: #bdb694;
     transform: scale(0.99, 0.99);
   }
+}
+
+.hey {
+  background-color: red;
 }

@@ -1,7 +1,8 @@
 @import "../../core/variables";
 
 main {
-  @include height(88%)
+  @include height(88%);
+  @include width(100%)
 }
 
 .container {

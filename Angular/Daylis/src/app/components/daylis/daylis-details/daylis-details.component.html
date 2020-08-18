@@ -1,34 +1,51 @@
 <main>
-<section class="products">
-  <a *ngFor="let ing of ingredients, let i = index"
-     id="container"
-     class="container"
-     [style.backgroundColor]="ing.bought == true ? 'rgba(255,109,60,0.72)' : '#dedede'"
-     (click)="ing.bought = !ing.bought">
+  <section class="products">
+    <a
+      *ngFor="let ing of ingredients; let i = index"
+      id="{{i}}"
+      class="container"
+      [style.backgroundColor]="
+      ing.bought == true ? 'rgba(255,109,60,0.72)' : '#dedede'"
+      (click)="ing.bought = !ing.bought"
+    >
+      <div class="icon">icon {{ i }}</div>
 
-    <div class="icon">icon {{i}}</div>
+      <div class="product">
+        {{ ingredients[i].titleOfProduct }}<br />{{ ing?.from }}
+      </div>
 
-    <div class="product" >{{ingredients[i].titleOfProduct}}<br>{{ing?.from}}</div>
+      <div class="quantity">{{ ingredients[i].quantity }}</div>
 
-    <div class="quantity">{{ingredients[i].quantity}}</div>
+      <div class="unit">{{ ingredients[i].unit }}</div>
 
-    <div class="unit">{{ingredients[i].unit}}</div>
+      <div class="dots" 
+      (click)="toggleEditDetails(i); ing.bought = !ing.bought"
+      tabindex="{{i}}">
+        <p>OOO</p>
+      </div>
 
-    <div class="dots" (click)="showEditDetails(i); ing.bought = !ing.bought"><p>...</p></div>
+      <app-edit-details
+        (click)="ing.bought = !ing.bought"
+        [ingredientsDetails]="ingredients[i]"
+        [index]="i"
+        *ngIf="EDIT_DETAILS.includes(i)"
+        [style.z-index]="1"
+        (changedIngredientsDetails)="editedIngredient($event)"
+      >
+      </app-edit-details>
 
-    <app-edit-details (click)="ing.bought = !ing.bought;"
-                      [ingredientsDetails]="ingredients[i]"
-                      [index]="i"
-                      *ngIf="EDIT_DETAILS.includes(i)"
-                      [style.z-index]="1"
-                      (changedIngredientsDetails)="editedIngredient($event)">
-    </app-edit-details>
-  </a>
-</section>
+    </a>
+  </section>
   <div class="bottom-container">
-    <a class="btn history" routerLink="/historyoflist"><p>History of list</p></a>
+    <a class="btn history" routerLink="/historyoflist"
+      ><p>History of list</p></a
+    >
     <a class="btn add-product" (click)="addIngredient()"><p>Add product</p></a>
-    <a class="btn recipes" routerLink="/recipes" routerLinkActive="active"><p>Recipes</p></a>
-    <a class="btn cookbook" routerLink="/cookbook" routerLinkActive="active"><p>Cookbook</p></a>
+    <a class="btn recipes" routerLink="/recipes" routerLinkActive="active"
+      ><p>Recipes</p></a
+    >
+    <a class="btn cookbook" routerLink="/cookbook" routerLinkActive="active"
+      ><p>Cookbook</p></a
+    >
   </div>
 </main>
