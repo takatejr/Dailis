@@ -13,6 +13,7 @@ class DailisDatabaseModel(db: Database)(implicit ec: ExecutionContext) {
   }
 
   def createUser(username: String, password: String): Boolean = {
+    
     return true
   }
 

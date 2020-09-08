@@ -61,3 +61,19 @@ main {
 .mexico {
   background-image: url("src/assets/mexico.jpg");
 }
+
+.hero-text {
+  width: 38.5%;
+  height: 10%;
+  background-color: rgba(230, 240, 250, 0.4);
+}
+
+.hero-text > p {
+  color: red;
+  text-transform: uppercase;
+  height: 100%;
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  padding: 4.3% 0 4.3% 0;
+}

@@ -1,4 +1,4 @@
-import { Component, AfterViewChecked, OnInit, OnChanges, AfterContentChecked, AfterContentInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DaylisIngredientsService } from "../../../shared/services/daylis-ingredients.service";
 
