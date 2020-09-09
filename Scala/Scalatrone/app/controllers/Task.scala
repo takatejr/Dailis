@@ -36,28 +36,28 @@ class Task @Inject() (protected val dbConfigProvider: DatabaseConfigProvider,
     request.session.get("username").map(f).getOrElse(Ok(Json.toJson(Seq.empty[String])))
   }
 
-//  def validate = Action.async { implicit request =>
-//    withJsonBody[UserData] { ud =>
-//      model.validateUser(ud.username, ud.password).map { userExists =>
-//        if (userExists) {
-//          Ok(Json.toJson(true))
-//            .withSession("username" -> ud.username, "csrfToken" -> play.filters.csrf.CSRF.getToken.get.value)
-//        } else {
-//
-//        }
-//      }
-//    }
-//
-//  }
+ def validate = Action.async { implicit request =>
+   withJsonBody[UserData] { ud =>
+     model.validateUser(ud.username, ud.password).map { userExists =>
+       if (userExists) {
+         Ok(Json.toJson(true))
+           .withSession("username" -> ud.username, "csrfToken" -> play.filters.csrf.CSRF.getToken.get.value)
+       } else {
 
-//  def createUser = Action { implicit request =>
-//    withJsonBody[UserData] { ud =>
-//      if (model.createUser(ud.username, ud.password)) {
-//        Ok(Json.toJson(true))
-//          .withSession("username" -> ud.username, "csrfToken" -> play.filters.csrf.CSRF.getToken)
-//      }
-//    }
-//  }
+       }
+     }
+   }
+
+ }
+
+ def createUser = Action { implicit request =>
+   withJsonBody[UserData] { ud =>
+     if (model.createUser(ud.username, ud.password)) {
+       Ok(Json.toJson(true))
+         .withSession("username" -> ud.username, "csrfToken" -> play.filters.csrf.CSRF.getToken)
+     }
+   }
+ }
 
   def addId = Action { implicit request =>
     withSessionUsername { username =>
