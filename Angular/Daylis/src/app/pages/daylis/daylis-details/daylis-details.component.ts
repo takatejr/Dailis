@@ -124,3 +124,29 @@ export class DaylisDetailsComponent implements AfterViewInit {
     // TODO ANIMATIONS FOR BACK ON POSITION
   }
 }
+
+// isBottom(el) {
+//   return el.getBoundingClientRect().bottom <= window.innerHeight;
+// }
+
+// componentDidMount() {
+//   document.addEventListener('scroll', this.trackScrolling);
+// }
+
+// componentWillUnmount() {
+//   document.removeEventListener('scroll', this.trackScrolling);
+// }
+
+// trackScrolling = () => {
+//   const wrappedElement = document.getElementById('header');
+//   if (this.isBottom(wrappedElement)) {
+//     console.log('header bottom reached');
+//     document.removeEventListener('scroll', this.trackScrolling);
+//   }
+// };
+// handleScroll(event) {
+//   const target = event.target;
+//   if (target.scrollHeight - target.scrollTop === target.clientHeight){
+
+//   }
+// }

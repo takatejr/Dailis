@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {CoreModule} from "./core/core.module";
-import { LoginComponent } from './components/login/login.component';
-import { SingupComponent } from './components/login/singup/singup.component';
-import { DaylisComponent } from './components/daylis/daylis.component';
-import { RecipesComponent } from './components/recipes/recipes.component';
-import { CookbookComponent } from './components/cookbook/cookbook.component';
-import { DaylisDetailsComponent } from './components/daylis/daylis-details/daylis-details.component';
-import { EditDetailsComponent } from './components/daylis/daylis-details/edit-details/edit-details.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SingupComponent } from './pages/login/singup/singup.component';
+import { DaylisComponent } from './pages/daylis/daylis.component';
+import { RecipesComponent } from './pages/recipes/recipes.component';
+import { CookbookComponent } from './pages/cookbook/cookbook.component';
+import { DaylisDetailsComponent } from './pages/daylis/daylis-details/daylis-details.component';
+import { EditDetailsComponent } from './pages/daylis/daylis-details/edit-details/edit-details.component';
 import {FormsModule} from "@angular/forms";
 
 @NgModule({

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorComponent } from './core/error/error.component';
-import { LoginComponent } from './components/login/login.component';
-import { SingupComponent } from './components/login/singup/singup.component';
-import { DaylisComponent } from './components/daylis/daylis.component';
-import { RecipesComponent } from './components/recipes/recipes.component';
-import { CookbookComponent } from './components/cookbook/cookbook.component';
-import {DaylisDetailsComponent} from './components/daylis/daylis-details/daylis-details.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SingupComponent } from './pages/login/singup/singup.component';
+import { DaylisComponent } from './pages/daylis/daylis.component';
+import { RecipesComponent } from './pages/recipes/recipes.component';
+import { CookbookComponent } from './pages/cookbook/cookbook.component';
+import {DaylisDetailsComponent} from './pages/daylis/daylis-details/daylis-details.component';
 
 const routes: Routes = [
   { path: 'login',
