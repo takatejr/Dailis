@@ -196,3 +196,23 @@ java.lang.NumberFormatException: For input string: "0
 2020.09.26 17:48:15 INFO  time: ran 'giter8.Giter8' in 4.11s
 2020.09.26 17:48:15 INFO  build tool exit: 0
 2020.09.26 17:48:18 INFO  shutting down Metals
+2020.09.26 23:48:59 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.09.26 23:49:00 INFO  time: initialize in 1.1s
+2020.09.26 23:49:01 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 23:49:05 INFO  shutting down Metals
+2020.09.26 23:49:46 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.09.26 23:49:47 INFO  time: initialize in 1.07s
+2020.09.26 23:49:47 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 23:50:50 INFO  
+2020.09.26 23:50:50 INFO  Template applied in D:\Dailis\.\akka
+2020.09.26 23:50:50 INFO  
+2020.09.26 23:50:50 INFO  build tool exit: 0
+2020.09.26 23:50:50 INFO  time: ran 'giter8.Giter8' in 5.91s
+2020.09.26 23:52:51 INFO  shutting down Metals
+2020.09.27 00:43:57 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.09.27 00:43:58 INFO  time: initialize in 1.15s
+2020.09.27 00:43:59 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 00:47:20 INFO  shutting down Metals
+2020.09.27 00:48:46 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.09.27 00:48:48 INFO  time: initialize in 1.06s
+2020.09.27 00:48:48 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 

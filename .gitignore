@@ -1,1 +1,7 @@
 Angular/Daylis/node_modules/
+.metals
+.vscode
+akka/null
+akka/.vscode
+akka/.metals
+akka/.bloop
