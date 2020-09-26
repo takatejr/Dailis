@@ -100,3 +100,99 @@ WARNING: Unmatched cancel notification for request id 1
 2020.09.09 22:15:00 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\controllers\Task.scala
 2020.09.09 22:17:08 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\controllers\Task.scala
 2020.09.09 22:29:53 INFO  shutting down Metals
+2020.09.26 17:20:47 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.09.26 17:20:48 INFO  time: initialize in 1.23s
+2020.09.26 17:20:49 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:20:52 INFO  no build target: using presentation compiler with only scala-library
+2020.09.26 17:20:52 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\controllers\HomeController.scala
+2020.09.26 17:22:33 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:22:33 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:22:33 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:22:43 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\controllers\Task.scala
+2020.09.26 17:22:43 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\Module.scala
+2020.09.26 17:22:49 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\models\CodeGen.scala
+2020.09.26 17:22:49 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\models\DailisDatabaseModel.scala
+2020.09.26 17:22:51 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\models\UserData.scala
+2020.09.26 17:22:51 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\models\Tables.scala
+2020.09.26 17:23:11 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\models\UserData.scala
+2020.09.26 17:23:36 WARN  no build target for: D:\Dailis\Scala\Scalatrone\app\models\Tables.scala
+2020.09.26 17:30:09 INFO  
+2020.09.26 17:30:09 INFO  Template applied in D:\Dailis\Scala-akka\.\dailis
+2020.09.26 17:30:09 INFO  
+2020.09.26 17:30:09 INFO  build tool exit: 0
+2020.09.26 17:30:09 INFO  time: ran 'giter8.Giter8' in 9.21s
+2020.09.26 17:30:14 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+2020.09.26 17:30:27 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+2020.09.26 17:30:42 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+2020.09.26 17:30:50 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+2020.09.26 17:30:54 INFO  compilation cancelled
+2020.09.26 17:30:55 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+2020.09.26 17:30:55 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+2020.09.26 17:30:55 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+2020.09.26 17:30:56 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:30:56 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+wrz 26, 2020 5:31:50 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+wrz 26, 2020 5:32:04 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+wrz 26, 2020 5:32:11 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+2020.09.26 17:32:15 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:32:15 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:32:16 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:32:52 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+2020.09.26 17:33:00 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:33:00 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+No server running at 127.0.0.1:8212, skipping 'exit' or 'ng-stop' command!
+2020.09.26 17:33:08 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+2020.09.26 17:33:13 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:38:33 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:39:04 INFO  shutting down Metals
+2020.09.26 17:45:57 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.09.26 17:45:58 INFO  time: initialize in 1.07s
+2020.09.26 17:46:00 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.26 17:46:14 INFO  no build target: using presentation compiler with only scala-library
+wrz 26, 2020 5:46:14 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+2020.09.26 17:46:34 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+error: Unexpected error forces client exit!
+java.lang.NumberFormatException: For input string: "0
+"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:68)
+	at java.base/java.lang.Integer.parseInt(Integer.java:652)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at bloop.shaded.snailgun.protocol.Protocol.$anonfun$processChunkFromServer$1(Protocol.scala:193)
+	at scala.util.Try$.apply(Try.scala:213)
+	at bloop.shaded.snailgun.protocol.Protocol.processChunkFromServer(Protocol.scala:180)
+	at bloop.shaded.snailgun.protocol.Protocol.sendCommand(Protocol.scala:108)
+	at bloop.shaded.snailgun.TcpClient.run(TcpClient.scala:34)
+	at bloop.bloopgun.BloopgunCli.executeCmd$1(Bloopgun.scala:268)
+	at bloop.bloopgun.BloopgunCli.fireCommand(Bloopgun.scala:274)
+	at bloop.bloopgun.BloopgunCli.run(Bloopgun.scala:230)
+	at scala.meta.internal.metals.BloopServers.shutdownServer(BloopServers.scala:48)
+	at scala.meta.internal.metals.MetalsLanguageServer.executeCommand(MetalsLanguageServer.scala:1346)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+2020.09.26 17:46:49 WARN  There were issues stopping the Bloop server.
+2020.09.26 17:46:49 WARN  If it doesn't start back up you can run the `build-restart` command manually.
+2020.09.26 17:46:49 WARN  no build target for: D:\Dailis\Scala-akka\Dailis\src\main\scala\com\example\AkkaQuickstart.scala
+2020.09.26 17:48:15 INFO  
+2020.09.26 17:48:15 INFO  Template applied in D:\Dailis\.\scala
+2020.09.26 17:48:15 INFO  
+2020.09.26 17:48:15 INFO  time: ran 'giter8.Giter8' in 4.11s
+2020.09.26 17:48:15 INFO  build tool exit: 0
+2020.09.26 17:48:18 INFO  shutting down Metals
