@@ -35,7 +35,7 @@ export class DaylisDetailsComponent implements AfterViewInit {
     this.ingredients[index].unit = message[3];
     this.toggleEditDetails(index)
   }
-  
+
   addIngredient() {
     this.ingredients.push({ titleOfProduct: "", bought: false, quantity: null, unit: "" })
   }
@@ -44,7 +44,7 @@ export class DaylisDetailsComponent implements AfterViewInit {
     this.ingredients.splice(i, 1)
   }
 
-  pressEnterToAccept(){
+  pressEnterToAccept() {
     const divs = document.querySelectorAll('div');
     divs.forEach(div => {
       div.addEventListener('keydown', this.editedIngredient)
@@ -58,7 +58,7 @@ export class DaylisDetailsComponent implements AfterViewInit {
       container.addEventListener('touchstart', this.touchStart)
       container.addEventListener('touchmove', this.moveIngredient)
       container.addEventListener('touchend', this.endTouch)
-      
+
       container.addEventListener('mousedown', this.touchStart)
       container.addEventListener('mousemove', this.moveIngredient)
       container.addEventListener('mouseup', this.endTouch)
@@ -70,7 +70,7 @@ export class DaylisDetailsComponent implements AfterViewInit {
     const eventPosition = parseFloat(event.target.style.left);
     const constTenPercent = parseFloat('10')
 
-    if (eventPosition < constTenPercent || eventPosition > -constTenPercent){
+    if (eventPosition < constTenPercent || eventPosition > -constTenPercent) {
       event.target.style.position = 'static';
       event.target.style.left = 0;
     }
@@ -91,11 +91,11 @@ export class DaylisDetailsComponent implements AfterViewInit {
     const media = window.matchMedia("(min-width: 768px)"); // TODO height limit
 
     if (media.matches) {
-        console.log("Wersja na desktopy");
+      console.log("Wersja na desktopy");
 
-        const currentPosition = event.clientX;
-        event.target.style.left = (currentPosition - event.view.innerWidth / 2) / 75  + '%'; // hardcoded for UI
-        // console.log(event.target.style.left)
+      const currentPosition = event.clientX;
+      event.target.style.left = (currentPosition - event.view.innerWidth / 2) / 75 + '%'; // hardcoded for UI
+      // console.log(event.target.style.left)
     } else {
       // console.log("Wersja mobilna");
       console.log(event)
