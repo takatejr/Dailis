@@ -1,7 +1,8 @@
 Angular/Daylis/node_modules/
-.metals
-.vscode
+/.metals
+/.vscode
 akka/null
 akka/.vscode
 akka/.metals
 akka/.bloop
+Scala
