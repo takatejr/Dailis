@@ -6,3 +6,5 @@ akka/.vscode
 akka/.metals
 akka/.bloop
 Scala
+.metals
+.vscode
