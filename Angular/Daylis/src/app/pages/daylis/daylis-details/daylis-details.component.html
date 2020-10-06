@@ -2,10 +2,11 @@
   <section class="products">
     <a
       *ngFor="let ing of ingredients; let i = index"
-      id="{{i}}"
+      id="{{ i }}"
       class="container"
       [style.backgroundColor]="
-      ing.bought == true ? 'rgba(255,109,60,0.72)' : '#dedede'"
+        ing.bought == true ? 'rgba(255,109,60,0.72)' : '#dedede'
+      "
       (click)="ing.bought = !ing.bought"
     >
       <div class="icon">icon {{ i }}</div>
@@ -18,9 +19,11 @@
 
       <div class="unit">{{ ingredients[i].unit }}</div>
 
-      <div class="dots" 
-      (click)="toggleEditDetails(i); ing.bought = !ing.bought"
-      tabindex="{{i}}">
+      <div
+        class="dots"
+        (click)="toggleEditDetails(i); ing.bought = !ing.bought"
+        tabindex="{{ i }}"
+      >
         <p>OOO</p>
       </div>
 
@@ -33,7 +36,6 @@
         (changedIngredientsDetails)="editedIngredient($event)"
       >
       </app-edit-details>
-
     </a>
   </section>
   <div class="bottom-container">
@@ -41,11 +43,11 @@
       ><p>History of list</p></a
     >
     <a class="btn add-product" (click)="addIngredient()"><p>Add product</p></a>
-    <a class="btn recipes" routerLink="/recipes" routerLinkActive="active"
-      ><p>Recipes</p></a
-    >
-    <a class="btn cookbook" routerLink="/cookbook" routerLinkActive="active"
-      ><p>Cookbook</p></a
-    >
+    <a class="btn recipes" routerLink="/recipes" routerLinkActive="active">
+      <p>Recipes</p>
+    </a>
+    <a class="btn cookbook" routerLink="/cookbook" routerLinkActive="active">
+      <p>Cookbook</p>
+    </a>
   </div>
 </main>

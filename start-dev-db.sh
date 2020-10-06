@@ -1,0 +1,1 @@
+docker run --name dailiis -p 5432:5432 -e POSTGRES_PASSWORD=daaiiliis -e POSTGRES_USER=dailiis -e POSTGRES_DB=dailiis -d postgres:11.4

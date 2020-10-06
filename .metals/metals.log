@@ -228,3 +228,249 @@ java.lang.NumberFormatException: For input string: "0
 2020.09.27 10:04:52 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
 2020.09.27 10:04:54 INFO  time: initialize in 1.97s
 2020.09.27 10:04:57 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 13:22:03 INFO  no build target: using presentation compiler with only scala-library
+2020.09.27 13:22:03 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:22:17 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 13:22:17 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 13:22:17 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:22:21 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:22:21 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 13:22:53 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:32:53 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:34:16 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 13:36:51 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+wrz 27, 2020 1:37:42 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTraceNotification
+2020.09.27 13:38:16 INFO  shutting down Metals
+2020.09.27 13:38:34 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.09.27 13:38:35 INFO  time: initialize in 1.24s
+2020.09.27 13:38:36 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 13:38:38 INFO  no build target: using presentation compiler with only scala-library
+2020.09.27 13:38:38 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:38:47 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:40:11 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:40:47 INFO  shutting down Metals
+2020.09.27 13:41:05 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.09.27 13:41:06 INFO  time: initialize in 1s
+2020.09.27 13:41:08 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 13:41:10 INFO  no build target: using presentation compiler with only scala-library
+2020.09.27 13:41:10 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:41:36 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+wrz 27, 2020 1:42:03 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+wrz 27, 2020 1:42:03 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: implicit class <error> extends  (of class scala.reflect.internal.Trees$ClassDef)
+scala.MatchError: implicit class <error> extends  (of class scala.reflect.internal.Trees$ClassDef)
+	at scala.tools.nsc.typechecker.Unapplies.constrParamss(Unapplies.scala:64)
+	at scala.tools.nsc.typechecker.Unapplies.factoryMeth(Unapplies.scala:141)
+	at scala.tools.nsc.typechecker.Unapplies.factoryMeth$(Unapplies.scala:138)
+	at scala.meta.internal.pc.MetalsGlobal$MetalsInteractiveAnalyzer.factoryMeth(MetalsGlobal.scala:58)
+	at scala.tools.nsc.typechecker.MethodSynthesis$MethodSynth.enterImplicitWrapper(MethodSynthesis.scala:229)
+	at scala.tools.nsc.typechecker.MethodSynthesis$MethodSynth.enterImplicitWrapper$(MethodSynthesis.scala:228)
+	at scala.tools.nsc.typechecker.Namers$Namer.enterImplicitWrapper(Namers.scala:58)
+	at scala.tools.nsc.interactive.InteractiveAnalyzer$InteractiveNamer.enterExistingSym(Global.scala:94)
+	at scala.tools.nsc.interactive.InteractiveAnalyzer$InteractiveNamer.enterExistingSym$(Global.scala:80)
+	at scala.tools.nsc.interactive.InteractiveAnalyzer$$anon$2.enterExistingSym(Global.scala:51)
+	at scala.tools.nsc.typechecker.Namers$Namer.standardEnterSym(Namers.scala:298)
+	at scala.tools.nsc.typechecker.AnalyzerPlugins.pluginsEnterSym(AnalyzerPlugins.scala:479)
+	at scala.tools.nsc.typechecker.AnalyzerPlugins.pluginsEnterSym$(AnalyzerPlugins.scala:478)
+	at scala.meta.internal.pc.MetalsGlobal$MetalsInteractiveAnalyzer.pluginsEnterSym(MetalsGlobal.scala:58)
+	at scala.tools.nsc.typechecker.Namers$Namer.enterSym(Namers.scala:272)
+	at scala.tools.nsc.typechecker.Typers$Typer.enterSym(Typers.scala:1933)
+	at scala.tools.nsc.typechecker.Typers$Typer.$anonfun$enterSyms$1(Typers.scala:1928)
+	at scala.tools.nsc.typechecker.Typers$Typer.enterSyms(Typers.scala:1928)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedTemplate(Typers.scala:1990)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedModuleDef(Typers.scala:1883)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed1(Typers.scala:5645)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed(Typers.scala:5724)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedStat$1(Typers.scala:5788)
+	at scala.tools.nsc.typechecker.Typers$Typer.$anonfun$typedStats$10(Typers.scala:3335)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedStats(Typers.scala:3335)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedPackageDef$1(Typers.scala:5354)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed1(Typers.scala:5647)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed(Typers.scala:5724)
+	at scala.tools.nsc.typechecker.Analyzer$typerFactory$TyperPhase.apply(Analyzer.scala:115)
+	at scala.tools.nsc.Global$GlobalPhase.applyPhase(Global.scala:454)
+	at scala.tools.nsc.interactive.Global$TyperRun.$anonfun$applyPhase$1(Global.scala:1340)
+	at scala.tools.nsc.interactive.Global$TyperRun.applyPhase(Global.scala:1340)
+	at scala.tools.nsc.interactive.Global$TyperRun.typeCheck(Global.scala:1333)
+	at scala.tools.nsc.interactive.Global.typeCheck(Global.scala:665)
+	at scala.tools.nsc.interactive.Global.typedTreeAt(Global.scala:814)
+	at scala.tools.nsc.interactive.Global.completionsAt(Global.scala:1225)
+	at scala.meta.internal.pc.CompletionProvider.safeCompletionsAt(CompletionProvider.scala:397)
+	at scala.meta.internal.pc.CompletionProvider.completions(CompletionProvider.scala:57)
+
+2020.09.27 13:42:15 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+wrz 27, 2020 1:42:21 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+wrz 27, 2020 1:42:21 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: implicit class <error> extends  (of class scala.reflect.internal.Trees$ClassDef)
+scala.MatchError: implicit class <error> extends  (of class scala.reflect.internal.Trees$ClassDef)
+	at scala.tools.nsc.typechecker.Unapplies.constrParamss(Unapplies.scala:64)
+	at scala.tools.nsc.typechecker.Unapplies.factoryMeth(Unapplies.scala:141)
+	at scala.tools.nsc.typechecker.Unapplies.factoryMeth$(Unapplies.scala:138)
+	at scala.meta.internal.pc.MetalsGlobal$MetalsInteractiveAnalyzer.factoryMeth(MetalsGlobal.scala:58)
+	at scala.tools.nsc.typechecker.MethodSynthesis$MethodSynth.enterImplicitWrapper(MethodSynthesis.scala:229)
+	at scala.tools.nsc.typechecker.MethodSynthesis$MethodSynth.enterImplicitWrapper$(MethodSynthesis.scala:228)
+	at scala.tools.nsc.typechecker.Namers$Namer.enterImplicitWrapper(Namers.scala:58)
+	at scala.tools.nsc.interactive.InteractiveAnalyzer$InteractiveNamer.enterExistingSym(Global.scala:94)
+	at scala.tools.nsc.interactive.InteractiveAnalyzer$InteractiveNamer.enterExistingSym$(Global.scala:80)
+	at scala.tools.nsc.interactive.InteractiveAnalyzer$$anon$2.enterExistingSym(Global.scala:51)
+	at scala.tools.nsc.typechecker.Namers$Namer.standardEnterSym(Namers.scala:298)
+	at scala.tools.nsc.typechecker.AnalyzerPlugins.pluginsEnterSym(AnalyzerPlugins.scala:479)
+	at scala.tools.nsc.typechecker.AnalyzerPlugins.pluginsEnterSym$(AnalyzerPlugins.scala:478)
+	at scala.meta.internal.pc.MetalsGlobal$MetalsInteractiveAnalyzer.pluginsEnterSym(MetalsGlobal.scala:58)
+	at scala.tools.nsc.typechecker.Namers$Namer.enterSym(Namers.scala:272)
+	at scala.tools.nsc.typechecker.Typers$Typer.enterSym(Typers.scala:1933)
+	at scala.tools.nsc.typechecker.Typers$Typer.$anonfun$enterSyms$1(Typers.scala:1928)
+	at scala.tools.nsc.typechecker.Typers$Typer.enterSyms(Typers.scala:1928)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedTemplate(Typers.scala:1990)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedModuleDef(Typers.scala:1883)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed1(Typers.scala:5645)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed(Typers.scala:5724)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedStat$1(Typers.scala:5788)
+	at scala.tools.nsc.typechecker.Typers$Typer.$anonfun$typedStats$10(Typers.scala:3335)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedStats(Typers.scala:3335)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedPackageDef$1(Typers.scala:5354)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed1(Typers.scala:5647)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed(Typers.scala:5724)
+	at scala.tools.nsc.typechecker.Analyzer$typerFactory$TyperPhase.apply(Analyzer.scala:115)
+	at scala.tools.nsc.Global$GlobalPhase.applyPhase(Global.scala:454)
+	at scala.tools.nsc.interactive.Global$TyperRun.$anonfun$applyPhase$1(Global.scala:1340)
+	at scala.tools.nsc.interactive.Global$TyperRun.applyPhase(Global.scala:1340)
+	at scala.tools.nsc.interactive.Global$TyperRun.typeCheck(Global.scala:1333)
+	at scala.tools.nsc.interactive.Global.typeCheck(Global.scala:665)
+	at scala.tools.nsc.interactive.Global.typedTreeAt(Global.scala:814)
+	at scala.tools.nsc.interactive.Global.completionsAt(Global.scala:1225)
+	at scala.meta.internal.pc.CompletionProvider.safeCompletionsAt(CompletionProvider.scala:397)
+	at scala.meta.internal.pc.CompletionProvider.completions(CompletionProvider.scala:57)
+
+wrz 27, 2020 1:42:34 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+wrz 27, 2020 1:42:34 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: implicit class <error> extends  (of class scala.reflect.internal.Trees$ClassDef)
+scala.MatchError: implicit class <error> extends  (of class scala.reflect.internal.Trees$ClassDef)
+	at scala.tools.nsc.typechecker.Unapplies.constrParamss(Unapplies.scala:64)
+	at scala.tools.nsc.typechecker.Unapplies.factoryMeth(Unapplies.scala:141)
+	at scala.tools.nsc.typechecker.Unapplies.factoryMeth$(Unapplies.scala:138)
+	at scala.meta.internal.pc.MetalsGlobal$MetalsInteractiveAnalyzer.factoryMeth(MetalsGlobal.scala:58)
+	at scala.tools.nsc.typechecker.MethodSynthesis$MethodSynth.enterImplicitWrapper(MethodSynthesis.scala:229)
+	at scala.tools.nsc.typechecker.MethodSynthesis$MethodSynth.enterImplicitWrapper$(MethodSynthesis.scala:228)
+	at scala.tools.nsc.typechecker.Namers$Namer.enterImplicitWrapper(Namers.scala:58)
+	at scala.tools.nsc.interactive.InteractiveAnalyzer$InteractiveNamer.enterExistingSym(Global.scala:94)
+	at scala.tools.nsc.interactive.InteractiveAnalyzer$InteractiveNamer.enterExistingSym$(Global.scala:80)
+	at scala.tools.nsc.interactive.InteractiveAnalyzer$$anon$2.enterExistingSym(Global.scala:51)
+	at scala.tools.nsc.typechecker.Namers$Namer.standardEnterSym(Namers.scala:298)
+	at scala.tools.nsc.typechecker.AnalyzerPlugins.pluginsEnterSym(AnalyzerPlugins.scala:479)
+	at scala.tools.nsc.typechecker.AnalyzerPlugins.pluginsEnterSym$(AnalyzerPlugins.scala:478)
+	at scala.meta.internal.pc.MetalsGlobal$MetalsInteractiveAnalyzer.pluginsEnterSym(MetalsGlobal.scala:58)
+	at scala.tools.nsc.typechecker.Namers$Namer.enterSym(Namers.scala:272)
+	at scala.tools.nsc.typechecker.Typers$Typer.enterSym(Typers.scala:1933)
+	at scala.tools.nsc.typechecker.Typers$Typer.$anonfun$enterSyms$1(Typers.scala:1928)
+	at scala.tools.nsc.typechecker.Typers$Typer.enterSyms(Typers.scala:1928)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedTemplate(Typers.scala:1990)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedModuleDef(Typers.scala:1883)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed1(Typers.scala:5645)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed(Typers.scala:5724)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedStat$1(Typers.scala:5788)
+	at scala.tools.nsc.typechecker.Typers$Typer.$anonfun$typedStats$10(Typers.scala:3335)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedStats(Typers.scala:3335)
+	at scala.tools.nsc.typechecker.Typers$Typer.typedPackageDef$1(Typers.scala:5354)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed1(Typers.scala:5647)
+	at scala.tools.nsc.typechecker.Typers$Typer.typed(Typers.scala:5724)
+	at scala.tools.nsc.typechecker.Analyzer$typerFactory$TyperPhase.apply(Analyzer.scala:115)
+	at scala.tools.nsc.Global$GlobalPhase.applyPhase(Global.scala:454)
+	at scala.tools.nsc.interactive.Global$TyperRun.$anonfun$applyPhase$1(Global.scala:1340)
+	at scala.tools.nsc.interactive.Global$TyperRun.applyPhase(Global.scala:1340)
+	at scala.tools.nsc.interactive.Global$TyperRun.typeCheck(Global.scala:1333)
+	at scala.tools.nsc.interactive.Global.typeCheck(Global.scala:665)
+	at scala.tools.nsc.interactive.Global.typedTreeAt(Global.scala:814)
+	at scala.tools.nsc.interactive.Global.completionsAt(Global.scala:1225)
+	at scala.meta.internal.pc.CompletionProvider.safeCompletionsAt(CompletionProvider.scala:397)
+	at scala.meta.internal.pc.CompletionProvider.completions(CompletionProvider.scala:57)
+
+wrz 27, 2020 1:46:58 PM scala.meta.internal.pc.completions.Completions completionPosition
+SEVERE: null
+java.lang.NullPointerException
+	at scala.meta.internal.pc.MetalsGlobal.metalsSeenFromType(MetalsGlobal.scala:663)
+	at scala.meta.internal.pc.completions.MatchCaseCompletions$CaseKeywordCompletion.<init>(MatchCaseCompletions.scala:49)
+	at scala.meta.internal.pc.completions.Completions.fromIdentApply$1(Completions.scala:423)
+	at scala.meta.internal.pc.completions.Completions.completionPositionUnsafe(Completions.scala:443)
+	at scala.meta.internal.pc.completions.Completions.completionPositionUnsafe$(Completions.scala:409)
+	at scala.meta.internal.pc.MetalsGlobal.completionPositionUnsafe(MetalsGlobal.scala:29)
+	at scala.meta.internal.pc.completions.Completions.completionPosition(Completions.scala:401)
+	at scala.meta.internal.pc.completions.Completions.completionPosition$(Completions.scala:386)
+	at scala.meta.internal.pc.MetalsGlobal.completionPosition(MetalsGlobal.scala:29)
+	at scala.meta.internal.pc.CompletionProvider.safeCompletionsAt(CompletionProvider.scala:444)
+	at scala.meta.internal.pc.CompletionProvider.completions(CompletionProvider.scala:57)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.$anonfun$complete$1(ScalaPresentationCompiler.scala:184)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$withInterruptableCompiler$1(CompilerAccess.scala:87)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$onCompilerJobQueue$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:103)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+2020.09.27 13:48:03 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 13:48:20 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:48:23 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 13:49:28 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 13:49:31 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 13:49:31 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 13:49:35 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 13:51:35 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:04:29 INFO  shutting down Metals
+2020.09.27 14:07:43 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.09.27 14:07:44 INFO  time: initialize in 1.05s
+2020.09.27 14:07:45 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:07:48 INFO  no build target: using presentation compiler with only scala-library
+2020.09.27 14:07:48 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:08:55 WARN  no build target for: D:\Dailis\akka\src\main\scala\model\account.scala
+2020.09.27 14:09:08 WARN  no build target for: D:\Dailis\akka\src\main\scala\model\Account.scala
+2020.09.27 14:09:23 WARN  no build target for: D:\Dailis\akka\src\main\scala\model\dao\dao.scala
+2020.09.27 14:19:13 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:19:36 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:19:46 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:19:55 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:20:06 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:20:42 WARN  no build target for: D:\Dailis\akka\src\main\scala\model\Account.scala
+2020.09.27 14:22:06 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:22:40 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:23:08 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:23:33 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:23:37 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:23:58 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:24:01 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:24:05 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:24:05 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:30:06 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:30:09 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:30:49 WARN  no build target for: D:\Dailis\akka\src\main\scala\services\CRUDService.scala
+2020.09.27 14:31:02 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:31:24 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 14:31:29 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 14:31:47 WARN  no build target for: D:\Dailis\akka\src\main\scala\StarterRouter.scala
+2020.09.27 14:32:20 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:32:21 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:32:21 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:32:24 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:33:34 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:35:34 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:44:00 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:44:14 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:46:59 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:49:12 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:49:19 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:49:35 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:49:50 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:49:50 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:50:54 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:51:06 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.09.27 14:51:06 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:51:12 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:51:15 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:51:52 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:52:36 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 14:53:14 WARN  no build target for: D:\Dailis\akka\src\main\scala\Server.scala
+2020.09.27 15:36:47 INFO  shutting down Metals
