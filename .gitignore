@@ -7,3 +7,6 @@ akka/.bloop
 .vscode
 .metals/*
 .vscode/*
+akka
+akka/
+node_modules
