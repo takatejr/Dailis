@@ -8,5 +8,5 @@ akka/.bloop
 .metals/*
 .vscode/*
 akka
-akka/
+akka/*
 node_modules

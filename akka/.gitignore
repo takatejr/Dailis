@@ -1,9 +1,9 @@
 target/
-
+project/*
 .settings
 .project
 .classpath
-
+src/*
 .idea
 *.iml
 

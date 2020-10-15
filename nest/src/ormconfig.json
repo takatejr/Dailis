@@ -1,0 +1,9 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "dailis",
+  "password": "dailissdb",
+  "database": "dailis",
+  "synchronize": true
+}
