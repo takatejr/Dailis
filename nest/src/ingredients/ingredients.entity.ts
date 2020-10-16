@@ -1,6 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+// import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
-@Entity()
-export class IngredientsEntity {
-}
+// @Entity()
+// export class IngredientsEntity {
+// }

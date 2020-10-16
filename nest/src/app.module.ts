@@ -4,13 +4,12 @@ import { AppService } from './app.service';
 import "reflect-metadata";
 import { databaseProviders } from './db.provider';
 import { UsersController } from './users/users.controller';
-import { RecipesController } from './recipes/recipes.controller';
-import { IngredientsController } from './ingredients/ingredients.controller';
-import { DailyListsController } from './daily-lists/daily-lists.controller';
+import { UsersService } from './users/users.service';
+import { UsersEntity } from './users/users.entity';
 
 @Module({
-  imports: [],
-  controllers: [AppController, UsersController, RecipesController, IngredientsController, DailyListsController],
+  imports: [UsersService, UsersController, UsersEntity],
+  controllers: [AppController],
   providers: [AppService, ...databaseProviders],
   exports: [...databaseProviders]
 })

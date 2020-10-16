@@ -12,7 +12,7 @@ export class UsersEntity implements User {
     @Column('text')
     password: string
 
-    @Column('table')
+    @Column('text')
     lists: number[]
     
     @Column('text')
