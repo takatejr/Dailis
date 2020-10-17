@@ -1,16 +1,22 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import "reflect-metadata";
-import { databaseProviders } from './db.provider';
-import { UsersController } from './users/users.controller';
-import { UsersService } from './users/users.service';
-import { UsersEntity } from './users/users.entity';
+import { User } from './user/user.entity';
+import { UsersModule } from './user/user.module';
 
 @Module({
-  imports: [UsersService, UsersController, UsersEntity],
+  imports: [    TypeOrmModule.forRoot({
+    type: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    username: 'test',
+    password: 'test',
+    database: 'test',
+    entities: [User],
+    synchronize: true,
+  }), UsersModule],
   controllers: [AppController],
-  providers: [AppService, ...databaseProviders],
-  exports: [...databaseProviders]
+  providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
