@@ -4,6 +4,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User } from './user/user.entity';
 import { UsersModule } from './user/user.module';
+import { DailyLists } from './daily-lists/daily.entity';
+import { DailyListsModule } from './daily-lists/daily.module';
+import { Recipes } from './recipes/recipes.entity';
+import { RecipesModule } from './recipes/recipes.module';
 
 @Module({
   imports: [    TypeOrmModule.forRoot({
@@ -13,9 +17,9 @@ import { UsersModule } from './user/user.module';
     username: 'test',
     password: 'test',
     database: 'test',
-    entities: [User],
+    entities: [User, DailyLists, Recipes],
     synchronize: true,
-  }), UsersModule],
+  }), UsersModule, DailyListsModule, RecipesModule],
   controllers: [AppController],
   providers: [AppService],
 })

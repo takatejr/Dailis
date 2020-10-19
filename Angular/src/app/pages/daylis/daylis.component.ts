@@ -22,17 +22,17 @@ export class DaylisComponent implements OnInit {
   dailyLists: Array<DailyLists> = [
     {
       id: 0,
-      titleOfList: 'Dieta workowa',
+      title: 'Dieta workowa',
       ingredients: []
     },
     {
       id: 1,
-      titleOfList: 'Dieta wt',
+      title: 'Dieta wt',
       ingredients: []
     },
     {
       id: 2,
-      titleOfList: 'Dieta sr',
+      title: 'Dieta sr',
       ingredients: [
         {
           titleOfProduct: 'apple',
@@ -57,7 +57,7 @@ export class DaylisComponent implements OnInit {
     },
     {
       id: 3,
-      titleOfList: 'Dieta czw',
+      title: 'Dieta czw',
       ingredients: [
         {
           titleOfProduct: 'mleko',
@@ -81,7 +81,7 @@ export class DaylisComponent implements OnInit {
     },
     {
       id: 4,
-      titleOfList: 'Dieta pt',
+      title: 'Dieta pt',
       ingredients: [
         {
           titleOfProduct: 'mleko',
@@ -108,7 +108,7 @@ export class DaylisComponent implements OnInit {
   addNewDailyList = (titleOfList) => {
     this.dailyLists.push({
       id: 4,
-      titleOfList: titleOfList,
+      title: titleOfList,
       ingredients: []
     });
     this.nameOfNewList = '';

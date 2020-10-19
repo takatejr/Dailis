@@ -5,12 +5,12 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column('text')
   name: string;
 
-  @Column()
-  ID_dailyLists: number[];
+  @Column('varchar')
+  ID_dailyLists: number;
 
-  @Column()
-  recipes?: any[];
+  @Column('varchar')
+  recipes: string;
 }

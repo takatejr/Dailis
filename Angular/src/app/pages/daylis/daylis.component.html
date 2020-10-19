@@ -7,7 +7,7 @@
         routerLink="{{ daily.id }}"
         (click)="showDetailsOfDaylis(daily.ingredients)"
       >
-        <div class="c">{{ daily.titleOfList }}</div>
+        <div class="c">{{ daily.title }}</div>
         <div class="r">{{ countBoughtIngredients(i) }}/{{ daily.ingredients.length }}</div>
       </a>
       <section class="add-btn">
