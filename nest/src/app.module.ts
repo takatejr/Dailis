@@ -8,6 +8,7 @@ import { DailyLists } from './daily-lists/daily.entity';
 import { DailyListsModule } from './daily-lists/daily.module';
 import { Recipes } from './recipes/recipes.entity';
 import { RecipesModule } from './recipes/recipes.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [    TypeOrmModule.forRoot({
@@ -19,7 +20,7 @@ import { RecipesModule } from './recipes/recipes.module';
     database: 'test',
     entities: [User, DailyLists, Recipes],
     synchronize: true,
-  }), UsersModule, DailyListsModule, RecipesModule],
+  }), UsersModule, DailyListsModule, RecipesModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })

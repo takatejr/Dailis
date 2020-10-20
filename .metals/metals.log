@@ -9,3 +9,12 @@
 2020.10.19 18:24:02 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
 2020.10.19 18:24:04 INFO  time: initialize in 2s
 2020.10.19 18:24:05 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.10.19 19:16:30 INFO  shutting down Metals
+2020.10.20 14:37:43 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.10.20 14:37:44 INFO  time: initialize in 1.26s
+2020.10.20 14:37:45 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.10.20 17:50:30 INFO  shutting down Metals
+2020.10.20 18:46:04 INFO  started: Metals version 0.9.4 in workspace 'D:\Dailis' for client vscode.
+2020.10.20 18:46:05 INFO  time: initialize in 1.09s
+2020.10.20 18:46:06 WARN  no build tool detected in workspace 'D:\Dailis'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2020.10.20 19:26:19 INFO  shutting down Metals
