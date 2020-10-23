@@ -11,3 +11,4 @@ akka
 akka/*
 node_modules
 nest/a.ts
+nest/dist/*
