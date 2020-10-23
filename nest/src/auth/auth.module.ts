@@ -5,14 +5,17 @@ import { UsersService } from 'src/user/user.service';
 import { AuthService } from './auth.service';
 import { LocalStrategy } from './local.strategy';
 import { JwtStrategy } from './jwt.strategy';
+import { a } from '../../a';
+import { UsersModule } from 'src/user/user.module';
+
 
 
 @Module({
-  imports: [UsersService, PassportModule, JwtModule.register({
-    secret: process.env.JWT_SECRET,
+  imports: [PassportModule, UsersModule, JwtModule.register({
+    secret: a.JWT_SECRET,
     signOptions: { expiresIn: '600s'}
   })],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy, UsersService],
   exports: [AuthService]
 })
 export class AuthModule {}

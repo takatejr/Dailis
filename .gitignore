@@ -10,4 +10,4 @@ akka/.bloop
 akka
 akka/*
 node_modules
-nest/.env
+nest/a.ts

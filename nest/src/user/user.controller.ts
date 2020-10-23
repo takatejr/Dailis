@@ -1,5 +1,4 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { getConnection } from 'typeorm';
 import { User } from './user.entity';
 import { UsersService } from './user.service';
 
@@ -17,4 +16,4 @@ export class UserController {
     await this.usersService.create(user);
   }
 
-}
+} 

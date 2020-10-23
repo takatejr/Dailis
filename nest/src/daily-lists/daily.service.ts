@@ -1,14 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { getRepository, Repository } from 'typeorm';
+import { getRepository} from 'typeorm';
 import { DailyLists } from './daily.entity';
 
 @Injectable()
 export class DailyListsService {
-  constructor(
-    @InjectRepository(DailyLists)
-    private dailyRepository: Repository<DailyLists>,
-  ) {}
+
+  @InjectRepository(DailyLists)
 
   repo = getRepository(DailyLists);
 

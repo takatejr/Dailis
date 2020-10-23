@@ -1,15 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { getRepository, Repository } from 'typeorm';
+import { from, Observable } from 'rxjs';
+import { getRepository} from 'typeorm';
 import { User } from './user.entity';
-import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
-  constructor(
-    @InjectRepository(User)
-    private usersRepository: Repository<User>,
-  ) {}
+
+  @InjectRepository(User)
 
   repo = getRepository(User);
 
@@ -17,8 +15,8 @@ export class UsersService {
     return this.repo.find();
   }
 
-  findOne(nameOrID: string | number): Promise<User | undefined> {
-    return this.repo.findOne(nameOrID);
+  findOne(name: string): Observable<any> {
+    return from(this.repo.find({name}));
   }
 
   async remove(id: string): Promise<void> {
@@ -26,12 +24,10 @@ export class UsersService {
   }
 
   async create(user: User): Promise<any> {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(user.password, salt);
-    await this.repo.save({
-      name: user.name,
-      password: hashedPassword,
-    });
-    return true;
+    await this.repo.save(user);
   }
+
+  findByMail(email: string): Observable<User> {
+    return from(this.repo.findOne(email));
+}
 }
