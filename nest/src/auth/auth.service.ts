@@ -18,17 +18,18 @@ export class AuthService {
         console.log(pass + "   pass z validateuser")
         console.log(user.subscribe())
 
-        // if (user && await bcrypt.compare(pass, user.password)) {
-        //     const { password, ...result } = user;
-        //     return result;
-        // }
+        if (user && await bcrypt.compare(pass, user.password)) {
+            const { password, ...result } = user;
+            return result;
+        }
 
-        // return null
+        return null
     }
     
     comparePasswords(newPassword: string, passwortHash: string): Observable<any>{
         return from(bcrypt.compare(newPassword, passwortHash));
     }
+    
     async login(user: any): Promise<any> {
     const payload = { username: user.username, password: user.password };
     return {
