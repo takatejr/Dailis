@@ -3,6 +3,7 @@ import { AuthService } from './auth/auth.service';
 import { LocalAuthGuard } from './auth/local-auth.guard';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { UsersService } from './user/user.service';
+import { Observable } from 'rxjs';
 
 @Controller()
 export class AppController {
@@ -14,7 +15,7 @@ export class AppController {
   @Post('auth/login')
   async login(@Request() req) {
     console.log(req.user)
-    return this.authService.login(req.user);
+    return this.authService.login(req.body);
   }
 
   @UseGuards(JwtAuthGuard)
@@ -30,10 +31,15 @@ export class AppController {
   }
 
   // @UseGuards(LocalAuthGuard)
-  @Get('hehe')
-  async sercz(@Request() req){
-    // console.log(req.user, req.body.name, req.body.password, req.body)
-    const authuser =  this.authService.validateUser(req.body.name, req.body.password)
-    // console.log(authuser + "to jest konsol log z sercza")
+  @Post('hehe')
+  sercz(@Request() req): Observable<any>{
+    console.log(req.body)
+    const authuser = this.authService.validateUser(req.body.name, req.body.password)
+    return authuser
+  }
+
+  @Post('hehex')
+  mail(@Request() req): Observable<any>{
+return this.userService.findByMail(req.body.name)
   }
 }

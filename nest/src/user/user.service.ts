@@ -5,6 +5,7 @@ import { getRepository} from 'typeorm';
 import { User } from './user.entity';
 import * as bcrypt from 'bcrypt';
 
+
 @Injectable()
 export class UsersService {
 
@@ -16,24 +17,23 @@ export class UsersService {
     return this.repo.find();
   }
 
-  findOne(name: string): Observable<any> {
-    return from(this.repo.find({name}));
+  findOne(name: string): Observable<User> {
+  return from(this.repo.findOne({name}))
   }
 
   async remove(id: string): Promise<void> {
     await this.repo.delete(id);
   }
 
-  async create(user: User): Promise<any> {
+  create(user: User): Observable<User> {
     const { password, ...result} = user;
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(user.password, salt);
+    const salt = bcrypt.genSalt(10);
+    const hashedPassword = bcrypt.hash(user.password, salt);
 
-    await this.repo.save({...result, password: hashedPassword});
-    return true
+    return from(this.repo.save({...result, password: hashedPassword}));
   }
 
-  findByMail(email: string): Observable<User> {
-    return from(this.repo.findOne(email));
+  findByMail(name: string): Observable<User> {
+    return from(this.repo.findOne({name}));
 }
 }

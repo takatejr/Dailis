@@ -4,44 +4,60 @@ import { JwtService } from '@nestjs/jwt'
 import * as bcrypt from 'bcrypt';
 import { User } from 'src/user/user.entity';
 import { from, Observable } from 'rxjs';
+import {map, switchMap} from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
     constructor(
         private usersService: UsersService,
         private jwtService: JwtService
-        ) { }
+    ) { }
 
-    async validateUser(name: string, pass: string): Promise<any> {
-        const user = await this.usersService.findOne(name);
-        console.log(name + " name z validateuser")
-        console.log(pass + "   pass z validateuser")
-        console.log(user.subscribe())
+    validateUser(name: string, pass: string): Observable<any> {
+        return this.usersService.findOne(name).pipe(
+            switchMap((user: User) => this.comparePasswords(pass, user.password).pipe(
+                map((match: boolean) => {
+                    if(match) {
+                        const {password, ...result} = user;
+                        return result;
+                    } else {
+                        throw Error;
+                    }
+                })
+            ))
+        )
 
-        if (user && await bcrypt.compare(pass, user.password)) {
-            const { password, ...result } = user;
-            return result;
-        }
-
-        return null
     }
-    
-    comparePasswords(newPassword: string, passwortHash: string): Observable<any>{
+
+    comparePasswords(newPassword: string, passwortHash: string): Observable<any> {
         return from(bcrypt.compare(newPassword, passwortHash));
     }
-    
-    async login(user: any): Promise<any> {
-    const payload = { username: user.username, password: user.password };
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
+
+    // login(user: User){
+    //     const payload = { username: user.name, password: user.password };
+
+    //     return {
+    //         access_token: this.jwtService.sign(payload),
+    //     };
+    // }
+
+    login(body: User): Observable<any> {
+        // const payload = { name: user.name, password: user.password };
+        return this.validateUser(body.name, body.password).pipe(
+            switchMap((user: User) => {
+                if(body) {
+                    return this.jwtService.sign(user);
+                } else {
+                    return 'Wrong Credentials';
+                }
+            })
+        )
     }
 
-    async register(userData: User): Promise<User> {
-        const payload = { name: userData.name, password: userData.password};
+    register(userData: User): Observable<User> {
+        const payload = { name: userData.name, password: userData.password };
         const access_token = this.jwtService.sign(payload)
         console.log(access_token)
-        return await this.usersService.create(userData);
-
+        return from(this.usersService.create(userData))
     }
 }
