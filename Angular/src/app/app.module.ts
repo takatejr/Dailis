@@ -11,6 +11,7 @@ import { CookbookComponent } from './pages/cookbook/cookbook.component';
 import { DaylisDetailsComponent } from './pages/daylis/daylis-details/daylis-details.component';
 import { EditDetailsComponent } from './pages/daylis/daylis-details/edit-details/edit-details.component';
 import {FormsModule} from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {FormsModule} from "@angular/forms";
         BrowserModule,
         AppRoutingModule,
         CoreModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
