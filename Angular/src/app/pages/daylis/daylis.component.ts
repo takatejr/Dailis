@@ -1,14 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { DailyLists } from '../../shared/daily-lists';
-import { ActivatedRoute } from '@angular/router';
 import { DaylisIngredientsService } from '../../shared/services/daylis-ingredients.service';
+import { DaylisService } from './daylis.service';
 
 @Component({
   selector: 'app-daylis',
   templateUrl: './daylis.component.html',
-  styleUrls: ['./daylis.component.scss']
+  styleUrls: ['./daylis.component.scss'],
+  providers: [DaylisService]
 })
 export class DaylisComponent implements OnInit {
+
+  constructor(
+    private daylisIngredients: DaylisIngredientsService,
+    private http: DaylisService) { }
+
+
+  ngOnInit() {
+    this.http.getAllDailyLists().subscribe(e => console.log(e))
+  }
+
   nameOfNewList = "";
 
   countBoughtIngredients(i): number {
@@ -19,92 +30,35 @@ export class DaylisComponent implements OnInit {
     return countTrue
   }
 
-  dailyLists: Array<DailyLists> = [
-    {
-      id: 0,
-      title: 'Dieta workowa',
-      ingredients: []
-    },
-    {
-      id: 1,
-      title: 'Dieta wt',
-      ingredients: []
-    },
-    {
-      id: 2,
-      title: 'Dieta sr',
-      ingredients: [
-        {
-          titleOfProduct: 'apple',
-          bought: true,
-          quantity: 2,
-          unit: 'szt',
-          from: 'zewsząd'
-        },
-        {
-          titleOfProduct: 'orange',
-          bought: false,
-          quantity: 2,
-          unit: 'szt',
-        },
-        {
-          titleOfProduct: 'juice',
-          bought: false,
-          quantity: 1,
-          unit: 'bottle',
-        },
-      ]
-    },
-    {
-      id: 3,
-      title: 'Dieta czw',
-      ingredients: [
-        {
-          titleOfProduct: 'mleko',
-          bought: true,
-          quantity: 3,
-          unit: 'szt',
-        },
-        {
-          titleOfProduct: 'banany',
-          bought: true,
-          quantity: 33,
-          unit: 'szt',
-        },
-        {
-          titleOfProduct: 'ziemniaki',
-          bought: true,
-          quantity: 333,
-          unit: 'kg',
-        },
-      ]
-    },
-    {
-      id: 4,
-      title: 'Dieta pt',
-      ingredients: [
-        {
-          titleOfProduct: 'mleko',
-          bought: true,
-          quantity: 4,
-          unit: 'szt',
-        },
-        {
-          titleOfProduct: 'banany',
-          bought: true,
-          quantity: 44,
-          unit: 'szt',
-        },
-        {
-          titleOfProduct: 'ziemniaki',
-          bought: false,
-          quantity: 444,
-          unit: 'kg',
-        },
-      ]
-    },
-  ];
+  dailyLists: Array<DailyLists> = []
 
+
+  //   {
+  //     id: 2,
+  //     title: 'Dieta sr',
+  //     ingredients: [
+  //       {
+  //         titleOfProduct: 'apple',
+  //         bought: true,
+  //         quantity: 2,
+  //         unit: 'szt',
+  //         from: 'zewsząd'
+  //       },
+  //       {
+  //         titleOfProduct: 'orange',
+  //         bought: false,
+  //         quantity: 2,
+  //         unit: 'szt',
+  //       },
+  //       {
+  //         titleOfProduct: 'juice',
+  //         bought: false,
+  //         quantity: 1,
+  //         unit: 'bottle',
+  //       },
+  //     ]
+  //   },
+  
   addNewDailyList = (titleOfList) => {
     this.dailyLists.push({
       id: 4,
@@ -114,13 +68,11 @@ export class DaylisComponent implements OnInit {
     this.nameOfNewList = '';
   };
 
-  constructor(private route: ActivatedRoute,
-    private daylisIngredients: DaylisIngredientsService) { }
 
   showDetailsOfDaylis(e) {
     this.daylisIngredients.showDetailsOfDaylis(e);
   }
 
-  ngOnInit(): void {
-  }
+
+
 }

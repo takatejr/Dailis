@@ -10,6 +10,8 @@ import { Recipes } from './recipes/recipes.entity';
 import { DailyLists } from './daily-lists/daily.entity';
 import { AuthModule } from './auth/auth.module';
 import { UsersService } from './user/user.service';
+import { Ingredients } from './ingredients/daily-lists/ingredients.entity';
+import { IngredientsModule } from './ingredients/daily-lists/ingredients.module';
 
 
 @Module({
@@ -20,9 +22,9 @@ import { UsersService } from './user/user.service';
     username: 'test',
     password: 'test',
     database: 'test',
-    entities: [User, Recipes, DailyLists],
+    entities: [User, Recipes, DailyLists, Ingredients],
     synchronize: false,
-  }), UsersModule, RecipesModule, DailyListsModule, AuthModule],
+  }), UsersModule, RecipesModule, DailyListsModule, AuthModule, IngredientsModule],
   controllers: [AppController],
   providers: [AppService, UsersService],
 })
