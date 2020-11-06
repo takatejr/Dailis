@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DailyLists } from '../../shared/daily-lists';
 import { DaylisIngredientsService } from '../../shared/services/daylis-ingredients.service';
 import { DaylisService } from './daylis.service';
@@ -9,7 +9,7 @@ import { DaylisService } from './daylis.service';
   styleUrls: ['./daylis.component.scss'],
   providers: [DaylisService]
 })
-export class DaylisComponent implements OnInit {
+export class DaylisComponent implements OnInit, OnDestroy {
 
   constructor(
     private daylisIngredients: DaylisIngredientsService,
@@ -20,9 +20,13 @@ export class DaylisComponent implements OnInit {
     this.http.getAllDailyLists().subscribe(e => console.log(e))
   }
 
+  ngOnDestroy() {
+    this.http.updateUserDailyList();
+  }
+
   nameOfNewList = "";
 
-  countBoughtIngredients(i): number {
+  countBoughtIngredients(i: number): number {
     let countTrue = 0;
     for (let ingredient of this.dailyLists[i].ingredients) {
       ingredient.bought == true ? countTrue++ : null;
@@ -60,8 +64,9 @@ export class DaylisComponent implements OnInit {
   //   },
   
   addNewDailyList = (titleOfList) => {
+    let lastId = Number(this.http.getLastId)
     this.dailyLists.push({
-      id: 4,
+      id: lastId++,
       title: titleOfList,
       ingredients: []
     });

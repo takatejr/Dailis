@@ -11,6 +11,7 @@ import { settingAPI } from 'src/app/shared/services/ApiKey';
 export class DaylisService {
     constructor(private http: HttpClient) { }
 
+    useroff: User;
     API_KEY = settingAPI.API_KEY;
     API_URL = settingAPI.API_URL;
 
@@ -19,11 +20,18 @@ export class DaylisService {
     };
 
     getAllDailyLists(): Observable<User[]> {
-        return this.http.get<User[]>(`http://localhost:3000/user`)
+        return this.http.get<User[]>(`${this.API_URL}` + `/user`)
             .pipe(
                 tap(_ => console.log('fetched users')),
                 // catchError(this.handleError<User[]>('getusers', []))
             );
+    }
+
+    getLastId(): Observable<number> {
+        return this.http.get<number>(`${this.API_URL}` + `/daily-lists`)
+            .pipe(
+                tap(e => e),
+            )
     }
 
     getUserById(id: number): Observable<User> {
@@ -35,7 +43,7 @@ export class DaylisService {
             );
     }
 
-    updateUserDailyList(user: User): Observable<any> {
+    updateUserDailyList(user: User = this.useroff): Observable<any> {
         return this.http.put(this.API_URL, user, this.httpOptions)
             .pipe(
                 tap(_ => console.log(`updated user id=${user.id}`)),

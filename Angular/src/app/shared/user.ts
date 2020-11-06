@@ -5,5 +5,5 @@ export interface User {
   name: string;
   description: string;
   ID_dailyLists: number[];
-  recipes?: Array<Recipes>;
+  recipes?: Recipes[];
 }
