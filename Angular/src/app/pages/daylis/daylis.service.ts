@@ -20,7 +20,7 @@ export class DaylisService {
     };
 
     getAllDailyLists(): Observable<User[]> {
-        return this.http.get<User[]>(`${this.API_URL}` + `/user`)
+        return this.http.get<User[]>(`${this.API_URL}` + `user`)
             .pipe(
                 tap(_ => console.log('fetched users')),
                 // catchError(this.handleError<User[]>('getusers', []))
@@ -28,7 +28,7 @@ export class DaylisService {
     }
 
     getLastId(): Observable<number> {
-        return this.http.get<number>(`${this.API_URL}` + `/daily-lists`)
+        return this.http.get<number>(`${this.API_URL}` + `daily-lists`)
             .pipe(
                 tap(e => e),
             )

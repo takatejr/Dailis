@@ -1,5 +1,10 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
+type alterTitle ={
+  language: string,
+  title: string
+}
+
 @Entity()
 export class Ingredients {
   @PrimaryGeneratedColumn()
@@ -18,5 +23,8 @@ export class Ingredients {
   unit: string;
 
   @Column('varchar')
-  from?: string | null
+  from: string | null;
+
+  @Column('varchar')
+  alterTitle: alterTitle[] | null
 }

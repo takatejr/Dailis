@@ -25,12 +25,18 @@ export class UsersService {
     await this.repo.delete(id);
   }
 
-  create(user: User): Observable<User> {
+  async hashPassword(password) {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+    return hashedPassword;
+  }
+  
+  async create(user: User): Promise<User> {
     const { password, ...result} = user;
-    const salt = bcrypt.genSalt(10);
-    const hashedPassword = bcrypt.hash(user.password, salt);
-
-    return from(this.repo.save({...result, password: hashedPassword}));
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(user.password, salt);
+    console.log({...result, password: hashedPassword})
+    return this.repo.save({...result, password: hashedPassword});
   }
 
   findByMail(name: string): Observable<User> {

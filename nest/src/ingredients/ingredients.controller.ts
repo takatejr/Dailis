@@ -7,13 +7,13 @@ export class IngredientsController {
   constructor(private readonly ingredientsService: IngredientsService) { }
 
   @Get()
-  getHello(): Promise<Ingredients[]> {
+  getAllIngredients(): Promise<Ingredients[]> {
     return this.ingredientsService.findAll();
   }
 
   @Post()
-  async create(@Body() ingredients: Ingredients) {
-    await this.ingredientsService.create(ingredients);
+  async createIngredients(@Body() ingredients: Ingredients) {
+    this.ingredientsService.create(ingredients);
   }
 
-}
+} 

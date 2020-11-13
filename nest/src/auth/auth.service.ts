@@ -17,6 +17,7 @@ export class AuthService {
         return this.usersService.findOne(name).pipe(
             switchMap((user: User) => this.comparePasswords(pass, user.password).pipe(
                 map((match: boolean) => {
+                    console.log(match)
                     if(match) {
                         const {password, ...result} = user;
                         return result;
@@ -42,11 +43,13 @@ export class AuthService {
     // }
 
     login(body: User): Observable<any> {
-        // const payload = { name: user.name, password: user.password };
+        const payload = { name: body.name, password: body.password };
         return this.validateUser(body.name, body.password).pipe(
             switchMap((user: User) => {
-                if(body) {
-                    return this.jwtService.sign(user);
+                if(user) {
+                    const access_token = this.jwtService.sign(payload);
+                    console.log(access_token)
+                    return access_token;
                 } else {
                     return 'Wrong Credentials';
                 }

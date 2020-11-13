@@ -3,7 +3,7 @@ services:
 
   postgres:
     image: postgres:11.4
-    container_name: Angular-Nest-Postgres-TypeORM
+    container_name: Daylis
     ports:
       - "5432:5432"
     environment:

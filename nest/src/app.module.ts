@@ -10,8 +10,8 @@ import { Recipes } from './recipes/recipes.entity';
 import { DailyLists } from './daily-lists/daily.entity';
 import { AuthModule } from './auth/auth.module';
 import { UsersService } from './user/user.service';
-import { Ingredients } from './ingredients/daily-lists/ingredients.entity';
-import { IngredientsModule } from './ingredients/daily-lists/ingredients.module';
+import { Ingredients } from './ingredients/ingredients.entity';
+import { IngredientsModule } from './ingredients/ingredients.module';
 
 
 @Module({

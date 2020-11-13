@@ -2,7 +2,7 @@
   "name": "Dailis",
   "version": "0.1.0",
   "scripts": {
-    "dev:db": "cd nest && \"docker-compose up\"",
+    "dev:db": "cd nest && docker-compose up",
     "dev:client": "cd Angular && ng serve",
     "dev:server": "cd nest && nest start",
     "dev": "concurrently \"npm run dev:db\" \"npm run dev:server\" \"npm run dev:client\""
