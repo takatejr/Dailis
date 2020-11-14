@@ -14,15 +14,19 @@ export class DailyListsService {
     return this.repo.find();
   }
 
-  findOne(id: string): Promise<DailyLists> {
+  findOne(id: number): Promise<DailyLists> {
     return this.repo.findOne(id);
   }
 
-  async remove(id: string): Promise<void> {
+  async remove(id: number): Promise<void> {
     await this.repo.delete(id);
   }
 
   async create(dailyLists: DailyLists): Promise<any> {
     await this.repo.save(dailyLists);
+  }
+
+  async update(dailyLists: DailyLists) {
+    await this.repo.update(dailyLists, dailyLists)
   }
 }

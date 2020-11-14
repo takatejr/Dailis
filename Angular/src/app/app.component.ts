@@ -9,13 +9,13 @@ export class AppComponent implements OnInit{
   title = 'Dailis';
 
   ngOnInit(): void {
-    window.onscroll = function() {myFunction()};
+    window.onscroll = function() {stickyHeader()};
 
     let navbar = document.getElementById('navbar');
     let header = document.getElementById('header');
     let sticky = navbar.offsetTop;
 
-    function  myFunction() {
+   const stickyHeader = () => {
       if(window.pageYOffset > sticky){
         navbar.classList.add('sticky');
         header.classList.add('afterSticky');
