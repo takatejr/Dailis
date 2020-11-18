@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-type alterTitle ={
+export type alterTitle ={
   language: string,
   title: string
 }

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DailyLists } from '../../shared/daily-lists';
 import { DaylisIngredientsService } from '../../shared/services/daylis-ingredients.service';
 import { DaylisService } from './daylis.service';
+import { User } from 'src/app/shared/user';
 
 @Component({
   selector: 'app-daylis',
@@ -15,12 +16,23 @@ export class DaylisComponent implements OnInit, OnDestroy {
     private daylisIngredients: DaylisIngredientsService,
     private http: DaylisService) { }
 
+  dailyLists: Array<DailyLists> = []
+    rest;
 
   ngOnInit() {
-    this.http.getAllDailyLists().subscribe(e => console.log(e))
+    this.http.getAllDailyLists().subscribe(daily => {
+      daily.map((el: User) => {
+        const {ID_dailyLists, ...rest} = el;
+        this.dailyLists = ID_dailyLists;
+        this.rest = rest;
+      })
+    })
   }
 
   ngOnDestroy() {
+    const user = Object.assign(this.dailyLists, this.rest)
+    console.log(user)
+    console.log(this.dailyLists)
     this.http.updateUserDailyList();
   }
 
@@ -33,9 +45,6 @@ export class DaylisComponent implements OnInit, OnDestroy {
     }
     return countTrue
   }
-
-  dailyLists: Array<DailyLists> = []
-
 
   //   {
   //     id: 2,
