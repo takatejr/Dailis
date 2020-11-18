@@ -13,7 +13,6 @@
       <section class="add-btn">
         <button
           class="new-list"
-          [disabled]="nameOfNewList == ''"
           (click)="addNewDailyList(nameOfNewList)"
           [ngStyle]="{'cursor': nameOfNewList == '' ? 'not-allowed' : 'pointer'}"
         >

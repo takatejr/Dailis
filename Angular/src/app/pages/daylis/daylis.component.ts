@@ -62,15 +62,19 @@ export class DaylisComponent implements OnInit, OnDestroy {
   //       },
   //     ]
   //   },
-  
+
   addNewDailyList = (titleOfList) => {
-    let lastId = Number(this.http.getLastId)
-    this.dailyLists.push({
-      id: lastId++,
-      title: titleOfList,
-      ingredients: []
-    });
-    this.nameOfNewList = '';
+    if (this.nameOfNewList == "") {
+      alert('Add name of list')
+    } else {
+      let lastId = Number(this.http.getLastId)
+      this.dailyLists.push({
+        id: lastId++,
+        title: titleOfList,
+        ingredients: []
+      });
+      this.nameOfNewList = '';
+    }
   };
 
 

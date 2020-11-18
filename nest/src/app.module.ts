@@ -23,7 +23,7 @@ import { IngredientsModule } from './ingredients/ingredients.module';
     password: 'test',
     database: 'test',
     entities: [User, Recipes, DailyLists, Ingredients],
-    synchronize: false,
+    synchronize: true,
   }), UsersModule, RecipesModule, DailyListsModule, AuthModule, IngredientsModule],
   controllers: [AppController],
   providers: [AppService, UsersService],
