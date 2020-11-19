@@ -1,4 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Ingredients } from '../ingredients/ingredients.entity';
 
 @Entity()
 export class DailyLists {
@@ -8,6 +9,6 @@ export class DailyLists {
   @Column('varchar')
   title: string;
 
-  @Column('varchar')
-  ingredients: number;
+  @Column('json')
+  ingredients: Ingredients;
 }

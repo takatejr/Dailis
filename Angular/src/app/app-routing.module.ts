@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorComponent } from './core/error/error.component';
 import { LoginComponent } from './pages/login/login.component';
-import { SingupComponent } from './pages/login/singup/singup.component';
+import { SingupComponent as SignupComponent } from './pages/login/singup/singup.component';
 import { DaylisComponent } from './pages/daylis/daylis.component';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CookbookComponent } from './pages/cookbook/cookbook.component';
@@ -13,8 +13,8 @@ const routes: Routes = [
     component: LoginComponent,
     children: [
       {
-        path: 'singup',
-        component: SingupComponent,
+        path: 'signup',
+        component: SignupComponent,
       }
     ],
   },

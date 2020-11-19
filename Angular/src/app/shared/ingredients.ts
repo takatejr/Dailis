@@ -3,6 +3,7 @@ export type alterTitle ={
   title: string
 }
 export interface Ingredients {
+  id?: number;
   titleOfProduct: string;
   bought: boolean;
   quantity: number;

@@ -18,6 +18,10 @@ export class DailyListsService {
     return this.repo.findOne(id);
   }
 
+  async findLastID(): Promise<number> {
+    return await this.repo.find().then(e => e.length);
+  }
+
   async remove(id: number): Promise<void> {
     await this.repo.delete(id);
   }

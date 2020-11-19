@@ -5,8 +5,9 @@
         *ngFor="let daily of dailyLists; let i = index"
         class="daily-btn"
         routerLink="{{ daily.id }}"
-        (click)="showDetailsOfDaylis(daily.ingredients)"
+
       >
+      <!-- (click)="showDetailsOfDaylis(daily.ingredients)" -->
         <div class="c">{{ daily.title }}</div>
         <div class="r">{{ countBoughtIngredients(i) }}/{{ daily.ingredients.length }}</div>
       </a>

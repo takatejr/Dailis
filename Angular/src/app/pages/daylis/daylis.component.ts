@@ -16,24 +16,23 @@ export class DaylisComponent implements OnInit, OnDestroy {
     private daylisIngredients: DaylisIngredientsService,
     private http: DaylisService) { }
 
-  dailyLists: Array<DailyLists> = []
-    rest;
+  dailyLists: Array<DailyLists> = [];
+  lastID: number;
+
 
   ngOnInit() {
-    this.http.getAllDailyLists().subscribe(daily => {
-      daily.map((el: User) => {
-        const {ID_dailyLists, ...rest} = el;
-        this.dailyLists = ID_dailyLists;
-        this.rest = rest;
-      })
-    })
+    // this.http.getAllDailyLists().subscribe(daily => {
+    //   daily.map((el: DailyLists) => {
+    //     el.id
+    //   })
+    // })
+
+    this.http.getAllDailyLists().subscribe(data => this.dailyLists = data)
+    this.http.getLastId().subscribe(e => this.lastID = e)
   }
 
   ngOnDestroy() {
-    const user = Object.assign(this.dailyLists, this.rest)
-    console.log(user)
-    console.log(this.dailyLists)
-    this.http.updateUserDailyList();
+    this.http.updateUserDailyList(this.dailyLists[0].title).subscribe(e => console.log(e))
   }
 
   nameOfNewList = "";
@@ -46,39 +45,12 @@ export class DaylisComponent implements OnInit, OnDestroy {
     return countTrue
   }
 
-  //   {
-  //     id: 2,
-  //     title: 'Dieta sr',
-  //     ingredients: [
-  //       {
-  //         titleOfProduct: 'apple',
-  //         bought: true,
-  //         quantity: 2,
-  //         unit: 'szt',
-  //         from: 'zewsząd'
-  //       },
-  //       {
-  //         titleOfProduct: 'orange',
-  //         bought: false,
-  //         quantity: 2,
-  //         unit: 'szt',
-  //       },
-  //       {
-  //         titleOfProduct: 'juice',
-  //         bought: false,
-  //         quantity: 1,
-  //         unit: 'bottle',
-  //       },
-  //     ]
-  //   },
-
-  addNewDailyList = (titleOfList) => {
+  addNewDailyList = (titleOfList: string) => {
     if (this.nameOfNewList == "") {
       alert('Add name of list')
     } else {
-      let lastId = Number(this.http.getLastId)
       this.dailyLists.push({
-        id: lastId++,
+        id: ++this.lastID,
         title: titleOfList,
         ingredients: []
       });
@@ -87,9 +59,9 @@ export class DaylisComponent implements OnInit, OnDestroy {
   };
 
 
-  showDetailsOfDaylis(e) {
-    this.daylisIngredients.showDetailsOfDaylis(e);
-  }
+  // showDetailsOfDaylis(e) {
+  //   this.daylisIngredients.showDetailsOfDaylis(e);
+  // }
 
 
 

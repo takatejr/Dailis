@@ -16,7 +16,7 @@ export class DaylisDetailsComponent implements AfterViewInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private daylisIngredients: DaylisIngredientsService) {
-    daylisIngredients.ingredients$.subscribe(ingredients => this.ingredients = ingredients);
+    // daylisIngredients.ingredients$.subscribe(ingredients => this.ingredients = ingredients);
   }
 
   toggleEditDetails(e) {

@@ -1,6 +1,12 @@
 @import "core/variables";
 @import "core/reset.scss";
 
+#theme {
+  background-color: rgb(255, 194, 22);
+  max-height: max-content;
+  min-height: 98vh;
+}
+
 #title, #navbar {
   @include height(8vh);
   @include width(100%);

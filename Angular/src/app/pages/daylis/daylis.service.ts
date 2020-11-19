@@ -1,9 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of} from 'rxjs';
 import { User } from '../../shared/user';
-import { catchError, tap } from 'rxjs/operators';
+import { tap} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { settingAPI } from 'src/app/shared/services/ApiKey';
+import { DailyLists } from 'src/app/shared/daily-lists';
+
 
 @Injectable({
     providedIn: 'root'
@@ -19,19 +21,12 @@ export class DaylisService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    getAllDailyLists(): Observable<User[]> {
-        return this.http.get<User[]>(`${this.API_URL}` + `user`)
-            .pipe(
-                tap(_ => console.log('fetched users')),
-                // catchError(this.handleError<User[]>('getusers', []))
-            );
+    getAllDailyLists(): Observable<DailyLists[]> {
+        return this.http.get<DailyLists[]>(`${this.API_URL}` + `daily-lists`)
     }
 
     getLastId(): Observable<number> {
-        return this.http.get<number>(`${this.API_URL}` + `daily-lists`)
-            .pipe(
-                tap(e => e),
-            )
+       return this.http.get<number>(`${this.API_URL}` + `daily-lists/lastid`)
     }
 
     getUserById(id: number): Observable<User> {
@@ -43,12 +38,11 @@ export class DaylisService {
             );
     }
 
-    updateUserDailyList(user: User = this.useroff): Observable<any> {
-        return this.http.put(this.API_URL, user, this.httpOptions)
-            .pipe(
-                tap(_ => console.log(`updated user id=${user.id}`)),
-                // catchError(this.handleError<any>('not updated User'))
-            );
+    updateUserDailyList(dailyLists): Observable<any> {
+        console.log('ee')
+        console.log(dailyLists)
+        // const a = JSON.parse(dailyLists)
+        return this.http.put('http://localhost:3000/daily-lists/', dailyLists, this.httpOptions)
     }
 
     private handleError<T>(operation = 'operation', result?: T) {
