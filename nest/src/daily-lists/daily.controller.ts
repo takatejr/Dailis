@@ -16,9 +16,8 @@ export class DailyListsController {
     await this.dailyListsService.create(dailyLists);
   }
 
-  @Put('/:id')
-  async update(@Body() dailyLists: DailyLists, @Param('id') id: number){
-    console.log(id)
+  @Put()
+  async update(@Body() dailyLists: DailyLists[]){
     await this.dailyListsService.update(dailyLists)
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { getRepository} from 'typeorm';
+import { getRepository } from 'typeorm';
 import { DailyLists } from './daily.entity';
 
 @Injectable()
@@ -27,10 +27,19 @@ export class DailyListsService {
   }
 
   async create(dailyLists: DailyLists): Promise<any> {
+    console.log(`created ${dailyLists}`)
     await this.repo.save(dailyLists);
   }
 
-  async update(dailyLists: DailyLists) {
-    await this.repo.update(dailyLists, dailyLists)
+  async update(dailyLists: DailyLists[]) {
+    for (const daily of dailyLists) {
+      // console.log(daily)
+      const updatex = await this.repo.findOne(daily.id);
+      // console.log(updatex)
+      updatex.ingredients = daily?.ingredients;
+      updatex.title = daily?.title;
+      await this.repo.save(updatex)
+    }
+
   }
 }

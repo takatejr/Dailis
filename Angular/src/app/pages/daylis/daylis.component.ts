@@ -3,6 +3,7 @@ import { DailyLists } from '../../shared/daily-lists';
 import { DaylisIngredientsService } from '../../shared/services/daylis-ingredients.service';
 import { DaylisService } from './daylis.service';
 import { User } from 'src/app/shared/user';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-daylis',
@@ -19,20 +20,16 @@ export class DaylisComponent implements OnInit, OnDestroy {
   dailyLists: Array<DailyLists> = [];
   lastID: number;
 
+  getLastID = () => this.http.getLastId().subscribe(e => this.lastID = e)
+  getAllDailyLists = () => this.http.getAllDailyLists().subscribe(data => this.dailyLists = data)
 
-  ngOnInit() {
-    // this.http.getAllDailyLists().subscribe(daily => {
-    //   daily.map((el: DailyLists) => {
-    //     el.id
-    //   })
-    // })
-
-    this.http.getAllDailyLists().subscribe(data => this.dailyLists = data)
-    this.http.getLastId().subscribe(e => this.lastID = e)
+  ngOnInit():void {
+this.getAllDailyLists();
   }
 
-  ngOnDestroy() {
-    this.http.updateUserDailyList(this.dailyLists[0].title).subscribe(e => console.log(e))
+  ngOnDestroy(): void {
+    this.getAllDailyLists().unsubscribe()
+    this.http.updateUserDailyList(this.dailyLists).subscribe(e => e)
   }
 
   nameOfNewList = "";
@@ -49,11 +46,21 @@ export class DaylisComponent implements OnInit, OnDestroy {
     if (this.nameOfNewList == "") {
       alert('Add name of list')
     } else {
-      this.dailyLists.push({
-        id: ++this.lastID,
+      let n = Number(this.getLastID());
+      const daily = {
+        id: ++n,
         title: titleOfList,
         ingredients: []
-      });
+      }
+      this.http.createDailyList(daily)
+      // this.dailyLists.push({
+      //   id: ++this.lastID,
+      //   title: titleOfList,
+      //   ingredients: []
+      // });
+      this.getAllDailyLists().unsubscribe();
+      this.getAllDailyLists();
+      this.getLastID().unsubscribe()
       this.nameOfNewList = '';
     }
   };

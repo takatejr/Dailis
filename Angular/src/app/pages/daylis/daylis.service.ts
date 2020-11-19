@@ -38,10 +38,11 @@ export class DaylisService {
             );
     }
 
+    createDailyList(dailyList: DailyLists): Observable<DailyLists> {
+        return this.http.post<DailyLists>('http://localhost:3000/daily-lists/', dailyList, this.httpOptions)
+    }
+
     updateUserDailyList(dailyLists): Observable<any> {
-        console.log('ee')
-        console.log(dailyLists)
-        // const a = JSON.parse(dailyLists)
         return this.http.put('http://localhost:3000/daily-lists/', dailyLists, this.httpOptions)
     }
 
