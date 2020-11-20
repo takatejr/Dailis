@@ -28,8 +28,8 @@ this.getAllDailyLists();
   }
 
   ngOnDestroy(): void {
-    this.getAllDailyLists().unsubscribe()
-    this.http.updateUserDailyList(this.dailyLists).subscribe(e => e)
+    this.getAllDailyLists().unsubscribe();
+    this.getLastID().unsubscribe();
   }
 
   nameOfNewList = "";
@@ -53,14 +53,7 @@ this.getAllDailyLists();
         ingredients: []
       }
       this.http.createDailyList(daily)
-      // this.dailyLists.push({
-      //   id: ++this.lastID,
-      //   title: titleOfList,
-      //   ingredients: []
-      // });
-      this.getAllDailyLists().unsubscribe();
-      this.getAllDailyLists();
-      this.getLastID().unsubscribe()
+      this.dailyLists.push(daily)
       this.nameOfNewList = '';
     }
   };
