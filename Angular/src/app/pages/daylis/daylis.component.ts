@@ -28,8 +28,6 @@ this.getAllDailyLists();
   }
 
   ngOnDestroy(): void {
-    this.getAllDailyLists().unsubscribe();
-    this.getLastID().unsubscribe();
   }
 
   nameOfNewList = "";
