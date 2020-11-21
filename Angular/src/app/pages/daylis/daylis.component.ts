@@ -4,6 +4,7 @@ import { DaylisIngredientsService } from '../../shared/services/daylis-ingredien
 import { DaylisService } from './daylis.service';
 import { User } from 'src/app/shared/user';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-daylis',
@@ -19,18 +20,21 @@ export class DaylisComponent implements OnInit, OnDestroy {
 
   dailyLists: Array<DailyLists> = [];
   lastID: number;
+  nameOfNewList = "";
 
-  getLastID = () => this.http.getLastId().subscribe(e => this.lastID = e)
+  getLastID = () => this.http.getLastId()
+    .pipe(
+      tap(e => this.lastID = e)
+    )
   getAllDailyLists = () => this.http.getAllDailyLists().subscribe(data => this.dailyLists = data)
 
-  ngOnInit():void {
-this.getAllDailyLists();
+  ngOnInit(): void {
+    this.getAllDailyLists();
   }
 
   ngOnDestroy(): void {
   }
 
-  nameOfNewList = "";
 
   countBoughtIngredients(i: number): number {
     let countTrue = 0;
