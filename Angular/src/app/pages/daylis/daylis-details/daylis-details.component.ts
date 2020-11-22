@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DaylisIngredientsService } from "../../../shared/services/daylis-ingredients.service";
 
@@ -7,7 +7,7 @@ import { DaylisIngredientsService } from "../../../shared/services/daylis-ingred
   templateUrl: './daylis-details.component.html',
   styleUrls: ['./daylis-details.component.scss']
 })
-export class DaylisDetailsComponent implements AfterViewInit {
+export class DaylisDetailsComponent implements AfterViewInit, OnInit {
 
   ingredients: any = [];
   EDIT_DETAILS: number[] = [];
@@ -16,7 +16,10 @@ export class DaylisDetailsComponent implements AfterViewInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private daylisIngredients: DaylisIngredientsService) {
-    // daylisIngredients.ingredients$.subscribe(ingredients => this.ingredients = ingredients);
+    daylisIngredients.ingredients$.subscribe(ingredients => this.ingredients = ingredients);
+  }
+
+  ngOnInit() {
   }
 
   toggleEditDetails(e) {
@@ -94,11 +97,11 @@ export class DaylisDetailsComponent implements AfterViewInit {
       console.log("Wersja na desktopy");
 
       const currentPosition = event.clientX;
-      event.target.style.left = (currentPosition - event.view.innerWidth / 2) / 75 + '%'; // hardcoded for UI
+      event.target.style.left = (currentPosition - event.view.innerWidth / 2) / 50 + '%'; // hardcoded for UI
       // console.log(event.target.style.left)
     } else {
-      // console.log("Wersja mobilna");
-      console.log(event)
+      console.log("Wersja mobilna");
+      // console.log(event)
       const currentPosition = event.touches[0].pageX;
 
       event.target.style.left = (currentPosition - 150) / 10 + '%'; // hardcoded for UI

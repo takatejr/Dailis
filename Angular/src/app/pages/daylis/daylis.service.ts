@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of} from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { User } from '../../shared/user';
-import { tap} from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { settingAPI } from 'src/app/shared/services/ApiKey';
 import { DailyLists } from 'src/app/shared/daily-lists';
@@ -9,7 +9,7 @@ import { DailyLists } from 'src/app/shared/daily-lists';
 
 @Injectable({
     providedIn: 'root'
-  })
+})
 export class DaylisService {
     constructor(private http: HttpClient) { }
 
@@ -22,11 +22,13 @@ export class DaylisService {
     };
 
     getAllDailyLists(): Observable<DailyLists[]> {
-        return this.http.get<DailyLists[]>(`${this.API_URL}` + `daily-lists`)
+        const url = `${this.API_URL}` + `daily-lists`
+        return this.http.get<DailyLists[]>(url)
     }
 
     getLastId(): Observable<number> {
-       return this.http.get<number>(`${this.API_URL}` + `daily-lists/lastid`)
+        const url = `${this.API_URL}` + `daily-lists/lastid`
+        return this.http.get<number>(url)
     }
 
     getUserById(id: number): Observable<User> {
@@ -39,11 +41,15 @@ export class DaylisService {
     }
 
     createDailyList(dailyList: DailyLists): Observable<DailyLists> {
-        return this.http.post<DailyLists>('http://localhost:3000/daily-lists/', dailyList, this.httpOptions)
+        console.log(dailyList)
+        const url = `${this.API_URL}` + `daily-lists`
+        return this.http.post<DailyLists>(url, dailyList, this.httpOptions).pipe(
+            catchError(this.handleError('create Daily List', dailyList))
+        );
     }
 
-    updateUserDailyList(dailyLists): Observable<any> {
-        return this.http.put('http://localhost:3000/daily-lists/', dailyLists, this.httpOptions)
+    updateUserDailyList(dailyLists: DailyLists[]): Observable<any> {
+        return this.http.put(`${this.API_URL}` + `daily-lists`, dailyLists, this.httpOptions)
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

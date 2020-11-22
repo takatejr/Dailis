@@ -4,9 +4,7 @@
       *ngFor="let ing of ingredients; let i = index"
       id="{{ i }}"
       class="container"
-      [style.backgroundColor]="
-        ing.bought == true ? 'rgba(255,109,60,0.72)' : '#dedede'
-      "
+      [style.backgroundColor]="ing.bought == true ? 'rgba(255,109,60,0.72)' : '#dedede'"
       (click)="ing.bought = !ing.bought"
     >
       <div class="icon">icon {{ i }}</div>

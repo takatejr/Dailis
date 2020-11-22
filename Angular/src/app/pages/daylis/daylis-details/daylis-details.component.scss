@@ -10,10 +10,10 @@ main {
 
 .products {
   @include height(56vh);
-  overflow: auto;
+  max-width: 100%;
   box-shadow: #1c3a50 1px 1px;
-  overflow-x: none;
-  overflow: none;
+  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .container {

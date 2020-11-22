@@ -32,10 +32,9 @@ export class DailyListsService {
   }
 
   async update(dailyLists: DailyLists[]) {
+    console.log(dailyLists)
     for (const daily of dailyLists) {
-      // console.log(daily)
       const updatex = await this.repo.findOne(daily.id);
-      // console.log(updatex)
       updatex.ingredients = daily?.ingredients;
       updatex.title = daily?.title;
       await this.repo.save(updatex)

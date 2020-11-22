@@ -9,6 +9,6 @@ export class DailyLists {
   @Column('varchar')
   title: string;
 
-  @Column('varchar')
+  @Column('json')
   ingredients: Ingredients;
 }

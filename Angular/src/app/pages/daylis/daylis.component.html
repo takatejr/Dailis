@@ -5,20 +5,14 @@
         *ngFor="let daily of dailyLists; let i = index"
         class="daily-btn"
         routerLink="{{ daily.id }}"
-
+        (click)="showDetailsOfDaylis(daily.ingredients)"
       >
-      <!-- (click)="showDetailsOfDaylis(daily.ingredients)" -->
         <div class="c">{{ daily.title }}</div>
-        <div class="r">{{ countBoughtIngredients(i) }}/{{ daily.ingredients.length }}</div>
+        <div class="r">
+          {{ countBoughtIngredients(i) }}/{{ daily.ingredients.length }}
+        </div>
       </a>
-      <section class="add-btn">
-        <button
-          class="new-list"
-          (click)="addNewDailyList(nameOfNewList)"
-          [ngStyle]="{'cursor': nameOfNewList == '' ? 'not-allowed' : 'pointer'}"
-        >
-          +
-        </button>         
+      <section class="new-list">
         <label for="new-daily-list-name"
           >Name of list:
           <input
@@ -26,6 +20,15 @@
             [(ngModel)]="nameOfNewList"
             autocomplete="off"
         /></label>
+        <button
+          class="add-btn"
+          (click)="addNewDailyList(nameOfNewList)"
+          [ngStyle]="{
+            cursor: nameOfNewList == '' ? 'not-allowed' : 'pointer'
+          }"
+        >
+          +
+        </button>
       </section>
     </div>
   </div>

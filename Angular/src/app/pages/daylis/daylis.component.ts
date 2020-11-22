@@ -2,9 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DailyLists } from '../../shared/daily-lists';
 import { DaylisIngredientsService } from '../../shared/services/daylis-ingredients.service';
 import { DaylisService } from './daylis.service';
-import { User } from 'src/app/shared/user';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-daylis',
@@ -19,20 +16,19 @@ export class DaylisComponent implements OnInit, OnDestroy {
     private http: DaylisService) { }
 
   dailyLists: Array<DailyLists> = [];
-  lastID: number;
+  lastID: number = 0;
   nameOfNewList = "";
 
-  getLastID = () => this.http.getLastId()
-    .pipe(
-      tap(e => this.lastID = e)
-    )
+  getLastID = () => this.http.getLastId().subscribe(e => this.lastID = e)
   getAllDailyLists = () => this.http.getAllDailyLists().subscribe(data => this.dailyLists = data)
 
   ngOnInit(): void {
+    this.getLastID();
     this.getAllDailyLists();
   }
 
   ngOnDestroy(): void {
+    console.log(this.dailyLists)
   }
 
 
@@ -46,24 +42,40 @@ export class DaylisComponent implements OnInit, OnDestroy {
 
   addNewDailyList = (titleOfList: string) => {
     if (this.nameOfNewList == "") {
-      alert('Add name of list')
+      alert('Add name of new list')
     } else {
-      let n = Number(this.getLastID());
-      const daily = {
-        id: ++n,
+      this.getLastID()
+      const daily: DailyLists =
+      {
+        id: ++this.lastID,
         title: titleOfList,
-        ingredients: []
+        ingredients: 
+        [{
+          id: 13,
+          titleOfProduct: 'hehe',
+          bought: true,
+          quantity: 3,
+          unit: 'kg',
+        },
+        {
+          id: 13,
+          titleOfProduct: 'hehe',
+          bought: false,
+          quantity: 3,
+          unit: 'kg',
+        }]
       }
-      this.http.createDailyList(daily)
+      console.log(this.dailyLists)
+      this.http.createDailyList(daily).subscribe(daily => daily)
       this.dailyLists.push(daily)
       this.nameOfNewList = '';
     }
   };
 
 
-  // showDetailsOfDaylis(e) {
-  //   this.daylisIngredients.showDetailsOfDaylis(e);
-  // }
+  showDetailsOfDaylis(e) {
+    this.daylisIngredients.showDetailsOfDaylis(e);
+  }
 
 
 

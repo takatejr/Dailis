@@ -48,30 +48,15 @@ main {
   }
 }
 
-.add-btn {
-  font-weight: 900;
-  font-size: xx-large;
-  color: dimgray;
-  justify-content: center;
-  display: flex;
+button.add-btn {
+  width: 20%;
+  height: 60px;
+  margin: 5% 40%;
 }
+  // &:hover {
+  //   background-color: #faa4cf;
+  //   animation: ease-in-out;
+  //   transition-duration: 0.2s;
+  //   cursor: pointer;
+  // }
 
-.new-list {
-  margin: 4vh 2vh;
-  display: block;
-  text-align: center;
-  justify-content: right;
-  background-color: #ff7d64;
-  border-radius: 100%;
-  width: 50px;
-  height: 50px;
-  border: white 2px solid;
-  font-size: 1.5rem;
-
-  &:hover {
-    background-color: #faa4cf;
-    animation: ease-in-out;
-    transition-duration: 0.2s;
-    cursor: pointer;
-  }
-}

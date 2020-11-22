@@ -1,7 +1,7 @@
 import { Ingredients } from './ingredients';
 
 export interface DailyLists {
-  id: number;
+  id?: number;
   title: string;
   ingredients?: Ingredients[];
 }

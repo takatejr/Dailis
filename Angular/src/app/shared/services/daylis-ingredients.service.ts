@@ -8,13 +8,13 @@ import {Ingredients} from "../ingredients";
 export class DaylisIngredientsService {
   private value: any;
 
-  // private ingredients = new BehaviorSubject(this.value);
+  private ingredients = new BehaviorSubject(this.value);
 
-  // ingredients$ = this.ingredients.asObservable();
+  ingredients$ = this.ingredients.asObservable();
 
-  // showDetailsOfDaylis(ingredients: Ingredients) {
-  //   this.ingredients.next(ingredients);
-  // }
+  showDetailsOfDaylis(ingredients: Ingredients) {
+    this.ingredients.next(ingredients);
+  }
 
   constructor() { }
 }

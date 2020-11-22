@@ -13,6 +13,7 @@ export class DailyListsController {
 
   @Post()
   async create(@Body() dailyLists: DailyLists) {
+    console.log(dailyLists)
     await this.dailyListsService.create(dailyLists);
   }
 
