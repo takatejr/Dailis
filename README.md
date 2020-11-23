@@ -1,6 +1,6 @@
 # Dailis
 
-App for daily shopping like listonic
+App like listonic, in future like Saas
 
 Stack:
 
@@ -13,7 +13,7 @@ Stack:
 1. How to run?
 
     Install and run docker (you have to use docker-compose)
-    .then(
+    .then(() =>
         npm run dev
     )
 
