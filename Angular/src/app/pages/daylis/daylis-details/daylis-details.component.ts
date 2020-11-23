@@ -20,6 +20,7 @@ export class DaylisDetailsComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit() {
+    setTimeout(() => this.ingredients == undefined ? this.router.navigate(['/']) : null, 50)
   }
 
   toggleEditDetails(e) {
@@ -55,6 +56,7 @@ export class DaylisDetailsComponent implements AfterViewInit, OnInit {
   }
 
   containers = document.querySelectorAll('.container');
+
   ngAfterViewInit() {
     const containers = document.querySelectorAll('.container');
     containers.forEach((container) => {
