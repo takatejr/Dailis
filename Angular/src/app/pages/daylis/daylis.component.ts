@@ -10,17 +10,9 @@ import { DaylisService } from './daylis.service';
   providers: [DaylisService]
 })
 export class DaylisComponent implements OnInit, OnDestroy {
-
   constructor(
     private daylisIngredients: DaylisIngredientsService,
     private http: DaylisService) { }
-
-  dailyLists: Array<DailyLists> = [];
-  lastID: number = 0;
-  nameOfNewList = "";
-
-  getLastID = () => this.http.getLastId().subscribe(e => this.lastID = e)
-  getAllDailyLists = () => this.http.getAllDailyLists().subscribe(data => this.dailyLists = data)
 
   ngOnInit(): void {
     this.getLastID();
@@ -31,6 +23,18 @@ export class DaylisComponent implements OnInit, OnDestroy {
     console.log(this.dailyLists)
   }
 
+  dailyLists: Array<DailyLists> = [];
+  lastID: number = 0;
+  nameOfNewList = "";
+  dailyView: boolean = false
+
+  getLastID = () => this.http.getLastId().subscribe(e => this.lastID = e)
+
+  getAllDailyLists = () => this.http.getAllDailyLists().subscribe(data => this.dailyLists = data)
+
+  toggleDaylisDetails = () => this.dailyView = !this.dailyView
+
+  showDetailsOfDaylis = (e) => this.daylisIngredients.showDetailsOfDaylis(e)
 
   countBoughtIngredients(i: number): number {
     let countTrue = 0;
@@ -49,21 +53,23 @@ export class DaylisComponent implements OnInit, OnDestroy {
       {
         id: ++this.lastID,
         title: titleOfList,
-        ingredients: 
-        [{
-          id: 13,
-          titleOfProduct: 'hehe',
-          bought: true,
-          quantity: 3,
-          unit: 'kg',
-        },
-        {
-          id: 13,
-          titleOfProduct: 'hehe',
-          bought: false,
-          quantity: 3,
-          unit: 'kg',
-        }]
+        ingredients:
+          [
+            //   {
+            //   id: 13,
+            //   titleOfProduct: 'hehe',
+            //   bought: true,
+            //   quantity: 3,
+            //   unit: 'kg',
+            // },
+            // {
+            //   id: 13,
+            //   titleOfProduct: 'hehe',
+            //   bought: false,
+            //   quantity: 3,
+            //   unit: 'kg',
+            // }
+          ]
       }
       console.log(this.dailyLists)
       this.http.createDailyList(daily).subscribe(daily => daily)
@@ -71,12 +77,4 @@ export class DaylisComponent implements OnInit, OnDestroy {
       this.nameOfNewList = '';
     }
   };
-
-
-  showDetailsOfDaylis(e) {
-    this.daylisIngredients.showDetailsOfDaylis(e);
-  }
-
-
-
 }

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit, Output, EventEmitter, OnChanges, Input } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DaylisIngredientsService } from "../../../shared/services/daylis-ingredients.service";
 
@@ -8,11 +8,6 @@ import { DaylisIngredientsService } from "../../../shared/services/daylis-ingred
   styleUrls: ['./daylis-details.component.scss']
 })
 export class DaylisDetailsComponent implements AfterViewInit, OnInit {
-
-  ingredients: any = [];
-  EDIT_DETAILS: number[] = [];
-  indexForDeleteIngredient: number;
-
   constructor(private route: ActivatedRoute,
     private router: Router,
     private daylisIngredients: DaylisIngredientsService) {
@@ -20,8 +15,23 @@ export class DaylisDetailsComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => this.ingredients == undefined ? this.router.navigate(['/']) : null, 50)
   }
+
+
+  ingredients: any = [];
+  EDIT_DETAILS: number[] = [];
+
+  @Output() handleDailyViewOutput = new EventEmitter();
+
+
+
+  handleDailyViewer = () => this.handleDailyViewOutput.emit()
+
+  addIngredient = () => this.ingredients.push({ titleOfProduct: "", bought: false, quantity: null, unit: "" })
+
+  deleteIngredients = (i) => this.ingredients.splice(i, 1)
+
+  containers = document.querySelectorAll('.container');
 
   toggleEditDetails(e) {
     if (!this.EDIT_DETAILS.includes(e)) {
@@ -40,13 +50,6 @@ export class DaylisDetailsComponent implements AfterViewInit, OnInit {
     this.toggleEditDetails(index)
   }
 
-  addIngredient() {
-    this.ingredients.push({ titleOfProduct: "", bought: false, quantity: null, unit: "" })
-  }
-
-  deleteIngredients(i) {
-    this.ingredients.splice(i, 1)
-  }
 
   pressEnterToAccept() {
     const divs = document.querySelectorAll('div');
@@ -55,7 +58,6 @@ export class DaylisDetailsComponent implements AfterViewInit, OnInit {
     })
   }
 
-  containers = document.querySelectorAll('.container');
 
   ngAfterViewInit() {
     const containers = document.querySelectorAll('.container');

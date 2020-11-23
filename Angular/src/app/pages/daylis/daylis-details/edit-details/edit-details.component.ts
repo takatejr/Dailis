@@ -8,7 +8,7 @@ import { Ingredients } from "../../../../shared/ingredients";
 })
 export class EditDetailsComponent implements OnChanges, OnInit {
 
-  @Input() index: Int8Array;
+  @Input() index: number;
   @Input() ingredientsDetails;
   @Output() changedIngredientsDetails = new EventEmitter();
 
@@ -20,12 +20,12 @@ export class EditDetailsComponent implements OnChanges, OnInit {
     this.updateDetails()
   }
 
-ngOnInit(): void {
-  let divs = document.querySelectorAll('div');
-  divs.forEach(div => {
-    div.addEventListener('keyup', (event) => event.key == 'Enter' ? this.emitChangedIngredients() : null)
-  })
-}
+  ngOnInit(): void {
+    let divs = document.querySelectorAll('div');
+    divs.forEach(div => {
+      div.addEventListener('keyup', (event) => event.key == 'Enter' ? this.emitChangedIngredients() : null)
+    })
+  }
 
   emitChangedIngredients() {
     this.changedIngredientsDetails.emit([this.index, this.titles, this.quantities, this.units]);
