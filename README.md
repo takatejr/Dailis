@@ -1,6 +1,6 @@
 # Dailis
 
-App like listonic, in future like Saas
+App like listonic, in future Saas model
 
 Stack:
 
