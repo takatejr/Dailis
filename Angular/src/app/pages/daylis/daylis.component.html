@@ -1,5 +1,5 @@
 <main>
-  <div class="daily-background" *ngIf="!dailyView">
+  <div class="daily-background" *ngIf="!dailyView" [@swapp]="!dailyView ? 'swapp' : false">
     <div class="daily-lists">
       <a
       [@swap]="!dailyView ? 'swap' : 'swap'"

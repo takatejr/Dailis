@@ -37,6 +37,21 @@ import { DaylisService } from './daylis.service';
         animate(300)
       ])
 
+    ]),
+
+    trigger('swapp', [
+      transition('* => *', [
+        query('.daily-btn, section', [
+          style({
+            opacity: 0,
+            height: 0
+          }),
+          stagger(100, [
+            animate('0.5s ease')
+          ])
+        ],
+        {optional: true})
+      ])
     ])
   ]
 })
