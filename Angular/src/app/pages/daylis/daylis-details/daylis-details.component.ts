@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, AfterViewInit, OnInit, Output, EventEmitter, OnChanges, Input } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { DaylisIngredientsService } from "../../../shared/services/daylis-ingredients.service";
@@ -5,7 +6,37 @@ import { DaylisIngredientsService } from "../../../shared/services/daylis-ingred
 @Component({
   selector: 'app-daylis-details',
   templateUrl: './daylis-details.component.html',
-  styleUrls: ['./daylis-details.component.scss']
+  styleUrls: ['./daylis-details.component.scss'],
+  animations: [
+    trigger('swap',
+     [
+      // Enter Animation
+      transition('* => *', [
+        // initial 
+        style({
+          height: 10,
+          opacity: 0.05,
+          transform: 'scale(1.85)',
+          paddingTop: 0,
+          paddingBottom: 0,
+          paddingRight: 0,
+          paddingLeft: 0,
+        }),
+
+        //
+
+        animate('500ms', style({
+          height: '*',
+          paddingTop: '*',
+          paddingBottom: '*',
+          paddingRight: '*',
+          paddingLeft: '*',
+        })),
+        animate(100)
+      ])
+
+    ])
+  ]
 })
 export class DaylisDetailsComponent implements AfterViewInit, OnInit {
   constructor(private route: ActivatedRoute,

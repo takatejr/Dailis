@@ -1,3 +1,4 @@
+import { animate, animation, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DailyLists } from '../../shared/daily-lists';
 import { DaylisIngredientsService } from '../../shared/services/daylis-ingredients.service';
@@ -7,12 +8,43 @@ import { DaylisService } from './daylis.service';
   selector: 'app-daylis',
   templateUrl: './daylis.component.html',
   styleUrls: ['./daylis.component.scss'],
-  providers: [DaylisService]
+  providers: [DaylisService],
+  animations: [
+    trigger('swap',
+     [
+      // Enter Animation
+      transition('* => *', [
+        // initial 
+        style({
+          height: 10,
+          opacity: 0,
+          transform: 'scale(0.65)',
+          paddingTop: 0,
+          paddingBottom: 0,
+          paddingRight: 0,
+          paddingLeft: 0,
+        }),
+
+        //
+
+        animate('500ms', style({
+          height: '*',
+          paddingTop: '*',
+          paddingBottom: '*',
+          paddingRight: '*',
+          paddingLeft: '*',
+        })),
+        animate(300)
+      ])
+
+    ])
+  ]
 })
 export class DaylisComponent implements OnInit, OnDestroy {
   constructor(
     private daylisIngredients: DaylisIngredientsService,
-    private http: DaylisService) { }
+    private http: DaylisService,
+    ) { }
 
   ngOnInit(): void {
     this.getLastID();

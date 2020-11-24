@@ -1,7 +1,8 @@
 <main>
   <div class="daily-background" *ngIf="!dailyView">
     <div class="daily-lists">
-      <button
+      <a
+      [@swap]="!dailyView ? 'swap' : 'swap'"
         *ngFor="let daily of dailyLists; let i = index"
         class="daily-btn"
         (click)="showDetailsOfDaylis(daily.ingredients); toggleDaylisDetails()"
@@ -10,7 +11,7 @@
         <div class="r">
           {{ countBoughtIngredients(i) }}/{{ daily.ingredients.length }}
         </div>
-      </button>
+      </a>
       <section class="new-list">
         <label for="new-daily-list-name"
           >Name of list:

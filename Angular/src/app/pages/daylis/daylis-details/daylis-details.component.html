@@ -2,6 +2,7 @@
   <div class="arrow" (click)="handleDailyViewer()"></div>
   <section class="products">
     <a
+    [@swap]="!handleDailyViewOutput ? 'swap' : 'swap'"
       *ngFor="let ing of ingredients; let i = index"
       id="{{ i }}"
       class="container"
