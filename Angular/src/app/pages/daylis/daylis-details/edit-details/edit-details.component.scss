@@ -12,9 +12,7 @@ label, input {
   min-width: 90%;
   background-color: whitesmoke;
   margin: 0;
-  position: relative;
-  animation-name: edit-details;
-  animation-duration: 0.5s;
+  position: static;
   display: grid;
   grid-template-columns: 10% 50% 10% 20% 10%;
   grid-template-rows: 100%;
@@ -72,12 +70,6 @@ label, input {
     }
   }
 }
-
-@keyframes edit-details {
-  0% {top: 0vh; left: 1vw}
-  100% {top: 0vh; left: 0}
-}
-
 
 .btn-success {
   @include height(65%);

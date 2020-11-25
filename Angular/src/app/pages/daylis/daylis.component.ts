@@ -27,20 +27,20 @@ import { DaylisService } from './daylis.service';
 
         //
 
-        animate('500ms', style({
+        animate('1000ms', style({
           height: '*',
           paddingTop: '*',
           paddingBottom: '*',
           paddingRight: '*',
           paddingLeft: '*',
         })),
-        animate(300)
+        animate(500)
       ])
 
     ]),
 
     trigger('swapp', [
-      transition('* => *', [
+      transition(':enter', [
         query('.daily-btn, section', [
           style({
             opacity: 0,
@@ -64,6 +64,7 @@ export class DaylisComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getLastID();
     this.getAllDailyLists();
+    setTimeout(() => console.log(this.dailyLists), 2000)
   }
 
   ngOnDestroy(): void {

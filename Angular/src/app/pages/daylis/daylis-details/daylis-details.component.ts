@@ -1,7 +1,9 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, AfterViewInit, OnInit, Output, EventEmitter, OnChanges, Input } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { Component, AfterViewInit, OnInit, Output, EventEmitter, OnChanges, Input, OnDestroy, DoCheck } from '@angular/core';
+import { DailyLists } from 'src/app/shared/daily-lists';
 import { DaylisIngredientsService } from "../../../shared/services/daylis-ingredients.service";
+import { DaylisService } from '../daylis.service';
+
 
 @Component({
   selector: 'app-daylis-details',
@@ -38,17 +40,28 @@ import { DaylisIngredientsService } from "../../../shared/services/daylis-ingred
     ])
   ]
 })
-export class DaylisDetailsComponent implements AfterViewInit, OnInit {
-  constructor(private route: ActivatedRoute,
-    private router: Router,
-    private daylisIngredients: DaylisIngredientsService) {
-    daylisIngredients.ingredients$.subscribe(ingredients => this.ingredients = ingredients);
+export class DaylisDetailsComponent implements AfterViewInit, OnDestroy {
+  constructor(private daylisIngredients: DaylisIngredientsService,
+    private http: DaylisService) {
+    daylisIngredients.ingredients$.subscribe(ing=> {
+      const { ingredients, id, title } = ing
+      this.ingredients = ingredients;
+      this.dailyListID = id;
+      this.title = title;
+    });
   }
 
-  ngOnInit() {
+  ngOnDestroy() {
+    const daily: DailyLists = {
+      id: this.dailyListID,
+      title: this.title,
+      ingredients: this.ingredients
+    }
+    this.http.updateUserDailyList(daily).subscribe(() => '')
   }
 
-
+  dailyListID: number;
+  title: string;
   ingredients: any = [];
   EDIT_DETAILS: number[] = [];
 
@@ -60,7 +73,7 @@ export class DaylisDetailsComponent implements AfterViewInit, OnInit {
 
   addIngredient = () => this.ingredients.push({ titleOfProduct: "", bought: false, quantity: null, unit: "" })
 
-  deleteIngredients = (i) => this.ingredients.splice(i, 1)
+  deleteIngredients = (i: number) => this.ingredients.splice(i, 1)
 
   containers = document.querySelectorAll('.container');
 
@@ -83,7 +96,7 @@ export class DaylisDetailsComponent implements AfterViewInit, OnInit {
 
 
   pressEnterToAccept() {
-    const divs = document.querySelectorAll('div');
+    const divs = document.querySelectorAll('div.editor');
     divs.forEach(div => {
       div.addEventListener('keydown', this.editedIngredient)
     })
@@ -120,7 +133,7 @@ export class DaylisDetailsComponent implements AfterViewInit, OnInit {
       event.target.style.position = 'relative';
       event.target.style.left = '0';
     }
-    if (event.target.classList == 'container') {
+    if (event.target.classList == 'a.container') {
       event.target.classList.add('hey')
     }
   }
@@ -133,10 +146,8 @@ export class DaylisDetailsComponent implements AfterViewInit, OnInit {
 
       const currentPosition = event.clientX;
       event.target.style.left = (currentPosition - event.view.innerWidth / 2) / 50 + '%'; // hardcoded for UI
-      // console.log(event.target.style.left)
     } else {
       console.log("Wersja mobilna");
-      // console.log(event)
       const currentPosition = event.touches[0].pageX;
 
       event.target.style.left = (currentPosition - 150) / 10 + '%'; // hardcoded for UI

@@ -48,8 +48,8 @@ export class DaylisService {
         );
     }
 
-    updateUserDailyList(dailyLists: DailyLists[]): Observable<any> {
-        return this.http.put(`${this.API_URL}` + `daily-lists`, dailyLists, this.httpOptions)
+    updateUserDailyList(dailyLists: DailyLists): Observable<any> {
+        return this.http.patch(`${this.API_URL}` + `daily-lists`, dailyLists, this.httpOptions)
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

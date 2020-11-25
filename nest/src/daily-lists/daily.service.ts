@@ -31,14 +31,10 @@ export class DailyListsService {
     await this.repo.save(dailyLists);
   }
 
-  async update(dailyLists: DailyLists[]) {
-    console.log(dailyLists)
-    for (const daily of dailyLists) {
-      const updatex = await this.repo.findOne(daily.id);
-      updatex.ingredients = daily?.ingredients;
-      updatex.title = daily?.title;
+  async update(dailyLists: DailyLists) {
+      const updatex = await this.repo.findOne(dailyLists.id);
+      updatex.ingredients = dailyLists?.ingredients;
+      updatex.title = dailyLists?.title;
       await this.repo.save(updatex)
-    }
-
   }
 }

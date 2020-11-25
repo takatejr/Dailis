@@ -1,11 +1,11 @@
 <main>
-  <div class="daily-background" *ngIf="!dailyView" [@swapp]="!dailyView ? 'swapp' : false">
+  <div class="daily-background" *ngIf="!dailyView" [@swapp]="!dailyView">
     <div class="daily-lists">
       <a
       [@swap]="!dailyView ? 'swap' : 'swap'"
         *ngFor="let daily of dailyLists; let i = index"
         class="daily-btn"
-        (click)="showDetailsOfDaylis(daily.ingredients); toggleDaylisDetails()"
+        (click)="showDetailsOfDaylis(daily); toggleDaylisDetails()"
       >
         <div class="c">{{ daily.title }}</div>
         <div class="r">

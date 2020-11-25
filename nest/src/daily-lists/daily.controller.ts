@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import { DailyLists } from './daily.entity';
 import { DailyListsService } from './daily.service';
 
@@ -17,9 +17,15 @@ export class DailyListsController {
     await this.dailyListsService.create(dailyLists);
   }
 
-  @Put()
-  async update(@Body() dailyLists: DailyLists[]){
+  @Patch()
+  async update(@Body() dailyLists: DailyLists){
+    console.log('controller put')
     await this.dailyListsService.update(dailyLists)
+  }
+
+  @Delete()
+  async delete(@Body() id: number){
+    await this.dailyListsService.remove(id)
   }
 
   @Get('/lastid')
