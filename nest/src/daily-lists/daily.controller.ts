@@ -17,9 +17,8 @@ export class DailyListsController {
     await this.dailyListsService.create(dailyLists);
   }
 
-  @Patch()
+  @Put()
   async update(@Body() dailyLists: DailyLists){
-    console.log('controller put')
     await this.dailyListsService.update(dailyLists)
   }
 

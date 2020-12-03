@@ -7,6 +7,7 @@ import { DaylisComponent } from './pages/daylis/daylis.component';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { CookbookComponent } from './pages/cookbook/cookbook.component';
 import {DaylisDetailsComponent} from './pages/daylis/daylis-details/daylis-details.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component'
 
 const routes: Routes = [
   { path: 'login',
@@ -20,7 +21,7 @@ const routes: Routes = [
   },
   { path: 'daylis', component: DaylisComponent},
   { path: 'daylis/:id', component: DaylisDetailsComponent},
-  { path: '', redirectTo: 'daylis', pathMatch: 'full'},
+  { path: '', component: DashboardComponent},
   { path: 'recipes', component: RecipesComponent },
   { path: 'cookbook', component: CookbookComponent },
   { path: '**', component: ErrorComponent },

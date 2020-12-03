@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { BetstatComponent } from './pages/betstat/betstat.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CookbookComponent,
     DaylisDetailsComponent,
     EditDetailsComponent,
+    DashboardComponent,
+    BetstatComponent,
 
   ],
   imports: [

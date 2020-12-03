@@ -7,6 +7,11 @@
   min-height: 98vh;
 }
 
+a {
+  text-decoration: none;
+  color: brown;
+}
+
 #title, #navbar {
   @include height(8vh);
   @include width(100%);

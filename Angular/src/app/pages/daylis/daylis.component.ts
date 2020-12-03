@@ -13,12 +13,12 @@ import { DaylisService } from './daylis.service';
     trigger('swap',
      [
       // Enter Animation
-      transition('* => *', [
+      transition(':leave', [
         // initial 
         style({
           height: 10,
           opacity: 0,
-          transform: 'scale(0.65)',
+          transform: 'scale(10.65)',
           paddingTop: 0,
           paddingBottom: 0,
           paddingRight: 0,
@@ -34,7 +34,7 @@ import { DaylisService } from './daylis.service';
           paddingRight: '*',
           paddingLeft: '*',
         })),
-        animate(500)
+        animate(1000)
       ])
 
     ]),
@@ -103,23 +103,8 @@ export class DaylisComponent implements OnInit, OnDestroy {
         title: titleOfList,
         ingredients:
           [
-            //   {
-            //   id: 13,
-            //   titleOfProduct: 'hehe',
-            //   bought: true,
-            //   quantity: 3,
-            //   unit: 'kg',
-            // },
-            // {
-            //   id: 13,
-            //   titleOfProduct: 'hehe',
-            //   bought: false,
-            //   quantity: 3,
-            //   unit: 'kg',
-            // }
           ]
       }
-      console.log(this.dailyLists)
       this.http.createDailyList(daily).subscribe(daily => daily)
       this.dailyLists.push(daily)
       this.nameOfNewList = '';

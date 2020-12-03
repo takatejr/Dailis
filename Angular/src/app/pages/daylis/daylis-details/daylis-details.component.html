@@ -1,33 +1,23 @@
-<main>
   <div class="arrow" (click)="handleDailyViewer()"></div>
-  <section class="products">
-    <a
-    draggable="false"
-    [@swap]="!handleDailyViewOutput ? 'swap' : 'swap'"
+  <section class="container">
+    <div
+      draggable="false"
+      [@swap]="!handleDailyViewOutput ? 'swap' : 'swap'"
       *ngFor="let ing of ingredients; let i = index"
       id="{{ i }}"
-      class="container"
+      class="container__item"
       [style.backgroundColor]="
         ing.bought == true ? 'rgba(255,109,60,0.72)' : '#dedede'
       "
       (click)="ing.bought = !ing.bought"
     >
-      <div class="icon">icon {{ i }}</div>
 
-      <div class="product">
-        {{ ingredients[i].titleOfProduct }}<br />{{ ing?.from }}
-      </div>
-
-      <div class="quantity">{{ ingredients[i].quantity }}</div>
-
-      <div class="unit">{{ ingredients[i].unit }}</div>
-
+      <p>{{ing.unit}}</p>
       <div
         class="dots"
         (click)="toggleEditDetails(i); ing.bought = !ing.bought"
         tabindex="{{ i }}"
       >
-        <p>OOO</p>
       </div>
 
       <app-edit-details
@@ -39,7 +29,7 @@
         (changedIngredientsDetails)="editedIngredient($event)"
       >
       </app-edit-details>
-    </a>
+    </div>
   </section>
   <div class="bottom-container">
     <a class="btn history" routerLink="/historyoflist"
@@ -53,4 +43,3 @@
       <p>Cookbook</p>
     </a>
   </div>
-</main>

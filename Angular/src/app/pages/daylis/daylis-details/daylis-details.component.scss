@@ -1,165 +1,23 @@
 @import "src/app/core/reset";
 @import "src/app/core/variables";
 
-main {
-  @include height(80vh);
-  @include width(100%);
-  overflow-x: none;
-  overflow: none;
+.container { 
+  height: 100%;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  margin: 2vh 5vw;
 }
 
-.products {
-  @include height(56vh);
-  max-width: 100%;
-  box-shadow: #1c3a50 1px 1px;
-  overflow-x: hidden;
-  overflow: hidden;
+.container__item {
+  width: 10vw;
+  height: 10vw;
+  margin: 5px 1%;
 }
-
-.container {
-  @include height(13vh);
-  width: 80%;
-  display: grid;
-  grid-template-columns: 10% 50% 10% 20% 10%;
-  grid-template-rows: 100%;
-  grid-template-areas: "icon product quantity unit dots";
-  margin: 2vh auto;
-  font-size: 13px;
-
-  div.icon {
-    grid-area: icon;
-    justify-items: center;
-    margin: auto auto;
-  }
-
-  div.product {
-    max-width: 100%;
-    grid-area: product;
-    justify-self: center;
-    margin: auto auto;
-    white-space: normal !important;
-    word-wrap: break-word;
-  }
-
-  div.quantity {
-    grid-area: quantity;
-    justify-self: center;
-    margin: auto auto;
-  }
-
-  div.unit {
-    grid-area: unit;
-    justify-self: center;
-    margin: auto auto;
-  }
-
-  div.dots {
-    grid-area: dots;
-    margin: auto;
-    font-weight: bold;
-    font-size: xx-large;
-    cursor: pointer;
-    color: whitesmoke;
-    transition: cubic-bezier(1, -1.63, 0, 1.89) 0.5s 0.15s;
-    transition-timing-function: linear;
-
-    p {
-      margin: auto;
-      transform: rotate(-90deg);
-    }
-
-    &:hover {
-      color: #466080;
-    }
-  }
-
-  app-edit-details {
-    position: relative;
-    display: grid;
-    grid-column-start: icon;
-    grid-column-end: dots;
-    grid-row-start: auto;
-    transition: ease-in-out 0.4s;
-    top: -13vh;
-  }
-
-}
-
-.active {
-  background: rgba(255, 255, 255, 0.3);
-  cursor: grabbing;
-  cursor: -webkit-grabbing;
-  transform: scale(1);
-}
-
-.bottom-container {
-  display: grid;
-  width: 80%;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: repeat(3, 5vh);
-  grid-template-areas:
-    "history history"
-    "add-product add-product"
-    "recipes cookbook";
-  height: 10vh;
-  margin: 2vh auto;
-  grid-row-gap: 0.5vh;
-  grid-column-gap: 0.5vw;
-  font-family: sans-serif;
-
-  justify-items: center;
-  justify-content: center;
-  justify-self: center;
-
-  a.history {
-    grid-area: history;
-    width: 100%;
-  }
-
-  a.add-product {
-    grid-area: add-product;
-    width: 100%;
-  }
-
-  a.recipes {
-    grid-area: recipes;
-    width: 100%;
-  }
-
-  a.cookbook {
-    grid-area: cookbook;
-    width: 100%;
-  }
-
-  p {
-    line-height: 5vh;
-    text-align: center;
-    font-size: 13px;
-  }
-}
-
-.btn {
-  width: 100%;
-  text-decoration: none;
-  cursor: pointer;
-  background-color: #bfbfbf;
-  transition: 0.4s;
-  border: #bd939d 1px solid;
-
-  &:hover {
-    background-color: #bdb694;
-    transform: scale(0.99, 0.99);
-  }
-}
-
-.hey {
-  background-color: red;
-}
-
 
 div.arrow {
-	width: 60px;
-	height: 60px;
+	width: 40px;
+	height: 40px;
 	box-sizing: border-box;
 	position: absolute;
 	left: 2%;
@@ -190,17 +48,18 @@ div.arrow {
 		border-color: #fafafa;
 		transform-origin: 100% 0;
     transition:.2s ease;
-    left: 2%;
+    left: 0%;
 	}
 	
 	&:hover::after {
 		transform: rotate(45deg);
 		border-color: orange;
-		height: 100%;
+    height: 80%;
+  
 	}
 	&:hover::before {
 		border-color: orange;
-		// transform: scale(.8);
+		transform: scale(1.1);
 		
 	}
 	

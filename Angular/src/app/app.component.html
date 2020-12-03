@@ -4,7 +4,11 @@
   </div>
   <header id="header">
     <div id="title">
-      <strong class="title" title="{{ title }}">{{ title }}</strong>
+      <strong class="title" title="{{ title }}">
+        <a routerLink="/">
+          {{ title }}
+        </a>
+      </strong>
     </div>
     <div id="navbar">
       <daylis-navbar></daylis-navbar>

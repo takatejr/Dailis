@@ -16,9 +16,9 @@ import { DaylisService } from '../daylis.service';
       transition('* => *', [
         // initial 
         style({
-          height: 10,
+          height: 0,
           opacity: 0.05,
-          transform: 'scale(1.85)',
+          transform: 'scale(0.85)',
           paddingTop: 0,
           paddingBottom: 0,
           paddingRight: 0,
@@ -27,14 +27,14 @@ import { DaylisService } from '../daylis.service';
 
         //
 
-        animate('500ms', style({
+        animate('5ms', style({
           height: '*',
           paddingTop: '*',
           paddingBottom: '*',
           paddingRight: '*',
           paddingLeft: '*',
         })),
-        animate(100)
+        animate(200)
       ])
 
     ])
@@ -104,17 +104,17 @@ export class DaylisDetailsComponent implements AfterViewInit, OnDestroy {
 
 
   ngAfterViewInit() {
-    const containers = document.querySelectorAll('.container');
-    containers.forEach((container) => {
-      container.addEventListener('touchstart', this.touchStart)
-      container.addEventListener('touchmove', this.moveIngredient)
-      container.addEventListener('touchend', this.endTouch)
+    // const containers = document.querySelectorAll('.container');
+    // containers.forEach((container) => {
+    //   container.addEventListener('touchstart', this.touchStart)
+    //   container.addEventListener('touchmove', this.moveIngredient)
+    //   container.addEventListener('touchend', this.endTouch)
 
-      container.addEventListener('mousedown', this.touchStart)
-      container.addEventListener('mousemove', this.moveIngredient)
-      container.addEventListener('mouseup', this.endTouch)
-      container.addEventListener('mouseleave', this.cancel)
-    })
+    //   container.addEventListener('mousedown', this.touchStart)
+    //   container.addEventListener('mousemove', this.moveIngredient)
+    //   container.addEventListener('mouseup', this.endTouch)
+    //   container.addEventListener('mouseleave', this.cancel)
+    // })
   }
 
   cancel(event) {
@@ -148,9 +148,11 @@ export class DaylisDetailsComponent implements AfterViewInit, OnDestroy {
       event.target.style.left = (currentPosition - event.view.innerWidth / 2) / 50 + '%'; // hardcoded for UI
     } else {
       console.log("Wersja mobilna");
-      const currentPosition = event.touches[0].pageX;
+      if (event.type === "touchmove"){
+      const currentPosition = event.touches[0].clientX;
 
       event.target.style.left = (currentPosition - 150) / 10 + '%'; // hardcoded for UI
+      }
     }
   }
 
