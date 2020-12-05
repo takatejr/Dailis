@@ -2,40 +2,17 @@
 @import "src/app/core/reset";
 
 .navbar {
-  @include height(10vh);
-  @include width(100%);
-  display: inline-block;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    flex-basis: 1 1 1 1 1 auto;
 }
 
-*.active {
-  color: red;
-  background-color: #f3e3e3;
-}
-
-nav {
-  box-sizing: border-box;
-  display: inline-block;
-  overflow: hidden;
-
-  &.icons {
-    display: grid;
-    grid-template-columns: repeat(5, 20vw);
-    grid-template-rows: 100%;
-    font-weight: 700;
-    height: 10vh;
-  }
+.navbar__item {
+    width: 100%;
+    margin: 0 auto;
 }
 
 a {
-  text-decoration: none;
-  text-align: center;
-  border-radius: 5%;
-  border: 1px solid #1c3a50;
-  background-color: #bfbfbf;
-  overflow: hidden;
-
-  &:hover {
-    cursor: pointer;
-    background-color: rgba(170, 208, 211, 0.85);
-  }
+    margin: 0 auto;
 }

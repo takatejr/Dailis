@@ -64,11 +64,9 @@ export class DaylisComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getLastID();
     this.getAllDailyLists();
-    setTimeout(() => console.log(this.dailyLists), 2000)
   }
 
   ngOnDestroy(): void {
-    console.log(this.dailyLists)
   }
 
   dailyLists: Array<DailyLists> = [];

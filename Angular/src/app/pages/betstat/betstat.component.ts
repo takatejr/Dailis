@@ -12,4 +12,5 @@ export class BetstatComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  betstatlist = [{name: 'atletico'}, {name:'barcelona'}];
 }

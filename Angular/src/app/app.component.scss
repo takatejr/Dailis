@@ -2,7 +2,7 @@
 @import "core/reset.scss";
 
 #theme {
-  background-color: rgb(255, 194, 22);
+  background-color: rgb(171, 175, 154);
   max-height: max-content;
   min-height: 98vh;
 }
@@ -17,8 +17,10 @@ a {
   @include width(100%);
 }
 
-.title {
+a {
+width: 100vw;
   font-size: 5vh;
+// margin: 0 40%;
 }
 
 #header {
@@ -34,7 +36,7 @@ a {
 
 .afterSticky {
   box-sizing: content-box;
-  padding-bottom: 43vh;
+  padding-bottom: 15vh;
 }
 
 daylis-navbar {
@@ -53,7 +55,7 @@ footer {
   @include width(100vw);
   display: block;
   position: fixed;
-  z-index: -2;
+  z-index: 5;
 }
 
 .my-overlay {

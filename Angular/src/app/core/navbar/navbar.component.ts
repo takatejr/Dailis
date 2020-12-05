@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'daylis-navbar',
@@ -7,4 +7,30 @@ import { Component} from '@angular/core';
 })
 export class NavbarComponent {
 
+  featuresList = [
+    {
+      app: 'daylis',
+      position: 1,
+      title: 'daylis',
+    },
+    {
+      app: 'cookbook',
+      position: 2,
+      title: 'cookbook',
+    },
+    {
+      app: 'recipes',
+      position: 3,
+      title: 'recipes',
+    },
+    {
+      app: 'awg',
+      position: 4,
+      title: 'awg',
+    },
+    {
+      app: 'error',
+      position: 5
+    }
+  ];
 }
