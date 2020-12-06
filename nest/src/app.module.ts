@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersService } from './user/user.service';
 import { Ingredients } from './ingredients/ingredients.entity';
 import { IngredientsModule } from './ingredients/ingredients.module';
+import { BetstatService } from './betstat/betstat.service';
 
 
 @Module({
@@ -26,6 +27,6 @@ import { IngredientsModule } from './ingredients/ingredients.module';
     synchronize: true,
   }), UsersModule, RecipesModule, DailyListsModule, AuthModule, IngredientsModule],
   controllers: [AppController],
-  providers: [AppService, UsersService],
+  providers: [AppService, UsersService, BetstatService],
 })
 export class AppModule {}

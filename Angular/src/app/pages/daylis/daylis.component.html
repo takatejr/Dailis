@@ -1,8 +1,9 @@
 <main>
   <div class="daily-background" *ngIf="!dailyView" [@swapp]="!dailyView">
     <div class="daily-lists">
-      <a
-      [@swap]="!dailyView"
+      <div
+      [routerLink]="['/daylis']" routerLinkActive="active" 
+      [@swapp]="!dailyView"
         *ngFor="let daily of dailyLists; let i = index"
         class="daily-lists__btn"
         (click)="showDetailsOfDaylis(daily); toggleDaylisDetails()"
@@ -11,7 +12,7 @@
         <div class="r">
           {{ countBoughtIngredients(i) }}/{{ daily.ingredients.length }}
         </div>
-      </a>
+      </div>
       <section class="new-list">
         <label for="new-daily-list-name"
           >Name of list:

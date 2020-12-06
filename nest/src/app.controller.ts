@@ -3,19 +3,26 @@ import { AuthService } from './auth/auth.service';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { UsersService } from './user/user.service';
 import { Observable } from 'rxjs';
+import { BetstatService } from './betstat/betstat.service';
 
 @Controller()
 export class AppController {
 
   constructor(
     private readonly authService: AuthService,
-    private readonly userService: UsersService) { }
+    private readonly userService: UsersService,
+    private readonly betstatService: BetstatService) { }
 
   @Post('auth/login')
   async login(@Request() req) {
     console.log(req.body)
     return this.authService.login(req.body);
   }
+
+  @Get('api/betstat')
+    async yo() {
+      return this.betstatService.scrapeProduct()
+    }
 
   @UseGuards(JwtAuthGuard)
   @Get('userowie')

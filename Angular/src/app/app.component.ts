@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
 
   navigationInterceptor(event: RouterEvent): void {
     if (event instanceof NavigationStart) {
+      console.log('start')
       this.showOverlay = true;
     }
     if (event instanceof NavigationEnd) {

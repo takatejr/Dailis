@@ -1,10 +1,11 @@
 <nav class="navbar">
-  <div class="navbar__item" *ngFor="let nav of featuresList">
-    <a
-      routerLink="{{ nav.app }}"
-      routerLinkActive="active"
-      title="{{nav?.title}}"
-      >{{ nav.app }}</a
-    >
-  </div>
+  <a
+    class="navbar__item"
+    *ngFor="let nav of featuresList"
+    routerLink="{{ nav.app }}"
+    routerLinkActive="active"
+    title="{{ nav?.title }}"
+  >
+    {{ nav.app }}
+  </a>
 </nav>

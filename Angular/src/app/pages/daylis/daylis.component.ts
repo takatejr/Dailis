@@ -18,7 +18,7 @@ import { DaylisService } from './daylis.service';
         style({
           height: 10,
           opacity: 0,
-          transform: 'scale(10.65)',
+          transform: 'scale(0.65)',
           paddingTop: 0,
           paddingBottom: 0,
           paddingRight: 0,
@@ -34,7 +34,7 @@ import { DaylisService } from './daylis.service';
           paddingRight: '*',
           paddingLeft: '*',
         })),
-        animate(1000)
+        animate(3000)
       ])
 
     ]),

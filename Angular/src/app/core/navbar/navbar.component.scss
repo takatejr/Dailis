@@ -9,10 +9,14 @@
 }
 
 .navbar__item {
+    height: 5vh;
     width: 100%;
     margin: 0 auto;
+    background-color: red;
+    border: 1px solid black;
 }
 
 a {
+    text-decoration: none;
     margin: 0 auto;
 }
