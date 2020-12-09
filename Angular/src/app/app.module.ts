@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BetstatComponent } from './pages/betstat/betstat.component';
+import { PaginationComponent } from './components/pagination/pagination';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { BetstatComponent } from './pages/betstat/betstat.component';
     EditDetailsComponent,
     DashboardComponent,
     BetstatComponent,
-
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

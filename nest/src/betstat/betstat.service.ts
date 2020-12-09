@@ -1,8 +1,4 @@
 import { Injectable } from '@nestjs/common';
-// import { InjectRepository } from '@nestjs/typeorm';
-// import { from, Observable } from 'rxjs';
-// import { getRepository} from 'typeorm';
-// import { Betstat } from './betstat.entity';
 import { launch } from "puppeteer"
 
 
@@ -12,6 +8,11 @@ export class BetstatService {
   // @InjectRepository(Betstat)
 
   // repo = getRepository(Betstat);
+
+  // place holder for the data
+  matches = []
+  users = []
+  scrapedMoreDetailed = []
 
   URL_FS = "https://www.flashscore.co.uk"
 
@@ -54,7 +55,7 @@ export class BetstatService {
     // const start = await page.$$eval('div.event__check + div', (res) => res.map(el => el.textContent)); to variable datas
 
     const arr = []
-
+    
     for (let i = 0; i < home.length; i++) {
       arr.push({
         id: i,
@@ -73,10 +74,7 @@ export class BetstatService {
     return arr
   }
 
-  // place holder for the data
-  matches = []
-  users = []
-  scrapedMoreDetailed = []
+
 
   async winLose(ID) {
     const browser = await launch()

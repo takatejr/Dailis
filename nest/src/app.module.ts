@@ -13,6 +13,7 @@ import { UsersService } from './user/user.service';
 import { Ingredients } from './ingredients/ingredients.entity';
 import { IngredientsModule } from './ingredients/ingredients.module';
 import { BetstatService } from './betstat/betstat.service';
+import { BetstatController } from './betstat/betstat.controller';
 
 
 @Module({
@@ -26,7 +27,7 @@ import { BetstatService } from './betstat/betstat.service';
     entities: [User, Recipes, DailyLists, Ingredients],
     synchronize: true,
   }), UsersModule, RecipesModule, DailyListsModule, AuthModule, IngredientsModule],
-  controllers: [AppController],
+  controllers: [AppController, BetstatController],
   providers: [AppService, UsersService, BetstatService],
 })
 export class AppModule {}

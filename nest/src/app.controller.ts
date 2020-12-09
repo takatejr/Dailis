@@ -19,11 +19,6 @@ export class AppController {
     return this.authService.login(req.body);
   }
 
-  @Get('api/betstat')
-    async yo() {
-      return this.betstatService.scrapeProduct()
-    }
-
   @UseGuards(JwtAuthGuard)
   @Get('userowie')
   getProfile(@Request() req) {
