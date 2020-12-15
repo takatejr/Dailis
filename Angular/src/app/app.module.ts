@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BetstatComponent } from './pages/betstat/betstat.component';
+import { BetstatDetailsComponent } from './pages/betstat-details/betstat-details.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,8 @@ import { BetstatComponent } from './pages/betstat/betstat.component';
     DaylisDetailsComponent,
     EditDetailsComponent,
     DashboardComponent,
-    BetstatComponent
-
+    BetstatComponent,
+    BetstatDetailsComponent
   ],
   imports: [
     BrowserModule,

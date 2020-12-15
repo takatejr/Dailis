@@ -16,9 +16,11 @@ export class BetstatComponent {
         setTimeout(() => {
           this.pagination()
           this.paginate(1)
-        }, 100)
+        }, 1000);
+        console.log(this.matches)
       })
     }
+
   }
 
   url = 'http://localhost:3000/api/betstat/getmatches'

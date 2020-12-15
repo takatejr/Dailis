@@ -3,15 +3,10 @@
 
 section {
   height: 30vh;
-  margin: 5px 3%;
   border: 2px solid rgb(253, 211, 72);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
-  &:empty {
-    background-color: red;
-  }
 }
 
 .betstat {
@@ -20,15 +15,36 @@ section {
   display: flex;
   flex-direction: row;
 
+  &:empty{
+    background-image: linear-gradient(rgb(209, 209, 209), rgb(119, 119, 119));
+    background-size: 100% 100%;
+    background-position: 10% 10%;
+    background-repeat: repeat-x;
+}
 }
 
 .betstat__match {
-    align-items: baseline;
-    margin: 3% auto;
-    width: 10%;
+  align-items: baseline;
+  margin: 3% auto;
+  width: 10%;
 }
 
 .pagination {
+  display: flex;
+  align-items: baseline;
   width: 100%;
   height: 50%;
+  padding: 0 3%;
+
+  &:empty{
+    background-image: linear-gradient(rgb(209, 209, 209), rgb(119, 119, 119));
+    background-size: 90% 50%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+  & > button {
+    flex-grow: 1;
+    align-items: center;
+  }
 }
