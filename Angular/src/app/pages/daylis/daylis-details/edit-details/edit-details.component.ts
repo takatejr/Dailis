@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { Ingredients } from "../../../../shared/ingredients";
 
 @Component({
   selector: 'app-edit-details',

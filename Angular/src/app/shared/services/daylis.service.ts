@@ -1,10 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { User } from '../../shared/user';
+import { User } from '../types/user';
 import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { settingAPI } from 'src/app/shared/services/ApiKey';
-import { DailyLists } from 'src/app/shared/daily-lists';
+import { DailyLists } from 'src/app/shared/types/daily-lists';
 
 
 @Injectable({

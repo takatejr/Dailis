@@ -1,11 +1,13 @@
 <section>
-    <button (click)="awg()">hehe</button> 
-    <button (click)="pagination()">hehe</button> 
-    <div class="betstat" *ngFor="let match of currentPosts">
-        <div class="betstat__match">
-            {{match.home}} - {{match.away}}
-        </div>
-        <button>Show more</button>
+  <div class="betstat">
+    <div class="betstat__match" *ngFor="let match of currentPosts">
+      <div>{{ match.home }} - {{ match.away }}</div>
+      <button>Show more</button>
     </div>
-    <button *ngFor="let i of pageNumbers" (click)="paginate(i)">{{i}}</button>
+  </div>
+  <div class="pagination">
+    <button *ngFor="let i of pageNumbers" (click)="paginate(i)">
+      {{ i }}
+    </button>
+  </div>
 </section>

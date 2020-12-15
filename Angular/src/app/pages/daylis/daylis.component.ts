@@ -1,8 +1,9 @@
-import { animate, animation, query, stagger, style, transition, trigger } from '@angular/animations';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { DailyLists } from '../../shared/daily-lists';
+import { DailyLists } from '../../shared/types/daily-lists';
 import { DaylisIngredientsService } from '../../shared/services/daylis-ingredients.service';
-import { DaylisService } from './daylis.service';
+import { DaylisService } from '../../shared/services/daylis.service';
+
 
 @Component({
   selector: 'app-daylis',
@@ -58,7 +59,7 @@ import { DaylisService } from './daylis.service';
 export class DaylisComponent implements OnInit, OnDestroy {
   constructor(
     private daylisIngredients: DaylisIngredientsService,
-    private http: DaylisService,
+    private daylisService: DaylisService,
     ) { }
 
   ngOnInit(): void {
@@ -74,9 +75,9 @@ export class DaylisComponent implements OnInit, OnDestroy {
   nameOfNewList = "";
   dailyView: boolean = false
 
-  getLastID = () => this.http.getLastId().subscribe(e => this.lastID = e)
+  getLastID = () => this.daylisService.getLastId().subscribe(e => this.lastID = e)
 
-  getAllDailyLists = () => this.http.getAllDailyLists().subscribe(data => this.dailyLists = data)
+  getAllDailyLists = () => this.daylisService.getAllDailyLists().subscribe(data => this.dailyLists = data)
 
   toggleDaylisDetails = () => this.dailyView = !this.dailyView
 
@@ -103,7 +104,7 @@ export class DaylisComponent implements OnInit, OnDestroy {
           [
           ]
       }
-      this.http.createDailyList(daily).subscribe(daily => daily)
+      this.daylisService.createDailyList(daily).subscribe(daily => daily)
       this.dailyLists.push(daily)
       this.nameOfNewList = '';
     }

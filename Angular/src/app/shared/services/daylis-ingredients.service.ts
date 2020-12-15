@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {Ingredients} from "../ingredients";
+import { Ingredients } from '../types/ingredients';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DaylisIngredientsService {
-  private value: any;
+  private value: any = "";
 
   private ingredients = new BehaviorSubject(this.value);
 
@@ -16,5 +17,4 @@ export class DaylisIngredientsService {
     this.ingredients.next(ingredients);
   }
 
-  constructor() { }
 }

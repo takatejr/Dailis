@@ -1,38 +1,34 @@
-import { AfterViewChecked, Component, OnInit, AfterContentChecked, AfterViewInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { BetstatService } from '../../shared/services/betstatService';
 
 @Component({
   selector: 'app-betstat',
   templateUrl: './betstat.component.html',
   styleUrls: ['./betstat.component.scss']
 })
-export class BetstatComponent implements OnInit {
-  indexOfLastPost: number;
+export class BetstatComponent {
 
-  constructor(private http: HttpClient) { }
+  constructor(private betstatService: BetstatService) {
+    if (this.matches.length === 0) {
+      console.log('pobieranie meczy')
+      this.betstatService.getMatches().subscribe(matches => {
+        this.matches = matches;
+        setTimeout(() => {
+          this.pagination()
+          this.paginate(1)
+        }, 100)
+      })
+    }
+  }
 
   url = 'http://localhost:3000/api/betstat/getmatches'
 
-  ngOnInit(): void {
-    this.getMatches()
-  }
-
-  getMatches() {
-    if (this.matches.length == 0) {
-      this.http.get<any>(this.url).subscribe(el => this.matches = el)
-    }
-    setTimeout(() => {
-      this.pagination()
-      this.paginate(1)
-      console.log('hsuehsuehe')
-    }, 100)
-  }
-
   matches: Array<any> = [];
   currentPage: number = 1;
-  matchesPerPage: number = 10
+  matchesPerPage: number = 7
   pageNumbers = [];
   currentPosts = [];
+  indexOfLastPost: number;
 
   paginate = (pageNumber) => {
     this.currentPage = pageNumber
