@@ -6,18 +6,16 @@ import { CoreModule } from "./core/core.module";
 import { LoginComponent } from './pages/login/login.component';
 import { SingupComponent } from './pages/login/singup/singup.component';
 import { DaylisComponent } from './pages/daylis/daylis.component';
-import { RecipesComponent } from './pages/recipes/recipes.component';
-import { CookbookComponent } from './pages/cookbook/cookbook.component';
 import { DaylisDetailsComponent } from './pages/daylis/daylis-details/daylis-details.component';
 import { EditDetailsComponent } from './pages/daylis/daylis-details/edit-details/edit-details.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, FormBuilder } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BetstatComponent } from './pages/betstat/betstat.component';
-import { BetstatDetailsComponent } from './pages/betstat-details/betstat-details.component';
+import { BetstatDetailsComponent } from './pages/betstat/betstat-details/betstat-details.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +23,6 @@ import { BetstatDetailsComponent } from './pages/betstat-details/betstat-details
     LoginComponent,
     SingupComponent,
     DaylisComponent,
-    RecipesComponent,
-    CookbookComponent,
     DaylisDetailsComponent,
     EditDetailsComponent,
     DashboardComponent,
@@ -40,9 +36,10 @@ import { BetstatDetailsComponent } from './pages/betstat-details/betstat-details
     CoreModule,
     FormsModule,
     HttpClientModule,
+
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,10 +10,13 @@ div {
 app-betstat {
     position: fixed;
     width: 80%;
-    height: 40%;
     margin: 0 auto;
     left: 10%;
     right: 10%;
+}
+
+section {
+    height: 30vh;
 }
 
 app-daylis {

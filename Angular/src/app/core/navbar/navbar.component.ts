@@ -29,8 +29,9 @@ export class NavbarComponent {
       title: 'awg',
     },
     {
-      app: 'error',
-      position: 5
+      app: 'login',
+      position: 5,
+      title: 'login'
     }
   ];
 }

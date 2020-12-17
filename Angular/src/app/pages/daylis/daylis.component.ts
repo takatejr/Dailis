@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DailyLists } from '../../shared/types/daily-lists';
 import { DaylisIngredientsService } from '../../shared/services/daylis-ingredients.service';
 import { DaylisService } from '../../shared/services/daylis.service';
+import { first } from 'rxjs/operators';
 
 
 @Component({
@@ -75,9 +76,9 @@ export class DaylisComponent implements OnInit, OnDestroy {
   nameOfNewList = "";
   dailyView: boolean = false
 
-  getLastID = () => this.daylisService.getLastId().subscribe(e => this.lastID = e)
+  getLastID = () => this.daylisService.getLastId().pipe(first()).subscribe(e => this.lastID = e)
 
-  getAllDailyLists = () => this.daylisService.getAllDailyLists().subscribe(data => this.dailyLists = data)
+  getAllDailyLists = () => this.daylisService.getAllDailyLists().pipe(first()).subscribe(data => this.dailyLists = data)
 
   toggleDaylisDetails = () => this.dailyView = !this.dailyView
 

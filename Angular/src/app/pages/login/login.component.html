@@ -1,8 +1,12 @@
 <div class="login">
   <div class="credentials">
-    <label for="login"><input type="text" required /></label>
-    <label for="password"><input type="text" required /></label>
+    <form action="login" formGroup="loginForm">
+      <label for="login">Login: 
+        <input type="text" autocomplete="on" formControlName="username" required />
+      </label>
+      <label for="password">Password: <input type="password" formControlName="password" required /></label>
+    </form>
   </div>
   <p>Credentials forgotten</p>
-<button>Lets go</button>
+  <button (click)="onSubmit()">Lets go</button>
 </div>
