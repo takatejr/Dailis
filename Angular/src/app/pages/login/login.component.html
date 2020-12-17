@@ -1,8 +1,8 @@
 <div class="login">
   <div class="credentials">
-    <form action="login" formGroup="loginForm">
+    <form action="login" [formGroup]="loginForm">
       <label for="login">Login: 
-        <input type="text" autocomplete="on" formControlName="username" required />
+        <input type="text" autocomplete="on" formControlName="login" required />
       </label>
       <label for="password">Password: <input type="password" formControlName="password" required /></label>
     </form>

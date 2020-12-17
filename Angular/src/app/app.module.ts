@@ -8,7 +8,7 @@ import { SingupComponent } from './pages/login/singup/singup.component';
 import { DaylisComponent } from './pages/daylis/daylis.component';
 import { DaylisDetailsComponent } from './pages/daylis/daylis-details/daylis-details.component';
 import { EditDetailsComponent } from './pages/daylis/daylis-details/edit-details/edit-details.component';
-import { FormsModule, FormBuilder } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule, FormControl } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -36,10 +36,10 @@ import { BetstatDetailsComponent } from './pages/betstat/betstat-details/betstat
     CoreModule,
     FormsModule,
     HttpClientModule,
-
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [FormBuilder],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
