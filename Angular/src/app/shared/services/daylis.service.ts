@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { User } from '../types/user';
 import { catchError, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { API_KEY, API_URL} from 'src/app/shared/services/ApiKey';
+import { API_KEY, API_URL, httpOptions} from 'src/app/shared/services/ApiKey';
 import { DailyLists } from 'src/app/shared/types/daily-lists';
 
 
@@ -13,9 +13,7 @@ import { DailyLists } from 'src/app/shared/types/daily-lists';
 export class DaylisService {
     constructor(private http: HttpClient) { }
 
-    httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
+
 
     getAllDailyLists(): Observable<DailyLists[]> {
         const url = `${API_URL}` + `daily-lists`
@@ -37,18 +35,17 @@ export class DaylisService {
     }
 
     createDailyList(dailyList: DailyLists): Observable<DailyLists> {
-        console.log(dailyList)
         const url = `${API_URL}` + `daily-lists`
-        return this.http.post<DailyLists>(url, dailyList, this.httpOptions).pipe(
+        return this.http.post<DailyLists>(url, dailyList, httpOptions).pipe(
             catchError(this.handleError('create Daily List', dailyList))
         );
     }
 
     updateUserDailyList(dailyLists: DailyLists): Observable<any> {
-        return this.http.put(`${API_URL}` + `daily-lists`, dailyLists, this.httpOptions)
+        return this.http.put(`${API_URL}` + `daily-lists`, dailyLists, httpOptions)
     }
 
-    private handleError<T>(operation = 'operation', result?: T) {
+    public handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
             console.error(error);
             return of(result as T);

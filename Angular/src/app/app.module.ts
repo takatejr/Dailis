@@ -9,13 +9,14 @@ import { DaylisComponent } from './pages/daylis/daylis.component';
 import { DaylisDetailsComponent } from './pages/daylis/daylis-details/daylis-details.component';
 import { EditDetailsComponent } from './pages/daylis/daylis-details/edit-details/edit-details.component';
 import { FormsModule,  ReactiveFormsModule, FormControl } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BetstatComponent } from './pages/betstat/betstat.component';
 import { BetstatDetailsComponent } from './pages/betstat/betstat-details/betstat-details.component';
+import { ErrorInterceptor } from './shared/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { BetstatDetailsComponent } from './pages/betstat/betstat-details/betstat
     ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

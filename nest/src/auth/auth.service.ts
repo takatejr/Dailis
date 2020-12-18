@@ -3,7 +3,7 @@ import { UsersService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt'
 import * as bcrypt from 'bcrypt';
 import { User } from 'src/user/user.entity';
-import { from, Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import {map, switchMap} from 'rxjs/operators';
 
 @Injectable()
@@ -14,6 +14,7 @@ export class AuthService {
     ) { }
 
     validateUser(name: string, pass: string): Observable<any> {
+        console.log(name, pass)
         return this.usersService.findOne(name).pipe(
             switchMap((user: User) => this.comparePasswords(pass, user.password).pipe(
                 map((match: boolean) => {
@@ -34,18 +35,11 @@ export class AuthService {
         return from(bcrypt.compare(newPassword, passwortHash));
     }
 
-    // login(user: User){
-    //     const payload = { username: user.name, password: user.password };
-
-    //     return {
-    //         access_token: this.jwtService.sign(payload),
-    //     };
-    // }
-
     login(body: User): Observable<any> {
-        const payload = { name: body.name, password: body.password };
+        const date = Date.now()
+        const payload = { name: body.name, password: body.password, date: date };
         return this.validateUser(body.name, body.password).pipe(
-            switchMap((user: User) => {
+            map((user: User) => {
                 if(user) {
                     const access_token = this.jwtService.sign(payload);
                     console.log(access_token)
