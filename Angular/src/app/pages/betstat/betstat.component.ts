@@ -10,45 +10,45 @@ import { Router } from '@angular/router';
 export class BetstatComponent implements OnInit {
 
   constructor(private betstatService: BetstatService,
-    private route: Router) {
+              private route: Router) {
     if (this.matches.length === 0) {
-      console.log('pobieranie meczy')
+      console.log('pobieranie meczy');
       this.betstatService.getMatches().subscribe(matches => {
         this.matches = matches;
         setTimeout(() => {
-          this.pagination()
-          this.paginate(1)
+          this.pagination();
+          this.paginate(1);
         }, 1000);
-        console.log(this.matches)
-      })
+        console.log(this.matches);
+      });
     }
 
   }
+
+  url = 'http://localhost:3000/api/betstat/getmatches';
+
+  matches: Array<any> = [];
+  currentPage = 1;
+  matchesPerPage = 7;
+  pageNumbers = [];
+  currentPosts = [];
+  indexOfLastPost: number;
 
   ngOnInit() {
     this.responsiveBetstatView();
   }
 
-  url = 'http://localhost:3000/api/betstat/getmatches'
-
-  matches: Array<any> = [];
-  currentPage: number = 1;
-  matchesPerPage: number = 7
-  pageNumbers = [];
-  currentPosts = [];
-  indexOfLastPost: number;
-
   responsiveBetstatView() {
-    const media = window.matchMedia("(min-width: 768px)");
+    const media = window.matchMedia('(min-width: 768px)');
     if (media.matches) {
-      this.matchesPerPage = 4
+      this.matchesPerPage = 4;
     } else {
-      this.matchesPerPage = 3
+      this.matchesPerPage = 3;
     }
   }
 
   paginate = (pageNumber: number) => {
-    this.currentPage = pageNumber
+    this.currentPage = pageNumber;
     const indexOfLastPost = this.currentPage * this.matchesPerPage;
     const indexOfFirstPost = indexOfLastPost - this.matchesPerPage;
     this.currentPosts = this.matches.slice(indexOfFirstPost, indexOfLastPost);
@@ -62,11 +62,11 @@ export class BetstatComponent implements OnInit {
   }
 
   goTo() {
-    if(this.route.url == '/'){
-      return true
+    if (this.route.url === '/'){
+      return true;
     }
-    if(this.route.url == '/betstat') {
-      return false
+    if (this.route.url === '/betstat') {
+      return false;
     }
   }
 }

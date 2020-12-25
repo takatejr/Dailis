@@ -14,7 +14,6 @@ export class AuthService {
     ) { }
 
     validateUser(name: string, pass: string): Observable<any> {
-        console.log(name, pass)
         return this.usersService.findOne(name).pipe(
             switchMap((user: User) => this.comparePasswords(pass, user.password).pipe(
                 map((match: boolean) => {
@@ -52,9 +51,6 @@ export class AuthService {
     }
 
     register(userData: User): Observable<User> {
-        const payload = { name: userData.name, password: userData.password };
-        const access_token = this.jwtService.sign(payload)
-        console.log(access_token)
         return from(this.usersService.create(userData))
     }
 }

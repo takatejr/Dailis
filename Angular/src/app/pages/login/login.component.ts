@@ -16,11 +16,11 @@ export class LoginComponent implements OnInit {
     loginForm = this.formBuilder.group({
         name: ['', Validators.required],
         password: ['', Validators.required]
-    })
+    });
 
     onSubmit() {
-        const credentials = this.loginForm.value
-        this.authService.login(credentials)
+        const credentials = this.loginForm.value;
+        this.authService.login(credentials);
     }
 
   constructor(

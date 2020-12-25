@@ -16,7 +16,7 @@ import { first } from 'rxjs/operators';
      [
       // Enter Animation
       transition(':leave', [
-        // initial 
+        // initial
         style({
           height: 10,
           opacity: 0,
@@ -63,6 +63,11 @@ export class DaylisComponent implements OnInit, OnDestroy {
     private daylisService: DaylisService,
     ) { }
 
+  dailyLists: Array<DailyLists> = [];
+  lastID = 0;
+  nameOfNewList = '';
+  dailyView = false;
+
   ngOnInit(): void {
     this.getLastID();
     this.getAllDailyLists();
@@ -71,32 +76,27 @@ export class DaylisComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
   }
 
-  dailyLists: Array<DailyLists> = [];
-  lastID: number = 0;
-  nameOfNewList = "";
-  dailyView: boolean = false
+  getLastID = () => this.daylisService.getLastId().pipe(first()).subscribe(e => this.lastID = e);
 
-  getLastID = () => this.daylisService.getLastId().pipe(first()).subscribe(e => this.lastID = e)
+  getAllDailyLists = () => this.daylisService.getAllDailyLists().pipe(first()).subscribe(data => this.dailyLists = data);
 
-  getAllDailyLists = () => this.daylisService.getAllDailyLists().pipe(first()).subscribe(data => this.dailyLists = data)
+  toggleDaylisDetails = () => this.dailyView = !this.dailyView;
 
-  toggleDaylisDetails = () => this.dailyView = !this.dailyView
-
-  showDetailsOfDaylis = (e) => this.daylisIngredients.showDetailsOfDaylis(e)
+  showDetailsOfDaylis = (e) => this.daylisIngredients.showDetailsOfDaylis(e);
 
   countBoughtIngredients(i: number): number {
     let countTrue = 0;
-    for (let ingredient of this.dailyLists[i].ingredients) {
-      ingredient.bought == true ? countTrue++ : null;
+    for (const ingredient of this.dailyLists[i].ingredients) {
+      ingredient.bought === true ? countTrue++ : null;
     }
-    return countTrue
+    return countTrue;
   }
 
   addNewDailyList = (titleOfList: string) => {
-    if (this.nameOfNewList == "") {
-      alert('Add name of new list')
+    if (this.nameOfNewList === '') {
+      alert('Add name of new list');
     } else {
-      this.getLastID()
+      this.getLastID();
       const daily: DailyLists =
       {
         id: ++this.lastID,
@@ -104,10 +104,10 @@ export class DaylisComponent implements OnInit, OnDestroy {
         ingredients:
           [
           ]
-      }
-      this.daylisService.createDailyList(daily).subscribe(daily => daily)
-      this.dailyLists.push(daily)
+      };
+      this.daylisService.createDailyList(daily).subscribe(daily => daily);
+      this.dailyLists.push(daily);
       this.nameOfNewList = '';
     }
-  };
+  }
 }
