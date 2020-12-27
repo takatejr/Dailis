@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BetstatService } from '../../shared/services/betstatService';
 import { Router } from '@angular/router';
+import { catchError, delay, map, tap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { Matches } from 'src/app/shared/types/matches';
+import { handleError } from '../../shared/services/handleError';
 
 @Component({
   selector: 'app-betstat',
@@ -10,29 +14,18 @@ import { Router } from '@angular/router';
 export class BetstatComponent implements OnInit {
 
   constructor(private betstatService: BetstatService,
-              private route: Router) {
-    if (this.matches.length === 0) {
-      console.log('pobieranie meczy');
-      this.betstatService.getMatches().subscribe(matches => {
-        this.matches = matches;
-        setTimeout(() => {
-          this.pagination();
-          this.paginate(1);
-        }, 1000);
-        console.log(this.matches);
-      });
-    }
-
+    private route: Router) {
   }
 
   url = 'http://localhost:3000/api/betstat/getmatches';
 
-  matches: Array<any> = [];
+
   currentPage = 1;
   matchesPerPage = 7;
   pageNumbers = [];
   currentPosts = [];
   indexOfLastPost: number;
+
 
   ngOnInit() {
     this.responsiveBetstatView();
@@ -55,18 +48,30 @@ export class BetstatComponent implements OnInit {
   }
 
   pagination = () => {
-    const totalMatches = this.matches.length;
+    const totalMatches = Number(this.matches.subscribe(matches => matches.lenght))
     for (let i = 1; i <= Math.ceil(totalMatches / this.matchesPerPage); i++) {
       this.pageNumbers.push(i);
     }
   }
 
   goTo() {
-    if (this.route.url === '/'){
+    if (this.route.url === '/') {
       return true;
     }
     if (this.route.url === '/betstat') {
       return false;
     }
   }
+
+  matches = this.betstatService.getMatches()
+    .pipe(
+      map(e => e),
+      delay(100),
+      tap(() => {
+        this.pagination(),
+          this.paginate(1)
+      }),
+      catchError(() => handleError()),
+    )
+
 }
