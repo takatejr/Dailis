@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BetstatService } from '../../shared/services/betstatService';
 import { Router } from '@angular/router';
-import { catchError, delay, map, tap } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
+import { catchError, count, delay, map, shareReplay, tap } from 'rxjs/operators';
+import { from, Observable, throwError } from 'rxjs';
 import { Matches } from 'src/app/shared/types/matches';
 import { handleError } from '../../shared/services/handleError';
 
@@ -32,7 +32,9 @@ export class BetstatComponent implements OnInit {
   }
 
   responsiveBetstatView() {
-    const media = window.matchMedia('(min-width: 768px)');
+    const width = '(min-width: 768px)'
+    const media = window.matchMedia(width);
+
     if (media.matches) {
       this.matchesPerPage = 4;
     } else {
@@ -44,22 +46,13 @@ export class BetstatComponent implements OnInit {
     this.currentPage = pageNumber;
     const indexOfLastPost = this.currentPage * this.matchesPerPage;
     const indexOfFirstPost = indexOfLastPost - this.matchesPerPage;
-    this.currentPosts = this.matches.slice(indexOfFirstPost, indexOfLastPost);
+    this.currentPosts = this.matches.slice(indexOfFirstPost, indexOfLastPost)
   }
 
   pagination = () => {
-    const totalMatches = Number(this.matches.subscribe(matches => matches.lenght))
+    const totalMatches = Number(this.matches.pipe(map(e => count(e))))
     for (let i = 1; i <= Math.ceil(totalMatches / this.matchesPerPage); i++) {
       this.pageNumbers.push(i);
-    }
-  }
-
-  goTo() {
-    if (this.route.url === '/') {
-      return true;
-    }
-    if (this.route.url === '/betstat') {
-      return false;
     }
   }
 
@@ -72,6 +65,7 @@ export class BetstatComponent implements OnInit {
           this.paginate(1)
       }),
       catchError(() => handleError()),
+      shareReplay(1),
     )
 
 }

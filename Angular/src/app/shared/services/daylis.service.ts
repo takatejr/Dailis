@@ -23,6 +23,9 @@ export class DaylisService {
     getLastId(): Observable<number> {
         const url = `${API_URL}` + `daily-lists/lastid`
         return this.http.get<number>(url)
+            .pipe(
+                catchError(this.handleError)
+            )
     }
 
     getUserById(id: number): Observable<User> {
@@ -30,7 +33,7 @@ export class DaylisService {
         return this.http.get<User>(url)
             .pipe(
                 tap(_ => console.log(`fetched user id=${id}`)),
-                // catchError(this.handleError<User>(`getUser id=${id}`))
+                catchError(this.handleError<User>(`getUser id=${id}`))
             );
     }
 
