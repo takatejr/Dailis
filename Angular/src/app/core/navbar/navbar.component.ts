@@ -14,7 +14,7 @@ export class NavbarComponent {
       title: 'daylis',
     },
     {
-      app: 'cookbook',
+      app: 'kalendarz',
       position: 2,
       title: 'cookbook',
     },

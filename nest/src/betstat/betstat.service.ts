@@ -38,8 +38,7 @@ export class BetstatService {
       res.map((el) => el.textContent)
     )
 
-
-
+    
     const notSplittedIds = await page.$$eval(
       "div.sportName.soccer > div.event__match",
       (res) => res.map((el) => el.getAttribute("id"))
