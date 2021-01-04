@@ -22,12 +22,15 @@ export class AuthenticationService {
     login(credentials) {
         const url = (`${API_URL}` + `auth/login`)
         console.log(credentials)
-        const aa = { headers: new HttpHeaders({ 'Content-Type': 'application/json', }), responseType: 'text' as 'json' }
-        return this.http.post<any>(url, credentials, aa).subscribe(user => {
+        const headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json', }), responseType: 'text' as 'json', withCredentials: true }
+
+        return this.http.post<any>(url, credentials, headers).subscribe(user => {
             localStorage.setItem('currentUser', JSON.stringify(user));
             this.currentUserSubject.next(user);
             return user
-        })
+        }), (err) => {
+            console.log('Error: ' + err);
+        };
     }
 
     handleError<T>(operation = 'operation', result?: T) {
