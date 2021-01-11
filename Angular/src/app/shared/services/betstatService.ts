@@ -12,11 +12,10 @@ export class BetstatService {
     constructor(private http: HttpClient) { }
     
     getMatches(): Observable<any> {
-        const url = `${API_URL}` + `api/betstat/getmatches`
-        const matches = this.http.get(url).pipe(
+       return this.http.get(`${API_URL}` + `api/betstat/getmatches`)
+       .pipe(
             map((matches) => matches),
             handleError(),
         )
-        return matches
     }
 }

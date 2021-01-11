@@ -16,7 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BetstatComponent } from './pages/betstat/betstat.component';
 import { BetstatDetailsComponent } from './pages/betstat/betstat-details/betstat-details.component';
-import { ErrorInterceptor } from './shared/error.interceptor';
+import { HttpErrorInterceptor } from './interceptors/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
     ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

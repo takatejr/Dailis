@@ -35,8 +35,7 @@ export class AuthService {
     }
 
     login(body: User): Observable<any> {
-        const date = Date.now()
-        const payload = { name: body.name, password: body.password, date: date };
+        const payload = { name: body.name, password: body.password};
         return this.validateUser(body.name, body.password).pipe(
             map((user: User) => {
                 if(user) {

@@ -1,36 +1,42 @@
-import { Injectable, ɵConsole } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, of, pipe, Subscriber } from 'rxjs';
-import { catchError, first, map } from 'rxjs/operators';
-import { API_URL } from './ApiKey';
+import { BehaviorSubject, Observable, of, } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    private currentUserSubject: BehaviorSubject<any>;
-    public currentUser: Observable<any>;
-    token: string;
+    loggedIn = new BehaviorSubject<boolean>(false);
+    role = new BehaviorSubject<number[]>([0]);
 
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    public get currentUserValue() {
-        return this.currentUserSubject.value;
-    }
+    headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true }
 
     login(credentials) {
-        const url = (`${API_URL}` + `auth/login`)
-        console.log(credentials)
-        const headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json', }), responseType: 'text' as 'json', withCredentials: true }
+        return this.http.post<any>(`${environment.API_URL}` + `auth/login`, credentials, this.headers)
+            .subscribe(() => this.userStatus()),
+            (err) => console.log('Error: ' + err);
+    }
 
-        return this.http.post<any>(url, credentials, headers).subscribe(user => {
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            this.currentUserSubject.next(user);
-            return user
-        }), (err) => {
-            console.log('Error: ' + err);
-        };
+    logout() {
+        return this.http.get<any>(`${environment.API_URL}/user/logout`, this.headers)
+        .subscribe(() => this.userStatus())
+    }
+
+    userStatus() {
+        this.checkLogin();
+        this.checkRole()
+    }
+
+    checkLogin() {
+        return this.http.post<any>(`${environment.API_URL}/user/cookie`, {}, { withCredentials: true })
+            .subscribe((isLoggedIn: boolean) => this.loggedIn.next(isLoggedIn))
+    }
+
+    checkRole() {
+        return this.http.post<any>(`${environment.API_URL}/user/role`, {}, { withCredentials: true })
+            .subscribe((role: number[]) => this.role.next(role))
     }
 
     handleError<T>(operation = 'operation', result?: T) {
@@ -38,11 +44,5 @@ export class AuthenticationService {
             console.error(error);
             return of(result as T);
         };
-    }
-
-    logout() {
-        // remove user from local storage and set current user to null
-        localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
     }
 }
