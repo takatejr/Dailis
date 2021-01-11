@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, of, } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError, } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -13,10 +14,18 @@ export class AuthenticationService {
 
     headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }), withCredentials: true }
 
+    register(payload) {
+        return this.http.post<any>(`${environment.API_URL}/user/register`, payload, this.headers)
+            .pipe(
+                map(e => e),
+                catchError(e => throwError(e))
+            )
+    }
+
     login(credentials) {
         return this.http.post<any>(`${environment.API_URL}` + `auth/login`, credentials, this.headers)
-            .subscribe(() => this.userStatus()),
-            (err) => console.log('Error: ' + err);
+            .subscribe(() => this.userStatus(),
+            (err) => console.log('Error: ' + err))
     }
 
     logout() {

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DaylisService } from '../../../shared/services/daylis.service';
+import { AuthenticationService } from 'src/app/shared/services/auth.service';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-singup',
@@ -9,52 +12,33 @@ import { DaylisService } from '../../../shared/services/daylis.service';
   styleUrls: ['./singup.component.scss']
 })
 export class SingupComponent implements OnInit {
-  form: FormGroup;
-  loading = false;
-  submitted = false;
-
+  registerForm = this.formBuilder.group({
+    login: ['', Validators.required],
+    email: ['', Validators.required],
+    password1: ['', [Validators.required, Validators.minLength(6)]],
+    password2: ['', [Validators.required, Validators.minLength(6)]]
+  });
   constructor(
-      private formBuilder: FormBuilder,
-      private route: ActivatedRoute,
-      private router: Router,
-      private daylisService: DaylisService
-  ) {
-      // redirect to home if already logged in
-    //   if (this.accountService.userValue) {
-    //       this.router.navigate(['/']);
-    //   }
-  }
+    private formBuilder: FormBuilder,
+    private authenticationService: AuthenticationService
+  ) { }
 
-  ngOnInit() {
-      this.form = this.formBuilder.group({
-          login: ['', Validators.required],
-          email: ['', Validators.required],
-          password1: ['', [Validators.required, Validators.minLength(6)]],
-          password2: ['', [Validators.required, Validators.minLength(6)]]
-      });
-  }
+  ngOnInit() { }
 
-  get f() { return this.form.controls; }
+  get form() { return this.registerForm.controls }
 
-  onSubmit() {
-      this.submitted = true;
+  register() {
+    if (this.registerForm.invalid) return
+    if (this.form.password1.value !== this.form.password2.value) return window.alert("Passwords aren't that same.")
 
-      // stop here if form is invalid
-      if (this.form.invalid) {
-          return;
-      }
+    const payload = {
+      email: this.form.email.value,
+      password: this.form.password1.value
+    }
 
-      this.loading = true;
-      // this.daylisService.register(this.form.value)
-      //     .pipe(first())
-      //     .subscribe(
-      //         data => {
-      //             this.alertService.success('Registration successful', { keepAfterRouteChange: true });
-      //             this.router.navigate(['../login'], { relativeTo: this.route });
-      //         },
-      //         error => {
-      //             this.alertService.error(error);
-      //             this.loading = false;
-      //         });
+    return this.authenticationService.register(payload)
+      .pipe(
+        catchError(e => throwError(e))
+      ).subscribe(e => e)
   }
 }

@@ -9,28 +9,34 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loading = false;
-  submitted = false;
-  returnUrl: string;
+  loginForm = this.formBuilder.group({
+    name: ['', Validators.required],
+    password: ['', Validators.required]
+  });
 
-    loginForm = this.formBuilder.group({
-        name: ['', Validators.required],
-        password: ['', Validators.required]
-    });
-
-    onSubmit() {
-        const credentials = this.loginForm.value;
-        this.authService.login(credentials);
-    }
+  login() {
+    if (this.loginForm.invalid) return
+    
+    const credentials = this.loginForm.value;
+    this.authService.login(credentials);
+  }
 
   constructor(
-      private formBuilder: FormBuilder,
-      private http: HttpClient,
-      private authService: AuthenticationService
-  ) {
-  }
+    private formBuilder: FormBuilder,
+    private authService: AuthenticationService
+  ) { }
 
   ngOnInit() {
   }
 
+  backToPreviousPage() {
+    history.back()
+  }
+
+  loginAndBackToPreviousPage() {
+    if (this.loginForm.invalid) {
+      return window.alert('Login or password empty')
+    }
+    history.back()
+  }
 }
