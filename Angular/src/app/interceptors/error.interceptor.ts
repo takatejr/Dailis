@@ -8,7 +8,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { AuthenticationService } from '../shared/services/auth.service';
+import { AuthenticationService } from '../shared/services/auth/auth.service';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {

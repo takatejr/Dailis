@@ -6,14 +6,17 @@ export class User {
   id: number;
 
   @Column('varchar')
-  name: string;
+  login: string;
 
   @Column('varchar')
   password: string;
 
   @Column('varchar')
-  ID_dailyLists: number;
+  dailyLists_ID: number;
 
   @Column('varchar')
   recipes: string;
+
+  @Column('varchar')
+  access: number
 }

@@ -11,5 +11,7 @@
     "@types/node": "^14.14.8",
     "concurrently": "^5.3.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from 'src/app/shared/services/auth.service';
-import { HttpClient } from '@angular/common/http';
+import { FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +13,11 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required]
   });
 
+  get form() { return this.loginForm.controls }
+
   login() {
     if (this.loginForm.invalid) return
-    
-    const credentials = this.loginForm.value;
-    this.authService.login(credentials);
+    this.authService.login(this.form.name.value, this.form.password.value)
   }
 
   constructor(

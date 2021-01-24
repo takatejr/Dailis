@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from "./core/core.module";
 import { LoginComponent } from './pages/login/login.component';
-import { SingupComponent } from './pages/login/singup/singup.component';
+import { SingupComponent } from './pages/singup/singup.component';
 import { DaylisComponent } from './pages/daylis/daylis.component';
 import { DaylisDetailsComponent } from './pages/daylis/daylis-details/daylis-details.component';
 import { EditDetailsComponent } from './pages/daylis/daylis-details/edit-details/edit-details.component';

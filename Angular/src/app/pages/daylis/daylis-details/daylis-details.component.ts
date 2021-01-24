@@ -1,7 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, AfterViewInit, Output, EventEmitter, OnDestroy} from '@angular/core';
-import { DaylisIngredientsService } from "../../../shared/services/daylis-ingredients.service";
-import { DaylisService } from '../../../shared/services/daylis.service';
+import { DaylisIngredientsService } from "../../../shared/services/daylis/daylis-ingredients.service";
+import { DaylisService } from '../../../shared/services/daylis/daylis.service';
 import { DailyLists } from '../../../shared/types/daily-lists';
 @Component({
   selector: 'app-daylis-details',

@@ -1,8 +1,8 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DailyLists } from '../../shared/types/daily-lists';
-import { DaylisIngredientsService } from '../../shared/services/daylis-ingredients.service';
-import { DaylisService } from '../../shared/services/daylis.service';
+import { DaylisIngredientsService } from '../../shared/services/daylis/daylis-ingredients.service';
+import { DaylisService } from '../../shared/services/daylis/daylis.service';
 import { first } from 'rxjs/operators';
 
 

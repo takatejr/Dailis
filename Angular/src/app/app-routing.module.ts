@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorComponent } from './core/error/error.component';
 import { LoginComponent } from './pages/login/login.component';
-import { SingupComponent } from './pages/login/singup/singup.component';
+import { SingupComponent } from './pages/singup/singup.component';
 import { DaylisComponent } from './pages/daylis/daylis.component';
 import { DaylisDetailsComponent } from './pages/daylis/daylis-details/daylis-details.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component'
@@ -11,16 +11,8 @@ import { BetstatDetailsComponent } from './pages/betstat/betstat-details/betstat
 
 
 const routes: Routes = [
-  {
-    path: 'login',
-    component: LoginComponent,
-    children: [
-      {
-        path: 'signup',
-        component: SingupComponent,
-      }
-    ],
-  },
+  { path: 'login', component: LoginComponent, },
+  { path: 'signup', component: SingupComponent, },
   { path: 'daylis', component: DaylisComponent },
   { path: '', component: DashboardComponent },
   { path: 'cookbook', loadChildren: () => import('./pages/cookbook/cookbook.module').then(m => m.CookbookModule) },

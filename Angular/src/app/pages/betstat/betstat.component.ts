@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BetstatService } from '../../shared/services/betstatService';
+import { BetstatService } from '../../shared/services/betstat/betstatService';
 import { Router } from '@angular/router';
 import { shareReplay } from 'rxjs/operators';
 import { Matches } from 'src/app/shared/types/matches';
@@ -13,10 +13,7 @@ export class BetstatComponent implements OnInit {
 
   constructor(private betstatService: BetstatService,
     private route: Router) {
-
   }
-
-  url = 'http://localhost:3000/api/betstat/getmatches';
 
   matches: Matches[];
   currentPage = 1;

@@ -1,10 +1,9 @@
 import { HttpClient} from '@angular/common/http';
-import { Observable} from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { API_URL } from 'src/app/shared/services/ApiKey';
-import { map } from 'rxjs/operators';
-import { handleError } from './handleError';
-import { Matches } from '../types/matches';
+import { map, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+
 @Injectable({
     providedIn: 'root'
 })
@@ -12,10 +11,10 @@ export class BetstatService {
     constructor(private http: HttpClient) { }
     
     getMatches(): Observable<any> {
-       return this.http.get(`${API_URL}` + `api/betstat/getmatches`)
+       return this.http.get(`${environment.API_URL}` + `api/betstat/getmatches`)
        .pipe(
             map((matches) => matches),
-            handleError(),
+            catchError(e => throwError(e))
         )
     }
 }

@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { DaylisService } from '../../../shared/services/daylis.service';
-import { AuthenticationService } from 'src/app/shared/services/auth.service';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { FormBuilder, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-singup',
@@ -12,6 +8,7 @@ import { throwError } from 'rxjs';
   styleUrls: ['./singup.component.scss']
 })
 export class SingupComponent implements OnInit {
+  loading= true;
   registerForm = this.formBuilder.group({
     login: ['', Validators.required],
     email: ['', Validators.required],
@@ -36,9 +33,6 @@ export class SingupComponent implements OnInit {
       password: this.form.password1.value
     }
 
-    return this.authenticationService.register(payload)
-      .pipe(
-        catchError(e => throwError(e))
-      ).subscribe(e => e)
+    return this.authenticationService.register(payload).subscribe(e => e)
   }
 }

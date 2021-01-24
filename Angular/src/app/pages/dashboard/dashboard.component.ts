@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../shared/services/auth.service';
+import { AuthenticationService } from '../../shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +14,10 @@ export class DashboardComponent implements OnInit {
   }
 
   isAllowed() {
-    return this.auth.checkLogin()
+    if (this.auth.User.access.value.includes(2)) {
+      return true
+    } else {
+      return false
+    }
   }
 }

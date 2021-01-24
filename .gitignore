@@ -10,3 +10,4 @@ node_modules/*
 node_modules
 nest/a.ts
 nest/dist/*
+.env
