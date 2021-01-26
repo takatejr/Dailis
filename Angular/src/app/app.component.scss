@@ -1,34 +1,6 @@
 @import "core/variables";
 @import "core/reset.scss";
 
-#theme {
-  background-color: rgb(171, 175, 154);
-  max-height: max-content;
-  min-height: 98vh;
-}
-
-a {
-  text-decoration: none;
-  color: brown;
-}
-
-#title, #navbar {
-  @include height(8vh);
-  @include width(100%);
-}
-
-a {
-width: 100vw;
-  font-size: 5vh;
-// margin: 0 40%;
-}
-
-#header {
-  box-sizing: content-box;
-  padding-bottom: 5vh;
-  @include height(16vh);
-}
-
 .sticky {
   position: fixed;
   top: 0;
@@ -37,16 +9,6 @@ width: 100vw;
 .afterSticky {
   box-sizing: content-box;
   padding-bottom: 15vh;
-}
-
-daylis-navbar {
-  position: static;
-  background-color: red;
-  @include height(20vh);
-}
-
-router-outlet {
-  @include height(78%);
 }
 
 footer {

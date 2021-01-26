@@ -1,9 +1,9 @@
-<section >
+<section class="betstat-container">
   <div class="betstat" *ngIf="currentPosts">
     <div class="betstat__match" *ngFor="let match of currentPosts">
       <p>{{ match.home }} - {{ match.away }}</p>
-      <a routerLink="{{match.matchID}}" routerLinkActive="router-link-active" *ngIf="checkRoute()">Show more</a>
-      <a [routerLink]="['/betstat']" routerLinkActive="router-link-active" *ngIf="!checkRoute()">Show more</a>
+      <a class="show" routerLink="{{match.matchID}}" routerLinkActive="router-link-active" *ngIf="checkRoute()">Show more</a>
+      <a class="show" [routerLink]="['/betstat']" routerLinkActive="router-link-active" *ngIf="!checkRoute()">Show more</a>
     </div>
   </div>
   <div class="pagination">

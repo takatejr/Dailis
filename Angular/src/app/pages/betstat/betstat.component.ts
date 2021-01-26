@@ -40,9 +40,9 @@ export class BetstatComponent implements OnInit {
     const media = window.matchMedia(width);
 
     if (media.matches) {
-      this.matchesPerPage = 6;
+      this.matchesPerPage = 12;
     } else {
-      this.matchesPerPage = 3;
+      this.matchesPerPage = 6;
     }
   }
 

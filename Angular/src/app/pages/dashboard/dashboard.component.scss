@@ -1,34 +1,5 @@
-div {
-    position: absolute;
-    max-width: 200px;
-    max-height: 200px;
-    margin: 1%;
-    line-height: 5%;
-    row-gap: 5vh;
-}
-
 app-betstat {
-    position: fixed;
-    width: 80%;
-    height: 30%;
+    height: 90vh;
+    width: 80vw;
     margin: 0 auto;
-    left: 10%;
-    right: 10%;
-}
-
-section {
-    height: 30vh;
-}
-
-app-daylis {
-    position: fixed;
-    width: 80%;
-    height: 40%;
-    overflow-y: scroll;
-    border: 2px grey solid;
-    border-radius: 3%;
-    margin: 0 auto;
-    top: 55%;
-    left: 10%;
-    right: 10%;
 }

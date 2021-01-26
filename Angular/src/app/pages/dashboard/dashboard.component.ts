@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
     if (this.auth.User.access.value.includes(2)) {
       return true
     } else {
-      return false
+      return true
     }
   }
 }
