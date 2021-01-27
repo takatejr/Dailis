@@ -14,7 +14,7 @@ export class AuthService {
     ) { }
 
     generateToken = (user) => {
-        const payload = { iss: "4py.pl", sub: user.access };
+        const payload = { iss: "Dailis", sub: user.access };
         return this.jwtService.sign(payload, { algorithm: 'HS512', secret: process.env.SECRET_JWT_KEY, subject: 'token' });
     };
 

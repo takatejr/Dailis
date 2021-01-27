@@ -17,6 +17,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BetstatComponent } from './pages/betstat/betstat.component';
 import { BetstatDetailsComponent } from './pages/betstat/betstat-details/betstat-details.component';
 import { HttpErrorInterceptor } from './interceptors/error.interceptor';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { HttpErrorInterceptor } from './interceptors/error.interceptor';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatSidenavModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },],

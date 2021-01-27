@@ -1,5 +1,6 @@
 @import "src/app/core/variables";
 @import "src/app/core/reset";
+@import "bulma";
 
 .navbar {
     display: flex;
@@ -12,8 +13,8 @@
     height: 5vh;
     width: 100%;
     margin: 0 auto;
-    background-color: red;
-    border: 1px solid black;
+    background-color: #ffdd57;
+    // border: 1px solid black;
 }
 
 a {

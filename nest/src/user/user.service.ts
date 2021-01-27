@@ -17,8 +17,8 @@ export class UsersService {
     return this.repo.find();
   }
 
-  findOne(name: string): Observable<User> {
-  return from(this.repo.findOne({name}))
+  findOne(login: string): Observable<User> {
+  return from(this.repo.findOne({login}))
   }
 
   async remove(id: string): Promise<void> {
@@ -39,7 +39,7 @@ export class UsersService {
     return this.repo.save({...result, password: hashedPassword});
   }
 
-  findByMail(name: string): Observable<User> {
-    return from(this.repo.findOne({name}));
+  findByMail(login: string): Observable<User> {
+    return from(this.repo.findOne({login}));
 }
 }

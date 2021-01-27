@@ -1,16 +1,11 @@
 <div id="theme">
-  <div class="my-overlay" *ngIf="showOverlay">
-    <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
-  </div>
-  <header id="header">
+  <header>
     <div id="title"title="{{ title }}">
         <a routerLink="/">
           {{ title }}
         </a>
     </div>
-    <div id="navbar">
       <daylis-navbar></daylis-navbar>
-    </div>
   </header>
   <router-outlet></router-outlet>
   <footer class="footer">

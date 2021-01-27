@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BetstatService } from '../../shared/services/betstat/betstatService';
 import { Router } from '@angular/router';
 import { shareReplay } from 'rxjs/operators';
 import { Matches } from 'src/app/shared/types/matches';
-
+import {MatSidenav} from '@angular/material/sidenav';
 @Component({
   selector: 'app-betstat',
   templateUrl: './betstat.component.html',
@@ -21,6 +21,14 @@ export class BetstatComponent implements OnInit {
   pageNumbers = [];
   currentPosts: Matches[];
   indexOfLastPost: number;
+  @ViewChild('sidenav') sidenav: MatSidenav;
+
+  reason = '';
+
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
 
   ngOnInit() {
     this.responsiveBetstatView();
