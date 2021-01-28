@@ -61,6 +61,10 @@ export class BetstatComponent implements OnInit {
     this.currentPosts = this.matches.slice(indexOfFirstPost, indexOfLastPost);
   }
 
+  matchDetail(match: Matches) {
+    this.betstatService.matchDetails(match)
+  }
+
   pagination = () => {
     const totalMatches = this.matches.length;
     const k = Math.ceil(totalMatches / this.matchesPerPage);

@@ -1,16 +1,29 @@
+<section class="betstat-container is-mobile" *ngIf="!checkRoute()">
+  <div class="betstat" *ngIf="currentPosts">
+    <div class="betstat__match" *ngFor="let match of currentPosts">
+      <p>{{ match.home }} - {{ match.away }}</p>
+      <a class="show button" routerLink="{{match.matchID}}" routerLinkActive="router-link-active" *ngIf="checkRoute()" (click)="matchDetail(match)">Show</a>
+      <a class="show button" [routerLink]="['/betstat/' + match.matchID]" routerLinkActive="router-link-active" *ngIf="!checkRoute()" (click)="matchDetail(match)">Show</a>
+    </div>
+  </div>
+  <div class="pagination buttons has-addons is-centered">
+    <button class="button" *ngFor="let i of pageNumbers" (click)="paginate(i)" [ngClass]="(i === currentPage) ? 'is-info is-selected': ''">
+      {{ i }}
+    </button>
+  </div>
+</section>
 
-
-<mat-sidenav-container
+<mat-sidenav-container *ngIf="checkRoute()"
     class="example-container" (backdropClick)="close('backdrop')">
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
     <p><button mat-button (click)="close('toggle button')">Toggle</button></p>
 
-    <section class="betstat-container is-mobile">
+    <section class="betstat-container is-mobile" >
       <div class="betstat" *ngIf="currentPosts">
         <div class="betstat__match" *ngFor="let match of currentPosts">
           <p>{{ match.home }} - {{ match.away }}</p>
-          <a class="show button" routerLink="{{match.matchID}}" routerLinkActive="router-link-active" *ngIf="checkRoute()">Show</a>
-          <a class="show button" [routerLink]="['/betstat']" routerLinkActive="router-link-active" *ngIf="!checkRoute()">Show</a>
+          <a class="show button" routerLink="{{match.matchID}}" routerLinkActive="router-link-active" *ngIf="checkRoute()" (click)="matchDetail(match)">Show</a>
+          <a class="show button" [routerLink]="['/betstat/' + match.matchID]" routerLinkActive="router-link-active" *ngIf="!checkRoute()" (click)="matchDetail(match)">Show</a>
         </div>
       </div>
       <div class="pagination buttons has-addons is-centered">

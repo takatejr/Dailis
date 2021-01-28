@@ -35,22 +35,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    window.onscroll = function() {stickyHeader()};
-
-    let navbar = document.getElementById('navbar');
-    let header = document.getElementById('header');
-    let sticky = navbar.offsetTop;
-
-   const stickyHeader = () => {
-      if(window.pageYOffset > sticky){
-        navbar.classList.add('sticky');
-        header.classList.add('afterSticky');
-      } else {
-        navbar.classList.remove('sticky');
-        header.classList.remove('afterSticky');
-      }
-    }
-
   }
 
 

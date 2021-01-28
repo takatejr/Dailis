@@ -2,22 +2,6 @@
 @import "src/app/core/reset";
 @import "bulma";
 
-.navbar {
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    flex-basis: 1 1 1 1 1 auto;
-}
-
-.navbar__item {
-    height: 5vh;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #ffdd57;
-    // border: 1px solid black;
-}
-
-a {
-    text-decoration: none;
-    margin: 0 auto;
+.columns {
+margin: 0 auto;
 }
