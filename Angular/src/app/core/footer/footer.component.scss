@@ -1,9 +1,0 @@
-@import "src/app/core/variables";
-@import "src/app/core/reset";
-
-p {
-    @include height(4vh);
-    font-weight: bolder;
-    color: #1c3a50;
-  }
-

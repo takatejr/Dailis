@@ -26,6 +26,7 @@ import { BetstatController } from './betstat/betstat.controller';
     database: 'test',
     entities: [User, Recipes, DailyLists, Ingredients],
     synchronize: true,
+    keepConnectionAlive: true,
   }), UsersModule, RecipesModule, DailyListsModule, AuthModule, IngredientsModule],
   controllers: [AppController, BetstatController],
   providers: [AppService, UsersService, BetstatService],

@@ -73,12 +73,46 @@ export class BetstatService {
     return arr
   }
 
+async seasonScore(ID) {
+  const browser = await launch()
+  const page = await browser.newPage()
 
+  await page.goto(this.URL_FS + "/match/" + ID + "/#standings")
+  await page.waitForSelector(".rows___1vntYow > div")
+  const countTeams = await page.$$eval(".rows___1vntYow > div", (div) => div.length)
+  const arr = []
+
+  if (countTeams > 1) {
+    console.log(countTeams)
+    for (let i = 1; i < countTeams; i++) {
+      const [win] = await page.$x(
+        `//*[@id="tournament-table"]/div[3]/div[1]/div/div/div[2]/div[${i}]/span[2]`
+      )
+      const [draw] = await page.$x(
+        `//*[@id="tournament-table"]/div[3]/div[1]/div/div/div[2]/div[${i}]/span[3]`
+      )
+      const [lose] = await page.$x(
+        `//*[@id="tournament-table"]/div[3]/div[1]/div/div/div[2]/div[${i}]/span[4]`
+      )
+      const [goals] = await page.$x(
+        `//*[@id="tournament-table"]/div[3]/div[1]/div/div/div[2]/div[${i}]/span[5]`
+      )
+      const [points] = await page.$x(
+        `//*[@id="tournament-table"]/div[3]/div[1]/div/div/div[2]/div[${i}]/span[6]`
+      )
+
+      console.log('wykonuje sie ten blok' + i + win)
+    }
+  }
+
+  browser.close()
+  // matches.push(arx)
+}
 
   async winLose(ID) {
     const browser = await launch()
     const page = await browser.newPage()
-
+    console.log(ID + 'from winlose')
     await page.goto(this.URL_FS + "/match/" + ID + "/#h2h;overall")
 
     for (let i = 0; i < 6; i++) {
@@ -91,8 +125,7 @@ export class BetstatService {
       const [h2hAway] = await page.$x(`//*[@id="tab-h2h-overall"]/div[3]/table/tbody/tr[${i}]/td[4]/span`)
       const [scores] = await page.$x(`//*[@id="tab-h2h-overall"]/div[3]/table/tbody/tr[${i}]/td[5]/span/strong`)
 
-      if (homeMatches !== undefined || awayMatches !== undefined || h2hAway !== undefined || h2hHome !== undefined || scores !== undefined || homeScores !== undefined || awayScores !== undefined
-      ) {
+      if (!this.matches.includes('undefined')) {
         const homeLastMatches = await (await homeMatches.getProperty("title")).jsonValue()
         const homeLastScores = await (await homeScores.getProperty("textContent")).jsonValue()
         const awayLastMatches = await (await awayMatches.getProperty("title")).jsonValue()

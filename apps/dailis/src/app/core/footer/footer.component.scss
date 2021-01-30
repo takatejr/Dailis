@@ -1,0 +1,9 @@
+@import "../reset.scss";
+@import "../variables.scss";
+
+.footer {
+    @include height(4vh);
+    font-weight: bolder;
+    color: #1c3a50;
+  }
+
