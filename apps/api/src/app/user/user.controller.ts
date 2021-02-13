@@ -2,7 +2,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 import { User } from './user.entity';
 import { UsersService } from './user.service';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
   constructor(private readonly usersService: UsersService) { }
 
@@ -11,9 +11,8 @@ export class UserController {
     return this.usersService.findAll();
   }
 
-  @Post()
+  @Post('/register')
   async create(@Body() user: User) {
     this.usersService.create(user);
   }
-
 } 

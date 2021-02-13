@@ -19,19 +19,19 @@ export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
     login(login: string, password: string) {
-        return this.http.post<any>(`${environment.API_URL}/users/authenticate`, { login, password }, this.headers)
+        return this.http.post<any>(`${environment.API_URL}users/authenticate`, { login, password }, this.headers)
             .subscribe(() => this.userStatus(),
                 catchError(e => throwError(e)))
     }
 
     logout() {
-        return this.http.get<any>(`${environment.API_URL}/users/logout`, this.headers)
+        return this.http.get<any>(`${environment.API_URL}users/logout`, this.headers)
             .subscribe(() => this.userStatus(),
                 catchError(e => throwError(e)))
     }
 
     userStatus() {
-        return this.http.post<any>(`${environment.API_URL}/users/status`, {}, { withCredentials: true })
+        return this.http.post<any>(`${environment.API_URL}users/status`, {}, { withCredentials: true })
             .subscribe(({ login, access, logged_in }) => {
                 this.User.loggedIn.next(logged_in)
                 this.User.access.next(access)
@@ -41,7 +41,7 @@ export class AuthenticationService {
     }
 
     register(payload) {
-        return this.http.post<any>(`${environment.API_URL}/user/register`, payload, this.headers)
+        return this.http.post<any>(`${environment.API_URL}users/register`, payload, this.headers)
             .pipe(
                 map(e => e),
                 catchError(e => throwError(e))

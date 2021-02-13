@@ -8,21 +8,20 @@ import { SingupComponent } from './pages/singup/singup.component';
 import { DaylisComponent } from './pages/daylis/daylis.component';
 import { DaylisDetailsComponent } from './pages/daylis/daylis-details/daylis-details.component';
 import { EditDetailsComponent } from './pages/daylis/daylis-details/edit-details/edit-details.component';
-import { FormsModule,  ReactiveFormsModule, FormControl } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BetstatComponent } from './pages/betstat/betstat.component';
 import { BetstatDetailsComponent } from './pages/betstat/betstat-details/betstat-details.component';
 import { HttpErrorInterceptor } from './interceptors/error.interceptor';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { NxModule } from '@nrwl/angular';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SingupComponent,
     DaylisComponent,
     DaylisDetailsComponent,
     EditDetailsComponent,

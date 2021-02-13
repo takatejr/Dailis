@@ -29,7 +29,7 @@ export class BetstatService {
     }
 
     getMatches(): Observable<any> {
-        return this.http.get(`${environment.API_URL}` + `api/betstat/getmatches`)
+        return this.http.get(`${environment.API_URL}betstat/getmatches`)
             .pipe(
                 map((matches) => matches),
                 catchError(e => throwError(e))
@@ -37,7 +37,7 @@ export class BetstatService {
     }
 
     historyMatches(matchID: string): Observable<any> {
-        return this.http.post(`${environment.API_URL}` + `api/betstat/historymatches`, matchID)
+        return this.http.post(`${environment.API_URL}betstat/historymatches`, matchID)
             .pipe(
                 map((matches) => matches),
                 catchError(e => throwError(e))

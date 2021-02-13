@@ -57,7 +57,7 @@ import { first } from 'rxjs/operators';
     ])
   ]
 })
-export class DaylisComponent implements OnInit, OnDestroy {
+export class DaylisComponent implements OnInit {
   constructor(
     private daylisIngredients: DaylisIngredientsService,
     private daylisService: DaylisService,
@@ -71,9 +71,6 @@ export class DaylisComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getLastID();
     this.getAllDailyLists();
-  }
-
-  ngOnDestroy(): void {
   }
 
   getLastID = () => this.daylisService.getLastId().pipe(first()).subscribe(e => this.lastID = e);
