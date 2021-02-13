@@ -75,7 +75,7 @@ export class BetstatComponent implements OnInit {
   }
 
   checkRoute(){
-    const url = this.route.url.split("/")
+    const url = this.route.url.split('/')
     if(!url.includes('betstat')){
       return false
     }
