@@ -23,11 +23,6 @@ export class SingupComponent {
 
   get form() { return this.registerForm.controls }
 
-  awg(e) {  
-    console.log(e)
-    console.log(this.registerForm.controls)
-  }
-
   register() {
     if (this.registerForm.invalid) return
     if (this.form.password1.value !== this.form.password2.value) return window.alert('Passwords aren\'t that same.')
@@ -37,7 +32,7 @@ export class SingupComponent {
       email: this.form.email.value,
       password: this.form.password1.value
     }
-    
+
     return this.authenticationService.register(payload).subscribe(e => e)
   }
 }

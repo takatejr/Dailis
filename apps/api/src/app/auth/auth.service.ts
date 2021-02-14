@@ -18,7 +18,6 @@ export class AuthService {
         return this.jwtService.sign(payload, {
             algorithm: 'HS512',
             secret: process.env.SECRET_JWT_KEY,
-            subject: 'token'
         });
     };
 
@@ -27,7 +26,6 @@ export class AuthService {
         return this.jwtService.verify(token, {
             algorithms: ['HS512'],
             secret: process.env.SECRET_JWT_KEY,
-            subject: 'token'
         });
     };
 
@@ -39,7 +37,6 @@ export class AuthService {
         return this.usersService.findOne(name).pipe(
             switchMap((user: User) => this.comparePasswords(pass, user.password).pipe(
                 map((match: boolean) => {
-                    console.log(match)
                     if (match) {
                         const { password, ...result } = user;
                         return result;
@@ -64,7 +61,7 @@ export class AuthService {
         )
     }
 
-    register(userData: User): Observable<User> {
-        return from(this.usersService.create(userData))
-    }
+    // register(userData: User): Observable<User> {
+    //     return from(this.usersService.create(userData))
+    // }
 }

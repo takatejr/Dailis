@@ -24,11 +24,6 @@ export class AppController {
     return req.user;
   }
 
-  @Post('auth/register')
-  async register(@Request() req) {
-    return this.authService.register(req.body)
-  }
-
   @Post('hehe')
   sercz(@Request() req): Observable<any> {
     console.log(req.body)
@@ -37,7 +32,7 @@ export class AppController {
   }
 
   @Post('hehex')
-  mail(@Request() req): Observable<any> {
-    return this.userService.findByMail(req.body.name)
+  mail(@Request() req) {
+    this.userService.findByMail(req.body.email)
   }
 }

@@ -9,13 +9,10 @@ export class User {
   login: string;
 
   @Column('varchar')
+  email: string;
+
+  @Column('varchar')
   password: string;
-
-  @Column('varchar')
-  dailyLists_ID: number;
-
-  @Column('varchar')
-  recipes: string;
 
   @Column('varchar')
   access: number
