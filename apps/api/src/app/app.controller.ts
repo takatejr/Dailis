@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Request, Res } from '@nestjs/common';
 import { AuthService } from './auth/auth.service';
 import { UsersService } from './user/user.service';
-import { Observable } from 'rxjs';
+import { Observable, combineLatest } from 'rxjs';
 import { BetstatService } from './betstat/betstat.service';
+import { map, tap } from 'rxjs/operators';
 
 @Controller()
 export class AppController {
@@ -12,10 +13,16 @@ export class AppController {
     private readonly userService: UsersService,
     private readonly betstatService: BetstatService) { }
 
-  @Post('auth/login')
-  async login(@Request() req) {
-    console.log(req.body)
-    return this.authService.login(req.body);
+  @Post('users/login')
+  async login(@Request() req, @Res({ passthrough: true }) response) {
+    return combineLatest([this.authService.login(req.body), this.authService.validateUser(req.body.login, req.body.password)])
+      .pipe(
+        map(([token, result]) => {
+          response.cookie('token', token);
+          response.cookie('user', result.login);
+          response.cookie('access', result.access);
+        }),
+      )
   }
 
   @Get('userowie')

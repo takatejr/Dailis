@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { combineLatest, from, merge, Observable, of } from 'rxjs';
-import { getRepository } from 'typeorm';
+import { DeleteResult, getRepository } from 'typeorm';
 import { User } from './user.entity';
 import * as bcrypt from 'bcrypt';
 import { map, mergeMap, tap } from 'rxjs/operators';
@@ -21,8 +21,8 @@ export class UsersService {
     return from(this.repo.findOne({ login }))
   }
 
-  async remove(id: string): Promise<void> {
-    await this.repo.delete(id);
+  remove(id: string): Observable<Promise<DeleteResult>> {
+   return of(this.repo.delete(id)) ;
   }
 
   async hashPassword(password) {
@@ -43,8 +43,6 @@ export class UsersService {
     return combineLatest([this.findByEmail(email), this.findByLogin(login)])
       .pipe(
         map(async ([mail, log]) => {
-
-          console.log(mail !== undefined, log !== undefined)
           if (mail !== undefined) {
             { return { message: 'This email already exists' } }
           }

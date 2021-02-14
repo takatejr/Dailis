@@ -19,7 +19,7 @@ export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
     login(login: string, password: string) {
-        return this.http.post<any>(`${environment.API_URL}users/authenticate`, { login, password }, this.headers)
+        return this.http.post<any>(`${environment.API_URL}users/login`, { login, password }, this.headers)
             .subscribe(() => this.userStatus(),
                 catchError(e => throwError(e)))
     }

@@ -65,8 +65,4 @@ export class AuthService {
             })
         )
     }
-
-    // register(userData: User): Observable<User> {
-    //     return from(this.usersService.create(userData))
-    // }
 }
