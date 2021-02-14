@@ -39,7 +39,7 @@ export class UsersService {
     return from(this.repo.findOne({ login }));
   }
 
-  create({ password, email, login }) {
+  register({ password, email, login }) {
     return combineLatest([this.findByEmail(email), this.findByLogin(login)])
       .pipe(
         map(async ([mail, log]) => {

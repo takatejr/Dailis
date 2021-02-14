@@ -13,6 +13,6 @@ export class UserController {
 
   @Post('/register')
   async create(@Body() user: User) {
-   return this.usersService.create(user);
+   return this.usersService.register(user);
   }
 } 
