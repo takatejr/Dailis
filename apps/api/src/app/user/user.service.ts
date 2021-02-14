@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { forkJoin, from, Observable } from 'rxjs';
+import { combineLatest, from, merge, Observable, of } from 'rxjs';
 import { getRepository } from 'typeorm';
 import { User } from './user.entity';
 import * as bcrypt from 'bcrypt';
-import { map, mergeMap, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { map, mergeMap, tap } from 'rxjs/operators';
 
 @Injectable()
 export class UsersService {
@@ -31,33 +31,31 @@ export class UsersService {
     return hashedPassword;
   }
 
-  findByMail(email: string): Observable<User> {
+  findByEmail(email: string): Observable<any> {
     return from(this.repo.findOne({ email }));
   }
 
-  findByLogin(login: string): Observable<User> {
+  findByLogin(login: string): Observable<any> {
     return from(this.repo.findOne({ login }));
   }
 
   create({ password, email, login }) {
-    return this.findByLogin(login).pipe(
-      switchMap((user: User) => this.findByMail(email).pipe(
-        map(mail => {
-          if (mail) {
-            return { message: 'Register successful' }
-          } else {
-            return { message: 'This email already exists' }
-          }
-        })
-      ))
-    )
-  }
+    return combineLatest([this.findByEmail(email), this.findByLogin(login)])
+      .pipe(
+        map(async ([mail, log]) => {
 
-          // if (user) {
-    //   const salt = await bcrypt.genSalt(10);
-    //   const hashedPassword = await bcrypt.hash(password, salt);
-    //   this.repo.save({ ...result, email: email, password: hashedPassword, access: 2 });
-    //   return { message: 'Register successful' }
-    // } else {
-    //   return { message: 'This email already exists' }
-    // }
+          console.log(mail !== undefined, log !== undefined)
+          if (mail !== undefined) {
+            { return { message: 'This email already exists' } }
+          }
+          if (log !== undefined) {
+            return { message: 'This login already exists' }
+          }
+
+          const hashedPassword = await this.hashPassword(password)
+          this.repo.save({ login: login, email: email, password: hashedPassword, access: 2 });
+          return { message: 'Register successful' }
+        }),
+      )
+  }
+}

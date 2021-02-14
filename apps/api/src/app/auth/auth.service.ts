@@ -29,6 +29,11 @@ export class AuthService {
         });
     };
 
+    hashPassword(password: string): Observable<string> {
+        const salt = bcrypt.genSalt(10);
+        return from<string>(bcrypt.hash(password, salt))
+    }
+
     comparePasswords(newPassword: string, passwortHash: string): Observable<any> {
         return from(bcrypt.compare(newPassword, passwortHash));
     }

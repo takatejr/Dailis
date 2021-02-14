@@ -30,9 +30,4 @@ export class AppController {
     const authuser = this.authService.validateUser(req.body.name, req.body.password)
     return authuser
   }
-
-  @Post('hehex')
-  mail(@Request() req) {
-    this.userService.findByMail(req.body.email)
-  }
 }
