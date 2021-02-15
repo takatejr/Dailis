@@ -1,9 +1,8 @@
-import { Controller, Get, Post, Request, Res } from '@nestjs/common';
+import { Controller, Post, Request, Res } from '@nestjs/common';
 import { AuthService } from './auth/auth.service';
 import { UsersService } from './user/user.service';
-import { Observable, combineLatest } from 'rxjs';
-import { BetstatService } from './betstat/betstat.service';
-import { map, tap } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Controller()
 export class AppController {
@@ -11,7 +10,7 @@ export class AppController {
   constructor(
     private readonly authService: AuthService,
     private readonly userService: UsersService,
-    private readonly betstatService: BetstatService) { }
+) { }
 
   @Post('users/login')
   async login(@Request() req, @Res({ passthrough: true }) response) {
@@ -25,16 +24,15 @@ export class AppController {
       )
   }
 
-  @Get('userowie')
-  getProfile(@Request() req) {
-    this.userService.findOne(req.body.name)
-    return req.user;
-  }
-
-  @Post('hehe')
-  sercz(@Request() req): Observable<any> {
-    console.log(req.body)
-    const authuser = this.authService.validateUser(req.body.name, req.body.password)
-    return authuser
+  
+  @Post('users/status')
+  async status(@Request() request) {
+    const { token, user, access } = request.cookies
+    const verified = this.authService.verifyToken(token);
+    if (verified) {
+      return { login: user, access: access, logged_in: true}
+    } else {
+      return { message: 'Something wrong'}
+    }
   }
 }
