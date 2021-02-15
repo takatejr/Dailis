@@ -14,10 +14,13 @@ import { Ingredients } from './ingredients/ingredients.entity';
 import { IngredientsModule } from './ingredients/ingredients.module';
 import { BetstatService } from './betstat/betstat.service';
 import { BetstatController } from './betstat/betstat.controller';
+import { BetstatCronService } from './betstat-cron/betstat-cron.service';
+import { BetstatCronModule } from './betstat-cron/betstat-cron.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 
 @Module({
-  imports: [    TypeOrmModule.forRoot({
+  imports: [TypeOrmModule.forRoot({
     type: 'postgres',
     host: 'localhost',
     port: 5432,
@@ -27,8 +30,15 @@ import { BetstatController } from './betstat/betstat.controller';
     entities: [User, Recipes, DailyLists, Ingredients],
     synchronize: true,
     keepConnectionAlive: true,
-  }), UsersModule, RecipesModule, DailyListsModule, AuthModule, IngredientsModule],
+  }),
+    UsersModule,
+    RecipesModule,
+    DailyListsModule,
+    AuthModule,
+    IngredientsModule,
+    BetstatCronModule,
+  ScheduleModule.forRoot()],
   controllers: [AppController, BetstatController],
   providers: [AppService, UsersService, BetstatService],
 })
-export class AppModule {}
+export class AppModule { }
