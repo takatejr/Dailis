@@ -1,4 +1,4 @@
-import { Controller, Post, Request, Res } from '@nestjs/common';
+import { Controller, Post, Req, Request, Res } from '@nestjs/common';
 import { AuthService } from './auth/auth.service';
 import { UsersService } from './user/user.service';
 import { combineLatest } from 'rxjs';
@@ -13,18 +13,19 @@ export class AppController {
 ) { }
 
   @Post('users/login')
-  async login(@Request() req, @Res({ passthrough: true }) response) {
-    return combineLatest([this.authService.login(req.body), this.authService.validateUser(req.body.login, req.body.password)])
+  login(@Req() req, @Res({ passthrough: true }) response) {
+    const { login, password } = req.body
+
+    return combineLatest([this.authService.login(req.body), this.authService.validateUser(login, password)])
       .pipe(
-        map(([token, result]) => {
+        map(([token, {login, access}]) => {
           response.cookie('token', token);
-          response.cookie('user', result.login);
-          response.cookie('access', result.access);
+          response.cookie('user', login);
+          response.cookie('access', access);
         }),
       )
   }
 
-  
   @Post('users/status')
   async status(@Request() request) {
     const { token, user, access } = request.cookies
